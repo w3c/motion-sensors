@@ -356,9 +356,12 @@ even slightly or slowly, without affecting your driving direction.
 
 The orientation vector of the [=Orientation Sensor=], can be calculated the following way:
 
-The gravity vector points towards the earth's core when mostly stationary and as long as
-we are not at the poles, we have enough vector length to project that gravity vector onto
-the ground plane. 
+The gravity vector points towards the earth's core when mostly stationary and as long as the
+device is not in free fall, there is enough vector length to project the magnetic field vector
+onto the ground plane.
+
+Note, this will fail at the magnetic poles as the magnetic field vector will point mostly in
+the same direction as the gravity vector and generally be very unreliable.
 
 By taking the cross product between the gravity vector (see [=Gravity Sensor=]) and the magnetic
 field vector, we get a vector which points East on the ground plane, using the right hand rule.

@@ -1183,7 +1183,7 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version 9a16729f5dbf458a556c2e0e347b203ca14e2c7d" name="generator">
+  <meta content="Bikeshed version 9260eac3642631ba07cbb9e9b2936efe928153e3" name="generator">
 <style>
 table {
   border-collapse: collapse;
@@ -1440,7 +1440,7 @@ table, th, td {
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Motion Sensors Explainer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-09">9 March 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-13">13 March 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1748,9 +1748,11 @@ controller for say a driving game on a phone, as they would not allow you to mov
 even slightly or slowly, without affecting your driving direction.
 (See <a data-link-type="dfn" href="#relative-orientation-sensor" id="ref-for-relative-orientation-sensor-2">Relative Orientation Sensor</a>).</p>
    <p>The orientation vector of the <a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-2">Orientation Sensor</a>, can be calculated the following way:</p>
-   <p>The gravity vector points towards the earth’s core when mostly stationary and as long as
-we are not at the poles, we have enough vector length to project that gravity vector onto
-the ground plane.</p>
+   <p>The gravity vector points towards the earth’s core when mostly stationary and as long as the
+device is not in free fall, there is enough vector length to project the magnetic field vector
+onto the ground plane.</p>
+   <p class="note" role="note"><span>Note,</span> this will fail at the magnetic poles as the magnetic field vector will point mostly in
+the same direction as the gravity vector and generally be very unreliable.</p>
    <p>By taking the cross product between the gravity vector (see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-3">Gravity Sensor</a>) and the magnetic
 field vector, we get a vector which points East on the ground plane, using the right hand rule.</p>
    <p>Now if we take the cross product of the gravity vector with the newly found East vector, then
