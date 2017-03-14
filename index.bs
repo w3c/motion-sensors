@@ -32,6 +32,9 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
     text: latest reading
     text: sensor
     text: sensor-fusion
+urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
+  type: dfn
+    text: acceleration
 </pre>
 
 <pre class="link-defaults">
@@ -92,10 +95,11 @@ Low-level Sensors {#low-level-sensors}
 A raw <dfn>accelerometer</dfn> sensor measures changes in acceleration in 3 different
 directions, but is affected by <i>gravity</i>.
 
-This means that when the device is in free fall, the acceleration will be 0 m/s<sup>2</sup>
-in the falling direction, and when a device is laying flat on a table, the acceleration in
-upwards direction will be equal to the earth gravity, i.e. g := +9.8 m/s<sup>2</sup> as it is
-measuring the force of the table holding up the device.
+The [=Accelerometer=] sensor is an <dfn>inertial-frame sensor</dfn>, this means that when the device
+is in free fall, the acceleration is 0 m/s<sup>2</sup> in the falling direction, and
+when a device is laying flat on a table, the acceleration in upwards direction will be equal
+to the Earth gravity, i.e. g ≡ 9.8 m/s<sup>2</sup> as it is measuring the force of the table
+pushing the device upwards.
 
 Accelerometers are less useful by themselves and often take part in other fusion sensors,
 but they do have some purposes like registering shakes, steps and the like.
@@ -160,7 +164,7 @@ frequency caused by adjacent hardware on the device.
 ## Magnetometer ## {#magnetometer}
 
 <dfn for="magnetometer">Magnetometers</dfn> are <i>magnetic field sensors</i>, which means that without any strong magnetic influence
-close by, it will sense the earth's magnetic field, which more or less points in the direction
+close by, it will sense the Earth's magnetic field, which more or less points in the direction
 of north, but not true north.
 
 As said, magnetometers are very sensitive to outside influence, like anything on a table that
@@ -180,7 +184,7 @@ minimum requires an accelerometer, in the case of low pass filtering, and additi
 if more precise readings are needed. This is called tilt compensation.
 
 The most common use-case for magnetometers are as part of sensor fusion, in order to generate an
-Orientation Sensor which is stationary to the earth plane, or a compass, which is basically the
+Orientation Sensor which is stationary to the Earth plane, or a compass, which is basically the
 former with corrections to the declination depending on geolocation position, such that it points
 to the true north.
 
@@ -343,7 +347,7 @@ with [=gyroscope=] readings.
 
 As mentioned before, the <dfn>Orientation Sensor</dfn>, is one of the common use-cases of a
 magnetometer, and it a sensor representing an orientation stationary (fixed to the magnetic
-field vector and gravity vector) to the earth plane.
+field vector and gravity vector) to the Earth plane.
 
 An orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
 for a head-mounted display where you want to be able to rotate the display and look in all
@@ -356,18 +360,26 @@ even slightly or slowly, without affecting your driving direction.
 
 The orientation vector of the [=Orientation Sensor=], can be calculated the following way:
 
-The gravity vector points towards the earth's core when mostly stationary and as long as the
-device is not in free fall, there is enough vector length to project the magnetic field vector
-onto the ground plane.
+As the [=Accelerometer=] is an <a>inertial-frame sensor</a>, the gravity vector will point
+towards the sky when the device is mostly stationary, and as long as the device is not in free fall,
+there is enough vector length to project the magnetic field vector onto the ground plane.
 
 Note, this will fail at the magnetic poles as the magnetic field vector will point mostly in
-the same direction as the gravity vector and generally be very unreliable.
+the opposite direction as the gravity vector and generally be very unreliable.
 
-By taking the cross product between the gravity vector (see [=Gravity Sensor=]) and the magnetic
-field vector, we get a vector which points East on the ground plane, using the right hand rule.
+By taking the cross product between the the magnetic field vector and gravity vector
+(see [=Gravity Sensor=]), we get a vector which points East on the ground plane, using the right hand rule.
 
-Now if we take the cross product of the gravity vector with the newly found East vector, then
-it will point in the northern direction towards the earth's magnetic field.
+Now if we take the cross product the gravity vector and the newly found East vector, then resulting
+vector will point in the northern direction towards the Earth's magnetic field.
+
+The illustration below represents the case when device is at rest and y-axis points towards the
+North. The reading from the [=Magnetometer=] is {x: 0, y: 11, z: -16} and [=Accelerometer=] reports
+{x: 0.11, y: 0.07, z: 9.81} <a>acceleration</a>. The uG is a unit vector representing the gravity,
+uB represents magnetic field vector, uE = uB x uG and points East. The uN = uG x uE that points to
+the northern direction.
+
+<img src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;" alt="OrientationSensor fusion.">
 
 Thus an [=Orientation Sensor=] is a fusion sensor of the [=Magnetometer=] and the
 [=Accelerometer=], and potentially the [=Gyroscope=] for better isolated gravity

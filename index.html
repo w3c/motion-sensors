@@ -1183,7 +1183,7 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version 9260eac3642631ba07cbb9e9b2936efe928153e3" name="generator">
+  <meta content="Bikeshed version a65093ce3e69a8d01029b4650499d152cd9bd39a" name="generator">
 <style>
 table {
   border-collapse: collapse;
@@ -1440,7 +1440,7 @@ table, th, td {
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Motion Sensors Explainer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-13">13 March 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-15">15 March 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1528,6 +1528,7 @@ that on sensors following the Generic Sensor API specification.</p>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
      <ol class="toc">
       <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+      <li><a href="#index-defined-elsewhere"><span class="secno"></span> <span class="content">Terms defined by reference</span></a>
      </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
@@ -1561,9 +1562,11 @@ beyond those described in the Generic Sensor API <a data-link-type="biblio" href
    <h3 class="heading settled" data-level="3.1" id="accelerometer"><span class="secno">3.1. </span><span class="content">Accelerometer</span><a class="self-link" href="#accelerometer"></a></h3>
    <p>A raw <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="accelerometer0">accelerometer</dfn> sensor measures changes in acceleration in 3 different
 directions, but is affected by <i>gravity</i>.</p>
-   <p>This means that when the device is in free fall, the acceleration will be 0 m/s<sup>2</sup> in the falling direction, and when a device is laying flat on a table, the acceleration in
-upwards direction will be equal to the earth gravity, i.e. g := +9.8 m/s<sup>2</sup> as it is
-measuring the force of the table holding up the device.</p>
+   <p>The <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-2">Accelerometer</a> sensor is an <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="inertial-frame-sensor">inertial-frame sensor</dfn>, this means that when the device
+is in free fall, the acceleration is 0 m/s<sup>2</sup> in the falling direction, and
+when a device is laying flat on a table, the acceleration in upwards direction will be equal
+to the Earth gravity, i.e. g ≡ 9.8 m/s<sup>2</sup> as it is measuring the force of the table
+pushing the device upwards.</p>
    <p>Accelerometers are less useful by themselves and often take part in other fusion sensors,
 but they do have some purposes like registering shakes, steps and the like.</p>
    <p>Often for such use-cases the developer is interested in the linear acceleration which is
@@ -1605,7 +1608,7 @@ meaning the gyroscope will drift over time.</p>
 frequency caused by adjacent hardware on the device.</p>
    <h3 class="heading settled" data-level="3.3" id="magnetometer"><span class="secno">3.3. </span><span class="content">Magnetometer</span><a class="self-link" href="#magnetometer"></a></h3>
    <p><dfn class="dfn-paneled" data-dfn-for="magnetometer" data-dfn-type="dfn" data-noexport="" id="magnetometer-magnetometers">Magnetometers</dfn> are <i>magnetic field sensors</i>, which means that without any strong magnetic influence
-close by, it will sense the earth’s magnetic field, which more or less points in the direction
+close by, it will sense the Earth’s magnetic field, which more or less points in the direction
 of north, but not true north.</p>
    <p>As said, magnetometers are very sensitive to outside influence, like anything on a table that
 has been slightly magnetized, and it is even affected by other things inside a device, though
@@ -1620,7 +1623,7 @@ to work.</p>
 minimum requires an accelerometer, in the case of low pass filtering, and additionally a gyroscope
 if more precise readings are needed. This is called tilt compensation.</p>
    <p>The most common use-case for magnetometers are as part of sensor fusion, in order to generate an
-Orientation Sensor which is stationary to the earth plane, or a compass, which is basically the
+Orientation Sensor which is stationary to the Earth plane, or a compass, which is basically the
 former with corrections to the declination depending on geolocation position, such that it points
 to the true north.</p>
    <h2 class="heading settled" data-level="4" id="highlevel-sensors"><span class="secno">4. </span><span class="content">High-level Sensors</span><a class="self-link" href="#highlevel-sensors"></a></h2>
@@ -1643,23 +1646,23 @@ hardware, it most often makes sense to use these from a power and performance po
     <tfoot>
      <tr>
       <td><a data-link-type="dfn" href="#relative-orientation-sensor" id="ref-for-relative-orientation-sensor-1">Relative Orientation Sensor</a>
-      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-2">Accelerometer</a>, <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-2">Gyroscope</a>, MUST NOT USE <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-2">Magnetometer</a>
+      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-3">Accelerometer</a>, <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-2">Gyroscope</a>, MUST NOT USE <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-2">Magnetometer</a>
     <tbody>
      <tr>
       <td><a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-1">Orientation Sensor</a>
-      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-3">Accelerometer</a>, <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-3">Magnetometer</a>, AND (when present) <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-3">Gyroscope</a>
+      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-4">Accelerometer</a>, <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-3">Magnetometer</a>, AND (when present) <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-3">Gyroscope</a>
     <tbody>
      <tr>
       <td><a data-link-type="dfn" href="#geomagnetic-orientation-sensor" id="ref-for-geomagnetic-orientation-sensor-1">Geomagnetic Orientation Sensor</a>
-      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-4">Accelerometer</a>, <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-4">Magnetometer</a>, MUST NOT USE <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-4">Gyroscope</a>
+      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-5">Accelerometer</a>, <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-4">Magnetometer</a>, MUST NOT USE <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-4">Gyroscope</a>
     <tbody>
      <tr>
       <td><a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-2">Gravity Sensor</a>
-      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-5">Accelerometer</a>, <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-5">Gyroscope</a>
+      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-6">Accelerometer</a>, <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-5">Gyroscope</a>
     <tbody>
      <tr>
       <td><a data-link-type="dfn" href="#linear-acceleration-sensor" id="ref-for-linear-acceleration-sensor-2">Linear Acceleration Sensor</a>
-      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-6">Accelerometer</a>, AND EITHER <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-6">Gyroscope</a> OR <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-5">Magnetometer</a>
+      <td><a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-7">Accelerometer</a>, AND EITHER <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-6">Gyroscope</a> OR <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-5">Magnetometer</a>
    </table>
    <h3 class="heading settled" data-level="4.2" id="pass-filters"><span class="secno">4.2. </span><span class="content">Low and high pass filters</span><a class="self-link" href="#pass-filters"></a></h3>
    <p>As mentioned earlier, it is possible to remove noise (high or low frequency) using
@@ -1739,7 +1742,7 @@ gyro<span class="p">.</span>start<span class="p">(</span><span class="p">)</span
    <h3 class="heading settled" data-level="4.3" id="orientation"><span class="secno">4.3. </span><span class="content">Orientation Sensor</span><a class="self-link" href="#orientation"></a></h3>
    <p>As mentioned before, the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="orientation-sensor">Orientation Sensor</dfn>, is one of the common use-cases of a
 magnetometer, and it a sensor representing an orientation stationary (fixed to the magnetic
-field vector and gravity vector) to the earth plane.</p>
+field vector and gravity vector) to the Earth plane.</p>
    <p>An orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
 for a head-mounted display where you want to be able to rotate the display and look in all
 directions.</p>
@@ -1748,16 +1751,22 @@ controller for say a driving game on a phone, as they would not allow you to mov
 even slightly or slowly, without affecting your driving direction.
 (See <a data-link-type="dfn" href="#relative-orientation-sensor" id="ref-for-relative-orientation-sensor-2">Relative Orientation Sensor</a>).</p>
    <p>The orientation vector of the <a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-2">Orientation Sensor</a>, can be calculated the following way:</p>
-   <p>The gravity vector points towards the earth’s core when mostly stationary and as long as the
-device is not in free fall, there is enough vector length to project the magnetic field vector
-onto the ground plane.</p>
+   <p>As the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-8">Accelerometer</a> is an <a data-link-type="dfn" href="#inertial-frame-sensor" id="ref-for-inertial-frame-sensor-1">inertial-frame sensor</a>, the gravity vector will point
+towards the sky when the device is mostly stationary, and as long as the device is not in free fall,
+there is enough vector length to project the magnetic field vector onto the ground plane.</p>
    <p class="note" role="note"><span>Note,</span> this will fail at the magnetic poles as the magnetic field vector will point mostly in
-the same direction as the gravity vector and generally be very unreliable.</p>
-   <p>By taking the cross product between the gravity vector (see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-3">Gravity Sensor</a>) and the magnetic
-field vector, we get a vector which points East on the ground plane, using the right hand rule.</p>
-   <p>Now if we take the cross product of the gravity vector with the newly found East vector, then
-it will point in the northern direction towards the earth’s magnetic field.</p>
-   <p>Thus an <a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-3">Orientation Sensor</a> is a fusion sensor of the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-6">Magnetometer</a> and the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-7">Accelerometer</a>, and potentially the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-8">Gyroscope</a> for better isolated gravity
+the opposite direction as the gravity vector and generally be very unreliable.</p>
+   <p>By taking the cross product between the the magnetic field vector and gravity vector
+(see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-3">Gravity Sensor</a>), we get a vector which points East on the ground plane, using the right hand rule.</p>
+   <p>Now if we take the cross product the gravity vector and the newly found East vector, then resulting
+vector will point in the northern direction towards the Earth’s magnetic field.</p>
+   <p>The illustration below represents the case when device is at rest and y-axis points towards the
+North. The reading from the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-6">Magnetometer</a> is {x: 0, y: 11, z: -16} and <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-9">Accelerometer</a> reports
+{x: 0.11, y: 0.07, z: 9.81} <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#acceleration">acceleration</a>. The uG is a unit vector representing the gravity,
+uB represents magnetic field vector, uE = uB x uG and points East. The uN = uG x uE that points to
+the northern direction.</p>
+   <p><img alt="OrientationSensor fusion." src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;"></p>
+   <p>Thus an <a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-3">Orientation Sensor</a> is a fusion sensor of the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-7">Magnetometer</a> and the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-10">Accelerometer</a>, and potentially the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-8">Gyroscope</a> for better isolated gravity
 (see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-4">Gravity Sensor</a>).</p>
    <h3 class="heading settled" data-level="4.4" id="geomagnetic-orientation"><span class="secno">4.4. </span><span class="content">Geomagnetic Orientation Sensor</span><a class="self-link" href="#geomagnetic-orientation"></a></h3>
    <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</dfn>, is a like the <a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-4">Orientation Sensor</a>, but
@@ -1768,36 +1777,36 @@ compass direction within a mapping application, this is not much of a problem as
 usually hold the device steady for these use-cases.</p>
    <p>The actual <i>heading</i> (N, S, E, W) can be found by adjusting the rotation vector with
 the local <i>declination compensation</i> calculated from the current geolocation position.</p>
-   <p>As the sensor uses the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-8">accelerometer</a> to get a more steady heading, like when walking,
+   <p>As the sensor uses the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-11">accelerometer</a> to get a more steady heading, like when walking,
 the rotation vector is projected to the plane pendicular to the gravity vector (as isolated
 from the Accelerometer) which more or less represents the ground plane. This also means that
-if you are interested in the actual orientation of the gravity vector, then use the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-7">Magnetometer</a> directly instead.</p>
+if you are interested in the actual orientation of the gravity vector, then use the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-8">Magnetometer</a> directly instead.</p>
    <h3 class="heading settled" data-level="4.5" id="relative-orientation"><span class="secno">4.5. </span><span class="content">Relative Orientation Sensor</span><a class="self-link" href="#relative-orientation"></a></h3>
-   <p>On most sensor hubs, gravity is isolated from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-9">accelerometer</a> using the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-10">gyroscope</a>,
-and the linear acceleration is isolated by removing the isolated gravity, from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-10">accelerometer</a> values.</p>
+   <p>On most sensor hubs, gravity is isolated from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-12">accelerometer</a> using the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-10">gyroscope</a>,
+and the linear acceleration is isolated by removing the isolated gravity, from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-13">accelerometer</a> values.</p>
    <p>This avoids the delay which low and high pass filters introduce.</p>
    <p>One way of doing this is using a Kalman filter or <a data-link-type="dfn" href="#complementary-filter0" id="ref-for-complementary-filter0-1">complementary filter</a>, which leads us to
 the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="relative-orientation-sensor">Relative Orientation Sensor</dfn>. As a <a data-link-type="dfn" href="#complementary-filter0" id="ref-for-complementary-filter0-2">complementary filter</a> yields quite good
 results and is easy to implement in hardware, this is a common solution.</p>
    <h4 class="heading settled" data-level="4.5.1" id="complementary-filter"><span class="secno">4.5.1. </span><span class="content">Complementary filter</span><a class="self-link" href="#complementary-filter"></a></h4>
    <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="complementary-filter0">complementary filter</dfn> can be thought of as a low and <a data-link-type="dfn">high pass filter</a> in one,
-complementing the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-11">gyroscope</a> values with the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-11">accelerometer</a> values:</p>
+complementing the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-11">gyroscope</a> values with the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-14">accelerometer</a> values:</p>
    <p>θ<sub>n</sub> = α × (θ<sub>n-1</sub> + ω × ∂t) + (1.0 - α) × a</p>
-   <p>With α being the weight constant, a the acceleration from <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-12">accelerometer</a>, ω the angular
+   <p>With α being the weight constant, a the acceleration from <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-15">accelerometer</a>, ω the angular
 velocity from <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-12">gyroscope</a> and ∂t being the time between measurements.</p>
    <p>A common value for 𝛼 is 0.98, which means that 98% of the weight lays on the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-13">gyroscope</a> measurements.</p>
    <div class="example" id="example-efb610c7">
     <a class="self-link" href="#example-efb610c7"></a> Manually calculate the relative orientation in Euler angles (radian) using a <a data-link-type="dfn" href="#complementary-filter0" id="ref-for-complementary-filter0-3">complementary filter</a>. 
     <p>The <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-14">gyroscope</a> measures <i>angular velocity</i>, so by multiplying with the time difference,
   we get the <i>change of angle</i>. This change is always calculated relative to the current device
-  position, so we need to use the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-13">accelerometer</a>, which includes gravity, to calibrate this
+  position, so we need to use the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-16">accelerometer</a>, which includes gravity, to calibrate this
   to the ground plane.</p>
-    <p>The values from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-14">accelerometer</a> brings no information about the heading (alpha, the
+    <p>The values from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-17">accelerometer</a> brings no information about the heading (alpha, the
   rotation around z), so we don’t include that in our alpha component. On the other hand,
-  the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-15">accelerometer</a> (due to gravity) provides info on how the device is held around
+  the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-18">accelerometer</a> (due to gravity) provides info on how the device is held around
   the x and y axis (beta and gamma).</p>
-    <p>When there are no or little movements, the vector obtained from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-16">accelerometer</a> reading, will contribute more to the (alpha, beta, gamma) angles than the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-15">gyroscope</a>.</p>
-    <p>As values from a steady <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-17">accelerometer</a> represents the gravity vector, and we don’t
+    <p>When there are no or little movements, the vector obtained from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-19">accelerometer</a> reading, will contribute more to the (alpha, beta, gamma) angles than the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-15">gyroscope</a>.</p>
+    <p>As values from a steady <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-20">accelerometer</a> represents the gravity vector, and we don’t
   include the z component in the alpha, the result of this is that the orientation will
   just follow the gyroscope and be stable. But as the origin of the heading depends on 
   the device position at start this makes this a <i>device-relative orientation sensor</i>.</p>
@@ -1856,10 +1865,10 @@ alpha <span class="o">=</span> <span class="p">(</span><span class="mi">1</span>
    </div>
    <h3 class="heading settled" data-level="4.6" id="gravity-and-linear-acceleration"><span class="secno">4.6. </span><span class="content">Gravity and Linear Acceleration Sensor</span><a class="self-link" href="#gravity-and-linear-acceleration"></a></h3>
    <p>The <a data-link-type="dfn" href="#complementary-filter0" id="ref-for-complementary-filter0-4">complementary filter</a> used above is quite good at isolating the gravity, and most sensor
-hubs thus isolate <i>gravity</i> from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-18">accelerometer</a> using the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-17">gyroscope</a>, and the
-linear acceleration is isolated by removing the isolated gravity, from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-19">accelerometer</a> values.</p>
+hubs thus isolate <i>gravity</i> from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-21">accelerometer</a> using the <a data-link-type="dfn" href="#gyroscope0" id="ref-for-gyroscope0-17">gyroscope</a>, and the
+linear acceleration is isolated by removing the isolated gravity, from the <a data-link-type="dfn" href="#accelerometer0" id="ref-for-accelerometer0-22">accelerometer</a> values.</p>
    <p>This also means that the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="linear-acceleration-sensor">Linear Acceleration Sensor</dfn> and the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="gravity-sensor">Gravity Sensor</dfn> as exposed by most sensor hubs are most likely fusion sensors.</p>
-   <p>Gravity can also be removed from a <a data-link-type="dfn" href="#linear-acceleration-sensor" id="ref-for-linear-acceleration-sensor-3">linear acceleration sensor</a> using a <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-8">magnetometer</a>,
+   <p>Gravity can also be removed from a <a data-link-type="dfn" href="#linear-acceleration-sensor" id="ref-for-linear-acceleration-sensor-3">linear acceleration sensor</a> using a <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-9">magnetometer</a>,
 as the magnetic field vector is more or less stable.</p>
    <p class="note" role="note"><span>Note,</span> as the gravity changes with the frequency of the movements, i.e., 0 in falling direction
 in free fall, you can imagine that linear acceleration will be quite imprecise if you are
@@ -1874,15 +1883,26 @@ trying to detect a shake, so keep that in mind.</p>
    <li><a href="#geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</a><span>, in §4.4</span>
    <li><a href="#gravity-sensor">Gravity Sensor</a><span>, in §4.6</span>
    <li><a href="#gyroscope0">gyroscope</a><span>, in §3.2</span>
+   <li><a href="#inertial-frame-sensor">inertial-frame sensor</a><span>, in §3.1</span>
    <li><a href="#linear-acceleration-sensor">Linear Acceleration Sensor</a><span>, in §4.6</span>
    <li><a href="#low-pass-filter0">low-pass filter</a><span>, in §4.2.1</span>
    <li><a href="#magnetometer-magnetometers">Magnetometers</a><span>, in §3.3</span>
    <li><a href="#orientation-sensor">Orientation Sensor</a><span>, in §4.3</span>
    <li><a href="#relative-orientation-sensor">Relative Orientation Sensor</a><span>, in §4.5</span>
   </ul>
+  <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
+  <ul class="index">
+   <li>
+    <a data-link-type="biblio">[accelerometer]</a> defines the following terms:
+    <ul>
+     <li><a href="https://w3c.github.io/accelerometer#acceleration">acceleration</a>
+    </ul>
+  </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
+   <dt id="biblio-accelerometer">[ACCELEROMETER]
+   <dd>Anssi Kostiainen; Alexander Shalamov. <a href="https://www.w3.org/TR/accelerometer/">Accelerometer Sensor</a>. URL: <a href="https://www.w3.org/TR/accelerometer/">https://www.w3.org/TR/accelerometer/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Tobie Langel; Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
   </dl>
@@ -1890,12 +1910,19 @@ trying to detect a shake, so keep that in mind.</p>
    <b><a href="#accelerometer0">#accelerometer0</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-accelerometer0-1">1. Introduction</a>
-    <li><a href="#ref-for-accelerometer0-2">4.1. Common fusion sensors</a> <a href="#ref-for-accelerometer0-3">(2)</a> <a href="#ref-for-accelerometer0-4">(3)</a> <a href="#ref-for-accelerometer0-5">(4)</a> <a href="#ref-for-accelerometer0-6">(5)</a>
-    <li><a href="#ref-for-accelerometer0-7">4.3. Orientation Sensor</a>
-    <li><a href="#ref-for-accelerometer0-8">4.4. Geomagnetic Orientation Sensor</a>
-    <li><a href="#ref-for-accelerometer0-9">4.5. Relative Orientation Sensor</a> <a href="#ref-for-accelerometer0-10">(2)</a>
-    <li><a href="#ref-for-accelerometer0-11">4.5.1. Complementary filter</a> <a href="#ref-for-accelerometer0-12">(2)</a> <a href="#ref-for-accelerometer0-13">(3)</a> <a href="#ref-for-accelerometer0-14">(4)</a> <a href="#ref-for-accelerometer0-15">(5)</a> <a href="#ref-for-accelerometer0-16">(6)</a> <a href="#ref-for-accelerometer0-17">(7)</a>
-    <li><a href="#ref-for-accelerometer0-18">4.6. Gravity and Linear Acceleration Sensor</a> <a href="#ref-for-accelerometer0-19">(2)</a>
+    <li><a href="#ref-for-accelerometer0-2">3.1. Accelerometer</a>
+    <li><a href="#ref-for-accelerometer0-3">4.1. Common fusion sensors</a> <a href="#ref-for-accelerometer0-4">(2)</a> <a href="#ref-for-accelerometer0-5">(3)</a> <a href="#ref-for-accelerometer0-6">(4)</a> <a href="#ref-for-accelerometer0-7">(5)</a>
+    <li><a href="#ref-for-accelerometer0-8">4.3. Orientation Sensor</a> <a href="#ref-for-accelerometer0-9">(2)</a> <a href="#ref-for-accelerometer0-10">(3)</a>
+    <li><a href="#ref-for-accelerometer0-11">4.4. Geomagnetic Orientation Sensor</a>
+    <li><a href="#ref-for-accelerometer0-12">4.5. Relative Orientation Sensor</a> <a href="#ref-for-accelerometer0-13">(2)</a>
+    <li><a href="#ref-for-accelerometer0-14">4.5.1. Complementary filter</a> <a href="#ref-for-accelerometer0-15">(2)</a> <a href="#ref-for-accelerometer0-16">(3)</a> <a href="#ref-for-accelerometer0-17">(4)</a> <a href="#ref-for-accelerometer0-18">(5)</a> <a href="#ref-for-accelerometer0-19">(6)</a> <a href="#ref-for-accelerometer0-20">(7)</a>
+    <li><a href="#ref-for-accelerometer0-21">4.6. Gravity and Linear Acceleration Sensor</a> <a href="#ref-for-accelerometer0-22">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="inertial-frame-sensor">
+   <b><a href="#inertial-frame-sensor">#inertial-frame-sensor</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-inertial-frame-sensor-1">4.3. Orientation Sensor</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="gyroscope0">
@@ -1916,9 +1943,9 @@ trying to detect a shake, so keep that in mind.</p>
    <ul>
     <li><a href="#ref-for-magnetometer-magnetometers-1">1. Introduction</a>
     <li><a href="#ref-for-magnetometer-magnetometers-2">4.1. Common fusion sensors</a> <a href="#ref-for-magnetometer-magnetometers-3">(2)</a> <a href="#ref-for-magnetometer-magnetometers-4">(3)</a> <a href="#ref-for-magnetometer-magnetometers-5">(4)</a>
-    <li><a href="#ref-for-magnetometer-magnetometers-6">4.3. Orientation Sensor</a>
-    <li><a href="#ref-for-magnetometer-magnetometers-7">4.4. Geomagnetic Orientation Sensor</a>
-    <li><a href="#ref-for-magnetometer-magnetometers-8">4.6. Gravity and Linear Acceleration Sensor</a>
+    <li><a href="#ref-for-magnetometer-magnetometers-6">4.3. Orientation Sensor</a> <a href="#ref-for-magnetometer-magnetometers-7">(2)</a>
+    <li><a href="#ref-for-magnetometer-magnetometers-8">4.4. Geomagnetic Orientation Sensor</a>
+    <li><a href="#ref-for-magnetometer-magnetometers-9">4.6. Gravity and Linear Acceleration Sensor</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="orientation-sensor">
