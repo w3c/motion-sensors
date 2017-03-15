@@ -5,7 +5,7 @@ Level: 1
 ED: https://w3c.github.io/motion-sensors/
 Shortname: motion-sensors
 TR: http://www.w3.org/TR/motion-sensors/
-Editor: Kenneth Rohde Christiansen, Intel Corporation, https://intel.com/
+Editor: Kenneth Rohde Christiansen 57705, Intel Corporation, https://intel.com/
 Group: dap
 Abstract:
   This explainer is an introduction to low-level and high-level motion sensors,
@@ -35,6 +35,19 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
 urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
   type: dfn
     text: acceleration
+    text: linear acceleration
+    text: accelerometer interface
+urlPrefix: https://w3c.github.io/gyroscope; spec: GYROSCOPE
+  type: dfn
+    text: angular velocity
+    text: gyroscope interface
+urlPrefix: https://w3c.github.io/magnetometer; spec: MAGNETOMETER
+  type: dfn
+    text: magnetic field
+    text: magnetometer interface
+urlPrefix: https://w3c.github.io/orientation-sensor; spec: ORIENTATION-SENSOR
+  type: dfn
+    text: orientationsensor interface
 </pre>
 
 <pre class="link-defaults">
@@ -90,10 +103,11 @@ beyond those described in the Generic Sensor API [[!GENERIC-SENSOR]].
 Low-level Sensors {#low-level-sensors}
 =================
 
-## Accelerometer ## {#accelerometer}
+## Accelerometer ## {#accelerometer-sensor}
 
 A raw <dfn>accelerometer</dfn> sensor measures changes in acceleration in 3 different
-directions, but is affected by <i>gravity</i>.
+directions, but is affected by <i>gravity</i>. The <a>accelerometer interface</a> is defined in
+[[ACCELEROMETER]] specification.
 
 The [=Accelerometer=] sensor is an <dfn>inertial-frame sensor</dfn>, this means that when the device
 is in free fall, the acceleration is 0 m/s<sup>2</sup> in the falling direction, and
@@ -104,16 +118,16 @@ pushing the device upwards.
 Accelerometers are less useful by themselves and often take part in other fusion sensors,
 but they do have some purposes like registering shakes, steps and the like.
 
-Often for such use-cases the developer is interested in the linear acceleration which is
+Often for such use-cases the developer is interested in the <a>linear acceleration</a> which is
 the acceleration without the gravity, called gravity compensation
 (See [=Linear Acceleration Sensor=]); or the developer is interested in the isolated gravity, 
 in order to know the gravity vector (see [=Gravity Sensor=]), which can be useful for some
 kinds of sensor fusion like creating a magnetic compass.
 
 For acceleration, you usually care about the big changes and want to avoid noise, like the
-gravity, thus a [=high pass filter=] can help isolate the linear acceleration and a [=low pass
-filter=] can help isolate the gravity. A [=low pass filter=] can thus be useful for measuring a
-tilt. Unfortunately any high or [=low pass filter=] introduced a delay, which may or may not be
+gravity, thus a [=high-pass filter=] can help isolate the <a>linear acceleration</a> and a [=low-pass
+filter=] can help isolate the gravity. A [=low-pass filter=] can thus be useful for measuring a
+tilt. Unfortunately any high or [=low-pass filter=] introduced a delay, which may or may not be
 acceptable.
 
 Notice, as accelerometers report <i>acceleration</i>, you need to integrate to get <i>velocity</i>:
@@ -131,15 +145,16 @@ a = g×sin(θ), x = ½×at<sup>2</sup>
 So position from an accelerometer is very imprecise and not very useful.
 
 
-## Gyroscope ## {#gyroscope}
+## Gyroscope ## {#gyroscope-sensor}
 
-A <dfn>gyroscope</dfn> senses <i>angular velocity</i>, relative to itself, thus they measure their own rotation,
+A <dfn>gyroscope</dfn> senses <i><a>angular velocity</a></i>, relative to itself, thus they measure their own rotation,
 using something called the Coriolis effect. Gyroscopes oscillate at relative high frequency in
 order to measure this and are thus one of the most power hungry motion sensors. This also means
 that they can easily be effected by other vibrations, like a vibration (rumble) motor or speaker
-on the same device.
+on the same device. The <a>gyroscope interface</a> is defined in
+[[GYROSCOPE]] specification.
 
-In order to get rotation (angle) from a gyroscope, which senses angular velocity, you need to
+In order to get rotation (angle) from a gyroscope, which senses <a>angular velocity</a>, you need to
 perform a single integration. 
 
 f ≡ frequency
@@ -156,16 +171,17 @@ So in order to do it well you need to do it quickly and as you see below, we mul
 
 θ<sub>n</sub> = θ<sub>n-1</sub> + ω × ∂t
 
-With ω denoting the angular velocity and θ, the resulting angle. 
+With ω denoting the <a>angular velocity</a> and θ, the resulting angle. 
 
 Most gyroscope sensors applies some soft of <i>drift compensation</i> in hardware for known low
 frequency caused by adjacent hardware on the device.
 
-## Magnetometer ## {#magnetometer}
+## Magnetometer ## {#magnetometer-sensor}
 
-<dfn for="magnetometer">Magnetometers</dfn> are <i>magnetic field sensors</i>, which means that without any strong magnetic influence
-close by, it will sense the Earth's magnetic field, which more or less points in the direction
-of north, but not true north.
+<dfn for="magnetometer">Magnetometers</dfn> are <i><a>magnetic field</a> sensors</i>, which means that without
+any strong magnetic influence close by, it will sense the Earth's <a>magnetic field</a>, which more or less points
+in the direction of North, but not true North. The <a>magnetometer interface</a> is defined in
+[[MAGNETOMETER]] specification.
 
 As said, magnetometers are very sensitive to outside influence, like anything on a table that
 has been slightly magnetized, and it is even affected by other things inside a device, though
@@ -176,7 +192,7 @@ As long as nothing that is magnetizes in the surrounding is moving around, then 
 readings are stable enough to be used to isolate gravity as mentioned above.
 
 Magnetometers are 3-axis sensors, which means that it gives a 3D vector pointing to the strongest
-magnetic field. This also means that they don't enforce a specific device orientation in order
+<a>magnetic field</a>. This also means that they don't enforce a specific device orientation in order
 to work.
 
 In order to tell how the device is being held, though, you need a gravity vector, which as a bare
@@ -186,7 +202,7 @@ if more precise readings are needed. This is called tilt compensation.
 The most common use-case for magnetometers are as part of sensor fusion, in order to generate an
 Orientation Sensor which is stationary to the Earth plane, or a compass, which is basically the
 former with corrections to the declination depending on geolocation position, such that it points
-to the true north.
+to the true North.
 
 
 High-level Sensors {#highlevel-sensors}
@@ -198,7 +214,7 @@ be very precise on its own, but the sum of multiple sensory input can be much mo
 
 Unfortunately, sensors require power, and the more sensors and the higher measuring frequency,
 the higher power consumption. The gyroscope is typically considered more power hungry than the
-rest, as it needs to vibrate at a certain frequency in order to measure the angular velocity.
+rest, as it needs to vibrate at a certain frequency in order to measure the <a>angular velocity</a>.
 
 For the above reasons, it is always important to consider the minimum set of sensors which
 solves a task satisfactory. As many devices today can do certain kinds of sensor fusion in
@@ -263,7 +279,7 @@ As mentioned earlier, it is possible to remove noise (high or low frequency) usi
 low and high pass filters. As the names say, the filters lets low or high frequencies
 pass and thus cuts of - or minimized the effect of unwanted frequences. 
 
-### Low-pass filter ### {#low-pass-filter}
+### Low-pass filter ### {#low-pass-filters}
 
 A common way to create a <dfn>low-pass filter</dfn> is to only use a percentage of
 the latest value and take the rest from the existing value. In a way this means that
@@ -301,9 +317,9 @@ solution introduces a delay in registering the actual events.
 </div>
 
 
-### High-pass filter ### {#high-pass-filter}
+### High-pass filter ### {#high-pass-filters}
 
-High-pass filters works like low-pass ones, but allows only high frequencies to pass through.
+<dfn>High-pass filter</dfn> works like low-pass ones, but allows only high frequencies to pass through.
 
 This can be useful in such cases like to get rid of the drift which builds up over time
 with [=gyroscope=] readings.
@@ -347,7 +363,8 @@ with [=gyroscope=] readings.
 
 As mentioned before, the <dfn>Orientation Sensor</dfn>, is one of the common use-cases of a
 magnetometer, and it a sensor representing an orientation stationary (fixed to the magnetic
-field vector and gravity vector) to the Earth plane.
+field vector and gravity vector) to the Earth plane. The <a>OrientationSensor interface</a>
+is defined in [[ORIENTATION-SENSOR]] specification.
 
 An orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
 for a head-mounted display where you want to be able to rotate the display and look in all
@@ -362,21 +379,21 @@ The orientation vector of the [=Orientation Sensor=], can be calculated the foll
 
 As the [=Accelerometer=] is an <a>inertial-frame sensor</a>, the gravity vector will point
 towards the sky when the device is mostly stationary, and as long as the device is not in free fall,
-there is enough vector length to project the magnetic field vector onto the ground plane.
+there is enough vector length to project the <a>magnetic field</a> vector onto the ground plane.
 
-Note, this will fail at the magnetic poles as the magnetic field vector will point mostly in
+Note, this will fail at the magnetic poles as the <a>magnetic field</a> vector will point mostly in
 the opposite direction as the gravity vector and generally be very unreliable.
 
-By taking the cross product between the the magnetic field vector and gravity vector
+By taking the cross product between the the <a>magnetic field</a> vector and gravity vector
 (see [=Gravity Sensor=]), we get a vector which points East on the ground plane, using the right hand rule.
 
 Now if we take the cross product the gravity vector and the newly found East vector, then resulting
-vector will point in the northern direction towards the Earth's magnetic field.
+vector will point in the northern direction towards the Earth's <a>magnetic field</a>.
 
 The illustration below represents the case when device is at rest and y-axis points towards the
 North. The reading from the [=Magnetometer=] is {x: 0, y: 11, z: -16} and [=Accelerometer=] reports
 {x: 0.11, y: 0.07, z: 9.81} <a>acceleration</a>. The uG is a unit vector representing the gravity,
-uB represents magnetic field vector, uE = uB x uG and points East. The uN = uG x uE that points to
+uB represents <a>magnetic field</a> vector, uE = uB x uG and points East. The uN = uG x uE that points to
 the northern direction.
 
 <img src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;" alt="OrientationSensor fusion.">
@@ -409,7 +426,7 @@ if you are interested in the actual orientation of the gravity vector, then use 
 ## Relative Orientation Sensor ## {#relative-orientation}
 
 On most sensor hubs, gravity is isolated from the [=accelerometer=] using the [=gyroscope=],
-and the linear acceleration is isolated by removing the isolated gravity, from the
+and the <a>linear acceleration</a> is isolated by removing the isolated gravity, from the
 [=accelerometer=] values. 
 
 This avoids the delay which low and high pass filters introduce. 
@@ -418,9 +435,9 @@ One way of doing this is using a Kalman filter or [=complementary filter=], whic
 the <dfn>Relative Orientation Sensor</dfn>. As a [=complementary filter=] yields quite good
 results and is easy to implement in hardware, this is a common solution.
 
-### Complementary filter ### {#complementary-filter}
+### Complementary filter ### {#complementary-filters}
 
-A <dfn>complementary filter</dfn> can be thought of as a low and [=high pass filter=] in one,
+A <dfn>complementary filter</dfn> can be thought of as a low and [=high-pass filter=] in one,
 complementing the [=gyroscope=] values with the [=accelerometer=] values:
 
 θ<sub>n</sub> = α × (θ<sub>n-1</sub> + ω × ∂t) + (1.0 - α) × a
@@ -435,7 +452,7 @@ measurements.
   Manually calculate the relative orientation in Euler angles (radian) using a
   [=complementary filter=].
 
-  The [=gyroscope=] measures <i>angular velocity</i>, so by multiplying with the time difference,
+  The [=gyroscope=] measures <i><a>angular velocity</a></i>, so by multiplying with the time difference,
   we get the <i>change of angle</i>. This change is always calculated relative to the current device
   position, so we need to use the [=accelerometer=], which includes gravity, to calibrate this
   to the ground plane.
@@ -520,14 +537,14 @@ measurements.
 
 The [=complementary filter=] used above is quite good at isolating the gravity, and most sensor
 hubs thus isolate <i>gravity</i> from the [=accelerometer=] using the [=gyroscope=], and the
-linear acceleration is isolated by removing the isolated gravity, from the [=accelerometer=] values. 
+<a>linear acceleration</a> is isolated by removing the isolated gravity, from the [=accelerometer=] values. 
 
 This also means that the <dfn>Linear Acceleration Sensor</dfn> and the <dfn>Gravity Sensor</dfn>
 as exposed by most sensor hubs are most likely fusion sensors.
 
 Gravity can also be removed from a [=linear acceleration sensor=] using a [=magnetometer=],
-as the magnetic field vector is more or less stable.
+as the <a>magnetic field</a> vector is more or less stable.
 
 Note, as the gravity changes with the frequency of the movements, i.e., 0 in falling direction
-in free fall, you can imagine that linear acceleration will be quite imprecise if you are
+in free fall, you can imagine that <a>linear acceleration</a> will be quite imprecise if you are
 trying to detect a shake, so keep that in mind.
