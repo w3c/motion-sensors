@@ -1515,7 +1515,7 @@ that on sensors following the Generic Sensor API specification.</p>
         <li><a href="#low-pass-filters"><span class="secno">4.2.1</span> <span class="content">Low-pass filter</span></a>
         <li><a href="#high-pass-filters"><span class="secno">4.2.2</span> <span class="content">High-pass filter</span></a>
        </ol>
-      <li><a href="#orientation"><span class="secno">4.3</span> <span class="content">Orientation Sensor</span></a>
+      <li><a href="#absolute-orientation"><span class="secno">4.3</span> <span class="content">Absolute Orientation Sensor</span></a>
       <li><a href="#geomagnetic-orientation"><span class="secno">4.4</span> <span class="content">Geomagnetic Orientation Sensor</span></a>
       <li>
        <a href="#relative-orientation"><span class="secno">4.5</span> <span class="content">Relative Orientation Sensor</span></a>
@@ -1647,7 +1647,7 @@ hardware, it most often makes sense to use these from a power and performance po
       <td><a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-3">Accelerometer</a>, <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-2">Gyroscope</a>, MUST NOT USE <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-2">Magnetometer</a>
     <tbody>
      <tr>
-      <td><a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-1">Orientation Sensor</a>
+      <td><a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-1">Absolute Orientation Sensor</a>
       <td><a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-4">Accelerometer</a>, <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-3">Magnetometer</a>, AND (when present) <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-3">Gyroscope</a>
     <tbody>
      <tr>
@@ -1737,18 +1737,18 @@ gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(<
 gyro<span class="p">.</span>start<span class="p">(</span><span class="p">)</span><span class="p">;</span>
 </pre>
    </div>
-   <h3 class="heading settled" data-level="4.3" id="orientation"><span class="secno">4.3. </span><span class="content">Orientation Sensor</span><a class="self-link" href="#orientation"></a></h3>
-   <p>As mentioned before, the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="orientation-sensor">Orientation Sensor</dfn>, is one of the common use-cases of a
+   <h3 class="heading settled" data-level="4.3" id="absolute-orientation"><span class="secno">4.3. </span><span class="content">Absolute Orientation Sensor</span><a class="self-link" href="#absolute-orientation"></a></h3>
+   <p>As mentioned before, the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="absolute-orientation-sensor">Absolute Orientation Sensor</dfn>, is one of the common use-cases of a
 magnetometer, and it a sensor representing an orientation stationary (fixed to the magnetic
-field vector and gravity vector) to the Earth plane. The <a data-link-type="dfn" href="https://w3c.github.io/orientation-sensor#orientationsensor-interface">OrientationSensor interface</a> is defined in <span>[ORIENTATION-SENSOR]</span> specification.</p>
-   <p>An orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
+field vector and gravity vector) to the Earth plane. The <a data-link-type="dfn" href="https://w3c.github.io/orientation-sensor#absoluteorientationsensor-interface">AbsoluteOrientationSensor interface</a> is defined in <span>[ORIENTATION-SENSOR]</span> specification.</p>
+   <p>An absolute orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
 for a head-mounted display where you want to be able to rotate the display and look in all
 directions.</p>
-   <p>As the reference frame of an orientation sensor is stationary, they are not useful as a
+   <p>As the reference frame of an absolute orientation sensor is stationary, they are not useful as a
 controller for say a driving game on a phone, as they would not allow you to move around,
 even slightly or slowly, without affecting your driving direction.
 (See <a data-link-type="dfn" href="#relative-orientation-sensor" id="ref-for-relative-orientation-sensor-2">Relative Orientation Sensor</a>).</p>
-   <p>The orientation vector of the <a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-2">Orientation Sensor</a>, can be calculated the following way:</p>
+   <p>The orientation vector of the <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-2">Absolute Orientation Sensor</a>, can be calculated the following way:</p>
    <p>As the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-8">Accelerometer</a> is an <a data-link-type="dfn" href="#inertial-frame-sensor" id="ref-for-inertial-frame-sensor-1">inertial-frame sensor</a>, the gravity vector will point
 towards the sky when the device is mostly stationary, and as long as the device is not in free fall,
 there is enough vector length to project the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field">magnetic field</a> vector onto the ground plane.</p>
@@ -1764,10 +1764,10 @@ North. The reading from the <a data-link-type="dfn" href="#magnetometer-magnetom
 uB represents <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field">magnetic field</a> vector, uE = uB × uG and points East. The uN = uG × uE that points to
 the northern direction.</p>
    <p><img alt="OrientationSensor fusion." src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;"></p>
-   <p>Thus an <a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-3">Orientation Sensor</a> is a fusion sensor of the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-7">Magnetometer</a> and the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-10">Accelerometer</a>, and potentially the <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-8">Gyroscope</a> for better isolated gravity
+   <p>Thus an <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-3">Absolute Orientation Sensor</a> is a fusion sensor of the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-7">Magnetometer</a> and the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-10">Accelerometer</a>, and potentially the <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-8">Gyroscope</a> for better isolated gravity
 (see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-4">Gravity Sensor</a>).</p>
    <h3 class="heading settled" data-level="4.4" id="geomagnetic-orientation"><span class="secno">4.4. </span><span class="content">Geomagnetic Orientation Sensor</span><a class="self-link" href="#geomagnetic-orientation"></a></h3>
-   <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</dfn>, is a like the <a data-link-type="dfn" href="#orientation-sensor" id="ref-for-orientation-sensor-4">Orientation Sensor</a>, but
+   <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</dfn>, is a like the <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-4">Absolute Orientation Sensor</a>, but
 doesn’t use the <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-9">Gyroscope</a> which means that it uses less power. This also means that it
 is more sensitive to shakes and movement.</p>
    <p>As the main use-case for a <a data-link-type="dfn" href="#geomagnetic-orientation-sensor" id="ref-for-geomagnetic-orientation-sensor-2">Geomagnetic Orientation Sensor</a> is to create a compass, or use
@@ -1875,6 +1875,7 @@ trying to detect a shake, so keep that in mind.</p>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
+   <li><a href="#absolute-orientation-sensor">Absolute Orientation Sensor</a><span>, in §4.3</span>
    <li><a href="#accelerometer">accelerometer</a><span>, in §3.1</span>
    <li><a href="#complementary-filter">complementary filter</a><span>, in §4.5.1</span>
    <li><a href="#geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</a><span>, in §4.4</span>
@@ -1885,7 +1886,6 @@ trying to detect a shake, so keep that in mind.</p>
    <li><a href="#linear-acceleration-sensor">Linear Acceleration Sensor</a><span>, in §4.6</span>
    <li><a href="#low-pass-filter">low-pass filter</a><span>, in §4.2.1</span>
    <li><a href="#magnetometer-magnetometers">Magnetometers</a><span>, in §3.3</span>
-   <li><a href="#orientation-sensor">Orientation Sensor</a><span>, in §4.3</span>
    <li><a href="#relative-orientation-sensor">Relative Orientation Sensor</a><span>, in §4.5</span>
   </ul>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
@@ -1917,7 +1917,7 @@ trying to detect a shake, so keep that in mind.</p>
    <li>
     <a data-link-type="biblio">[orientation-sensor]</a> defines the following terms:
     <ul>
-     <li><a href="https://w3c.github.io/orientation-sensor#orientationsensor-interface">orientationsensor interface</a>
+     <li><a href="https://w3c.github.io/orientation-sensor#absoluteorientationsensor-interface">absoluteorientationsensor interface</a>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -1938,7 +1938,7 @@ trying to detect a shake, so keep that in mind.</p>
     <li><a href="#ref-for-accelerometer-1">1. Introduction</a>
     <li><a href="#ref-for-accelerometer-2">3.1. Accelerometer</a>
     <li><a href="#ref-for-accelerometer-3">4.1. Common fusion sensors</a> <a href="#ref-for-accelerometer-4">(2)</a> <a href="#ref-for-accelerometer-5">(3)</a> <a href="#ref-for-accelerometer-6">(4)</a> <a href="#ref-for-accelerometer-7">(5)</a>
-    <li><a href="#ref-for-accelerometer-8">4.3. Orientation Sensor</a> <a href="#ref-for-accelerometer-9">(2)</a> <a href="#ref-for-accelerometer-10">(3)</a>
+    <li><a href="#ref-for-accelerometer-8">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-accelerometer-9">(2)</a> <a href="#ref-for-accelerometer-10">(3)</a>
     <li><a href="#ref-for-accelerometer-11">4.4. Geomagnetic Orientation Sensor</a>
     <li><a href="#ref-for-accelerometer-12">4.5. Relative Orientation Sensor</a> <a href="#ref-for-accelerometer-13">(2)</a>
     <li><a href="#ref-for-accelerometer-14">4.5.1. Complementary filter</a> <a href="#ref-for-accelerometer-15">(2)</a> <a href="#ref-for-accelerometer-16">(3)</a> <a href="#ref-for-accelerometer-17">(4)</a> <a href="#ref-for-accelerometer-18">(5)</a> <a href="#ref-for-accelerometer-19">(6)</a> <a href="#ref-for-accelerometer-20">(7)</a>
@@ -1948,7 +1948,7 @@ trying to detect a shake, so keep that in mind.</p>
   <aside class="dfn-panel" data-for="inertial-frame-sensor">
    <b><a href="#inertial-frame-sensor">#inertial-frame-sensor</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-inertial-frame-sensor-1">4.3. Orientation Sensor</a>
+    <li><a href="#ref-for-inertial-frame-sensor-1">4.3. Absolute Orientation Sensor</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="gyroscope">
@@ -1957,7 +1957,7 @@ trying to detect a shake, so keep that in mind.</p>
     <li><a href="#ref-for-gyroscope-1">1. Introduction</a>
     <li><a href="#ref-for-gyroscope-2">4.1. Common fusion sensors</a> <a href="#ref-for-gyroscope-3">(2)</a> <a href="#ref-for-gyroscope-4">(3)</a> <a href="#ref-for-gyroscope-5">(4)</a> <a href="#ref-for-gyroscope-6">(5)</a>
     <li><a href="#ref-for-gyroscope-7">4.2.2. High-pass filter</a>
-    <li><a href="#ref-for-gyroscope-8">4.3. Orientation Sensor</a>
+    <li><a href="#ref-for-gyroscope-8">4.3. Absolute Orientation Sensor</a>
     <li><a href="#ref-for-gyroscope-9">4.4. Geomagnetic Orientation Sensor</a>
     <li><a href="#ref-for-gyroscope-10">4.5. Relative Orientation Sensor</a>
     <li><a href="#ref-for-gyroscope-11">4.5.1. Complementary filter</a> <a href="#ref-for-gyroscope-12">(2)</a> <a href="#ref-for-gyroscope-13">(3)</a> <a href="#ref-for-gyroscope-14">(4)</a> <a href="#ref-for-gyroscope-15">(5)</a> <a href="#ref-for-gyroscope-16">(6)</a>
@@ -1969,7 +1969,7 @@ trying to detect a shake, so keep that in mind.</p>
    <ul>
     <li><a href="#ref-for-magnetometer-magnetometers-1">1. Introduction</a>
     <li><a href="#ref-for-magnetometer-magnetometers-2">4.1. Common fusion sensors</a> <a href="#ref-for-magnetometer-magnetometers-3">(2)</a> <a href="#ref-for-magnetometer-magnetometers-4">(3)</a> <a href="#ref-for-magnetometer-magnetometers-5">(4)</a>
-    <li><a href="#ref-for-magnetometer-magnetometers-6">4.3. Orientation Sensor</a> <a href="#ref-for-magnetometer-magnetometers-7">(2)</a>
+    <li><a href="#ref-for-magnetometer-magnetometers-6">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-magnetometer-magnetometers-7">(2)</a>
     <li><a href="#ref-for-magnetometer-magnetometers-8">4.4. Geomagnetic Orientation Sensor</a>
     <li><a href="#ref-for-magnetometer-magnetometers-9">4.6. Gravity and Linear Acceleration Sensor</a>
    </ul>
@@ -1987,12 +1987,12 @@ trying to detect a shake, so keep that in mind.</p>
     <li><a href="#ref-for-high-pass-filter-2">4.5.1. Complementary filter</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="orientation-sensor">
-   <b><a href="#orientation-sensor">#orientation-sensor</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="absolute-orientation-sensor">
+   <b><a href="#absolute-orientation-sensor">#absolute-orientation-sensor</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-orientation-sensor-1">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-orientation-sensor-2">4.3. Orientation Sensor</a> <a href="#ref-for-orientation-sensor-3">(2)</a>
-    <li><a href="#ref-for-orientation-sensor-4">4.4. Geomagnetic Orientation Sensor</a>
+    <li><a href="#ref-for-absolute-orientation-sensor-1">4.1. Common fusion sensors</a>
+    <li><a href="#ref-for-absolute-orientation-sensor-2">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-absolute-orientation-sensor-3">(2)</a>
+    <li><a href="#ref-for-absolute-orientation-sensor-4">4.4. Geomagnetic Orientation Sensor</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="geomagnetic-orientation-sensor">
@@ -2006,7 +2006,7 @@ trying to detect a shake, so keep that in mind.</p>
    <b><a href="#relative-orientation-sensor">#relative-orientation-sensor</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-relative-orientation-sensor-1">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-relative-orientation-sensor-2">4.3. Orientation Sensor</a>
+    <li><a href="#ref-for-relative-orientation-sensor-2">4.3. Absolute Orientation Sensor</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="complementary-filter">
@@ -2030,7 +2030,7 @@ trying to detect a shake, so keep that in mind.</p>
    <ul>
     <li><a href="#ref-for-gravity-sensor-1">3.1. Accelerometer</a>
     <li><a href="#ref-for-gravity-sensor-2">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-gravity-sensor-3">4.3. Orientation Sensor</a> <a href="#ref-for-gravity-sensor-4">(2)</a>
+    <li><a href="#ref-for-gravity-sensor-3">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-gravity-sensor-4">(2)</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
