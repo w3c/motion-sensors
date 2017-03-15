@@ -446,7 +446,7 @@ complementing the [=gyroscope=] values with the [=accelerometer=] values:
 With α being the weight constant, a the acceleration from [=accelerometer=], ω the angular
 velocity from [=gyroscope=] and ∂t being the time between measurements.
 
-A common value for &alpha; is 0.98, which means that 98% of the weight lays on the [=gyroscope=]
+A common value for α is 0.98, which means that 98% of the weight lays on the [=gyroscope=]
 measurements.
 
 <div class="example">
