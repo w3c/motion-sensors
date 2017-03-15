@@ -32,6 +32,7 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
     text: latest reading
     text: sensor
     text: sensor-fusion
+    text: calibration
 urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
   type: dfn
     text: acceleration
@@ -173,8 +174,8 @@ So in order to do it well you need to do it quickly and as you see below, we mul
 
 With ω denoting the <a>angular velocity</a> and θ, the resulting angle. 
 
-Most gyroscope sensors applies some soft of <i>drift compensation</i> in hardware for known low
-frequency caused by adjacent hardware on the device.
+Most gyroscope sensors perform [=calibration=] by applying some sort of <i>drift compensation</i>
+in hardware for known low frequency caused by adjacent hardware on the device.
 
 ## Magnetometer ## {#magnetometer-sensor}
 

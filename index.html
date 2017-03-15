@@ -1604,8 +1604,7 @@ meaning the gyroscope will drift over time.</p>
 ∂t, so any error in the reported time difference will manifest itself like the drift above.</p>
    <p>θ<sub>n</sub> = θ<sub>n-1</sub> + ω × ∂t</p>
    <p>With ω denoting the <a data-link-type="dfn" href="https://w3c.github.io/gyroscope#angular-velocity">angular velocity</a> and θ, the resulting angle.</p>
-   <p>Most gyroscope sensors applies some soft of <i>drift compensation</i> in hardware for known low
-frequency caused by adjacent hardware on the device.</p>
+   <p>Most gyroscope sensors perform <a data-link-type="dfn" href="https://w3c.github.io/sensors#calibration">calibration</a> by applying some sort of <i>drift compensation</i> in hardware for known low frequency caused by adjacent hardware on the device.</p>
    <h3 class="heading settled" data-level="3.3" id="magnetometer-sensor"><span class="secno">3.3. </span><span class="content">Magnetometer</span><a class="self-link" href="#magnetometer-sensor"></a></h3>
    <p><dfn class="dfn-paneled" data-dfn-for="magnetometer" data-dfn-type="dfn" data-noexport="" id="magnetometer-magnetometers">Magnetometers</dfn> are <i><a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field">magnetic field</a> sensors</i>, which means that without
 any strong magnetic influence close by, it will sense the Earth’s <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field">magnetic field</a>, which more or less points
@@ -1897,6 +1896,11 @@ trying to detect a shake, so keep that in mind.</p>
      <li><a href="https://w3c.github.io/accelerometer#acceleration">acceleration</a>
      <li><a href="https://w3c.github.io/accelerometer#accelerometer-interface">accelerometer interface</a>
      <li><a href="https://w3c.github.io/accelerometer#linear-acceleration">linear acceleration</a>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[GENERIC-SENSOR]</a> defines the following terms:
+    <ul>
+     <li><a href="https://w3c.github.io/sensors#calibration">calibration</a>
     </ul>
    <li>
     <a data-link-type="biblio">[GYROSCOPE]</a> defines the following terms:
