@@ -48,7 +48,7 @@ urlPrefix: https://w3c.github.io/magnetometer; spec: MAGNETOMETER
     text: magnetometer interface
 urlPrefix: https://w3c.github.io/orientation-sensor; spec: ORIENTATION-SENSOR
   type: dfn
-    text: orientationsensor interface
+    text: absoluteorientationsensor interface
 </pre>
 
 <pre class="link-defaults">
@@ -250,7 +250,7 @@ table, th, td {
   </tfoot>
   <tbody>
     <tr>
-      <td>[=Orientation Sensor=]</td>
+      <td>[=Absolute Orientation Sensor=]</td>
       <td>[=Accelerometer=], [=Magnetometer=], AND (when present) [=Gyroscope=]</td>
     </tr>
   </tbody>
@@ -360,18 +360,18 @@ with [=gyroscope=] readings.
 </div>
 
 
-## Orientation Sensor ## {#orientation}
+## Absolute Orientation Sensor ## {#absolute-orientation}
 
-As mentioned before, the <dfn>Orientation Sensor</dfn>, is one of the common use-cases of a
+As mentioned before, the <dfn>Absolute Orientation Sensor</dfn>, is one of the common use-cases of a
 [=magnetometer=], and is a sensor representing an orientation stationary (fixed to the magnetic
-field vector and gravity vector) to the Earth plane. The <a>OrientationSensor interface</a>
+field vector and gravity vector) to the Earth plane. The <a>AbsoluteOrientationSensor interface</a>
 is defined in [[ORIENTATION-SENSOR]] specification.
 
-An orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
+An absolute orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
 for a head-mounted display where you want to be able to rotate the display and look in all
 directions.
 
-As the reference frame of an orientation sensor is stationary, it is not useful as a
+As the reference frame of an absolute orientation sensor is stationary, it is not useful as a
 controller for say a driving game on a phone, as it would not allow you to move around,
 even slightly or slowly, without affecting your driving direction.
 (See [=Relative Orientation Sensor=]).
@@ -399,14 +399,14 @@ the northern direction.
 
 <img src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;" alt="OrientationSensor fusion.">
 
-That means an [=Orientation Sensor=] is a fusion sensor of the [=Magnetometer=] and the
+That means an [=Absolute Orientation Sensor=] is a fusion sensor of the [=Magnetometer=] and the
 [=Accelerometer=], and potentially the [=Gyroscope=] for better isolated gravity
 (see [=Gravity Sensor=]).
 
 
 ## Geomagnetic Orientation Sensor ## {#geomagnetic-orientation}
 
-A <dfn>Geomagnetic Orientation Sensor</dfn>, is like a [=Orientation Sensor=], but
+A <dfn>Geomagnetic Orientation Sensor</dfn>, is like a [=Absolute Orientation Sensor=], but
 doesn't use the [=Gyroscope=] which means it uses less power. This also means that it
 is more sensitive to shakes and movement.
 
