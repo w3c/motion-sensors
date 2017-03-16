@@ -1183,7 +1183,7 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version fa6d32dea6b39d19cbb9dd6d5e69f189e8bdd53f" name="generator">
+  <meta content="Bikeshed version 7e43b56c4e1ede2eed18417e4d8def49e6eb4bd8" name="generator">
 <style>
 table {
   border-collapse: collapse;
@@ -1691,7 +1691,7 @@ solution introduces a delay in registering the actual events.</p>
 <span class="c1">// Isolate gravity with low-pass filter.
 </span><span class="kr">const</span> filter <span class="o">=</span> <span class="k">new</span> LowPassFilterData<span class="p">(</span>accl<span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span><span class="p">;</span>
 
-accl<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=></span> <span class="p">{</span>
+accl<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="o">=></span> <span class="p">{</span>
   filter<span class="p">.</span>update<span class="p">(</span>accl<span class="p">)</span><span class="p">;</span> <span class="c1">// Pass latest values through filter.
 </span>  console<span class="p">.</span>log<span class="p">(</span><span class="sb">`</span><span class="sb">Isolated gravity (</span><span class="si">${</span>filter<span class="p">.</span>x<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>y<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>z<span class="si">}</span><span class="sb">)</span><span class="sb">`</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1728,7 +1728,7 @@ with <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-7">gyroscop
 <span class="c1">// Remove drift with a  high pass filter.
 </span><span class="kr">const</span> filter <span class="o">=</span> <span class="k">new</span> HighPassFilterData<span class="p">(</span>gyro<span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span><span class="p">;</span>
 
-gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=></span> <span class="p">{</span>
+gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="o">=></span> <span class="p">{</span>
   filter<span class="p">.</span>update<span class="p">(</span>gyro<span class="p">)</span><span class="p">;</span> <span class="c1">// Pass latest values through filter.
 </span>  console<span class="p">.</span>log<span class="p">(</span><span class="sb">`</span><span class="sb">Steady gyroscope (</span><span class="si">${</span>filter<span class="p">.</span>x<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>y<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>z<span class="si">}</span><span class="sb">)</span><span class="sb">`</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1746,7 +1746,7 @@ directions.</p>
 controller for say a driving game on a phone, as it would not allow you to move around,
 even slightly or slowly, without affecting your driving direction.
 (See <a data-link-type="dfn" href="#relative-orientation-sensor" id="ref-for-relative-orientation-sensor-2">Relative Orientation Sensor</a>).</p>
-   <p>The orientation vector of the <a data-link-type="dfn">Orientation Sensor</a>, can be calculated in the following way:</p>
+   <p>The orientation vector of the <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-2">Absolute Orientation Sensor</a>, can be calculated in the following way:</p>
    <p>As the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-8">Accelerometer</a> is an <a data-link-type="dfn" href="#inertial-frame-sensor" id="ref-for-inertial-frame-sensor-1">inertial-frame sensor</a>, the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity">gravity</a> vector will point
 towards the sky when the device is mostly stationary, and as long as the device is not in free fall,
 there is enough vector length to project the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field">magnetic field</a> vector onto the ground plane.</p>
@@ -1762,9 +1762,9 @@ North. The reading from the <a data-link-type="dfn" href="#magnetometer-magnetom
 uB represents <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field">magnetic field</a> vector, uE = uB × uG and points East. The uN = uG × uE points to
 the northern direction.</p>
    <p><img alt="OrientationSensor fusion." src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;"></p>
-   <p>That means an <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-2">Absolute Orientation Sensor</a> is a fusion sensor of the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-8">Magnetometer</a> and the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-10">Accelerometer</a>, and potentially the <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-8">Gyroscope</a> for better isolated <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity">gravity</a> (see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-4">Gravity Sensor</a>).</p>
+   <p>That means an <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-3">Absolute Orientation Sensor</a> is a fusion sensor of the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-8">Magnetometer</a> and the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-10">Accelerometer</a>, and potentially the <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-8">Gyroscope</a> for better isolated <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity">gravity</a> (see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-4">Gravity Sensor</a>).</p>
    <h3 class="heading settled" data-level="4.4" id="geomagnetic-orientation"><span class="secno">4.4. </span><span class="content">Geomagnetic Orientation Sensor</span><a class="self-link" href="#geomagnetic-orientation"></a></h3>
-   <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</dfn>, is like a <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-3">Absolute Orientation Sensor</a>, but
+   <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</dfn>, is like a <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-4">Absolute Orientation Sensor</a>, but
 doesn’t use the <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-9">Gyroscope</a> which means it uses less power. This also means that it
 is more sensitive to shakes and movement.</p>
    <p>As the main use-case for a <a data-link-type="dfn" href="#geomagnetic-orientation-sensor" id="ref-for-geomagnetic-orientation-sensor-2">Geomagnetic Orientation Sensor</a> is to create a compass, or use
@@ -1814,7 +1814,7 @@ velocity</a> from <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscop
 <span class="kd">let</span> alpha <span class="o">=</span> beta <span class="o">=</span> gamma <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kr">const</span> bias <span class="o">=</span> <span class="mf">0.98</span><span class="p">;</span>
 
-gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=></span> <span class="p">{</span>
+gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="o">=></span> <span class="p">{</span>
    <span class="kd">let</span> dt <span class="o">=</span> timestamp <span class="o">?</span> <span class="p">(</span>gyro<span class="p">.</span>timestamp <span class="o">-</span> timestamp<span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
    timestamp <span class="o">=</span> gyro<span class="p">.</span>timestamp<span class="p">;</span>
 
@@ -1995,8 +1995,8 @@ trying to detect a shake, so keep that in mind.</p>
    <b><a href="#absolute-orientation-sensor">#absolute-orientation-sensor</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-absolute-orientation-sensor-1">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-absolute-orientation-sensor-2">4.3. Absolute Orientation Sensor</a>
-    <li><a href="#ref-for-absolute-orientation-sensor-3">4.4. Geomagnetic Orientation Sensor</a>
+    <li><a href="#ref-for-absolute-orientation-sensor-2">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-absolute-orientation-sensor-3">(2)</a>
+    <li><a href="#ref-for-absolute-orientation-sensor-4">4.4. Geomagnetic Orientation Sensor</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="geomagnetic-orientation-sensor">
