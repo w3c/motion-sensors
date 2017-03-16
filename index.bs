@@ -38,6 +38,9 @@ urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
     text: acceleration
     text: linear acceleration
     text: accelerometer interface
+    text: gravity
+    text: linearaccelerationsensor interface
+    text: gravitysensor interface
 urlPrefix: https://w3c.github.io/gyroscope; spec: GYROSCOPE
   type: dfn
     text: angular velocity
@@ -107,27 +110,27 @@ Low-level Sensors {#low-level-sensors}
 ## Accelerometer ## {#accelerometer-sensor}
 
 A raw <dfn>accelerometer</dfn> sensor measures changes in acceleration in 3 different
-directions, but is affected by <i>gravity</i>. The <a>Accelerometer interface</a> is defined in
+directions, but is affected by <i>[=gravity=]</i>. The <a>Accelerometer interface</a> is defined in
 [[ACCELEROMETER]] specification.
 
 The [=Accelerometer=] sensor is an <dfn>inertial-frame sensor</dfn>, this means that when the device
 is in free fall, the acceleration is 0 m/s<sup>2</sup> in the falling direction, and
 when a device is laying flat on a table, the acceleration in upwards direction will be equal
-to the Earth gravity, i.e. g ≡ 9.8 m/s<sup>2</sup> as it is measuring the force of the table
+to the Earth [=gravity=], i.e. g ≡ 9.8 m/s<sup>2</sup> as it is measuring the force of the table
 pushing the device upwards.
 
 Accelerometers are less useful by themselves and often take part in other fusion sensors,
 but they do have some purposes like registering shakes, steps and the like.
 
 Often for such use-cases the developer is interested in the <a>linear acceleration</a> which is
-the acceleration without the gravity, called gravity compensation
-(See [=Linear Acceleration Sensor=]); or the developer is interested in the isolated gravity, 
-in order to know the gravity vector (see [=Gravity Sensor=]), which can be useful for some
+the acceleration without the [=gravity=], called [=gravity=] compensation
+(See [=Linear Acceleration Sensor=]); or the developer is interested in the isolated [=gravity=], 
+in order to know the [=gravity=] vector (see [=Gravity Sensor=]), which can be useful for some
 kinds of sensor fusion like creating a magnetic compass.
 
 For acceleration, you usually care about the big changes and want to avoid noise, like the
-gravity, thus a [=high-pass filter=] can help isolate the <a>linear acceleration</a> and a [=low-pass
-filter=] can help isolate the gravity. A [=low-pass filter=] can thus be useful for measuring a
+[=gravity=], thus a [=high-pass filter=] can help isolate the <a>linear acceleration</a> and a [=low-pass
+filter=] can help isolate the [=gravity=]. A [=low-pass filter=] can thus be useful for measuring a
 tilt. Unfortunately, any [=high-pass filter=] or [=low-pass filter=] introduces a delay, which may or may not be
 acceptable.
 
@@ -190,13 +193,13 @@ the device manufacturer can compensate for this somewhat. In practise though, th
 work quite well for most common use-cases.
 
 As long as nothing that is magnetized in the surrounding is moving around, the magnetometer
-readings are stable enough to be used to isolate gravity as mentioned above.
+readings are stable enough to be used to isolate [=gravity=] as mentioned above.
 
 Magnetometer is a 3-axis sensor, which means it gives a 3D vector pointing to the strongest
 <a>magnetic field</a>. It also means that it does not enforce a specific device orientation in order
 to work.
 
-In order to tell how the device is being held, though, you need a gravity vector, which as a bare
+In order to tell how the device is being held, though, you need a [=gravity=] vector, which as a bare
 minimum requires an accelerometer in the case of low pass filtering, and additionally a gyroscope
 if more precise readings are needed. This is called <dfn>tilt compensation</dfn>.
 
@@ -364,7 +367,7 @@ with [=gyroscope=] readings.
 
 As mentioned before, the <dfn>Absolute Orientation Sensor</dfn>, is one of the common use-cases of a
 [=magnetometer=], and is a sensor representing an orientation stationary (fixed to the magnetic
-field vector and gravity vector) to the Earth plane. The <a>AbsoluteOrientationSensor interface</a>
+field vector and [=gravity=] vector) to the Earth plane. The <a>AbsoluteOrientationSensor interface</a>
 is defined in [[ORIENTATION-SENSOR]] specification.
 
 An absolute orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
@@ -378,29 +381,29 @@ even slightly or slowly, without affecting your driving direction.
 
 The orientation vector of the [=Orientation Sensor=], can be calculated in the following way:
 
-As the [=Accelerometer=] is an <a>inertial-frame sensor</a>, the gravity vector will point
+As the [=Accelerometer=] is an <a>inertial-frame sensor</a>, the [=gravity=] vector will point
 towards the sky when the device is mostly stationary, and as long as the device is not in free fall,
 there is enough vector length to project the <a>magnetic field</a> vector onto the ground plane.
 
 Note, this will fail at the magnetic poles as the <a>magnetic field</a> vector will point mostly in
-the opposite direction as the gravity vector and generally be very unreliable.
+the opposite direction as the [=gravity=] vector and generally be very unreliable.
 
-By taking the cross product between the the <a>magnetic field</a> vector and gravity vector
+By taking the cross product between the the <a>magnetic field</a> vector and [=gravity=] vector
 (see [=Gravity Sensor=]), we get a vector which points East on the ground plane, using the right hand rule.
 
-Now if we take the cross product between the gravity vector and the newly found East vector, the resulting
+Now if we take the cross product between the [=gravity=] vector and the newly found East vector, the resulting
 vector will point in the northern direction towards the Earth's <a>magnetic field</a>.
 
 The illustration below represents the case where the device is at rest and y-axis points towards the
 North. The reading from the [=Magnetometer=] is {x: 0, y: 11, z: -16} and [=Accelerometer=] reports
-{x: 0.11, y: 0.07, z: 9.81} <a>acceleration</a>. The uG is a unit vector representing the gravity,
+{x: 0.11, y: 0.07, z: 9.81} <a>acceleration</a>. The uG is a unit vector representing the [=gravity=],
 uB represents <a>magnetic field</a> vector, uE = uB × uG and points East. The uN = uG × uE points to
 the northern direction.
 
 <img src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;" alt="OrientationSensor fusion.">
 
 That means an [=Absolute Orientation Sensor=] is a fusion sensor of the [=Magnetometer=] and the
-[=Accelerometer=], and potentially the [=Gyroscope=] for better isolated gravity
+[=Accelerometer=], and potentially the [=Gyroscope=] for better isolated [=gravity=]
 (see [=Gravity Sensor=]).
 
 
@@ -418,16 +421,16 @@ The actual <i>heading</i> (N, S, E, W) can be found by adjusting the rotation ve
 the local <i>declination compensation</i> calculated from the current geolocation position.
 
 As the sensor uses the [=accelerometer=] to get a more steady heading, like when walking,
-the rotation vector is projected to the plane perpendicular to the gravity vector (as isolated
+the rotation vector is projected to the plane perpendicular to the [=gravity=] vector (as isolated
 from the [=accelerometer=]) which more or less represents the ground plane. This also means that
-if you are interested in the actual orientation of the gravity vector, then use the
+if you are interested in the actual orientation of the [=gravity=] vector, then use the
 [=magnetometer=] directly instead.
 
 
 ## Relative Orientation Sensor ## {#relative-orientation}
 
-On most sensor hubs, gravity is isolated from the [=accelerometer=] using the [=gyroscope=],
-and the <a>linear acceleration</a> is isolated by removing the isolated gravity, from the
+On most sensor hubs, [=gravity=] is isolated from the [=accelerometer=] using the [=gyroscope=],
+and the <a>linear acceleration</a> is isolated by removing the isolated [=gravity=], from the
 [=accelerometer=] values. 
 
 This avoids the delay which low and high pass filters introduce. 
@@ -443,8 +446,8 @@ complementing the [=gyroscope=] values with the [=accelerometer=] values:
 
 θ<sub>n</sub> = α × (θ<sub>n-1</sub> + ω × ∂t) + (1.0 - α) × a
 
-With α being the weight constant, a the acceleration from [=accelerometer=], ω the angular
-velocity from [=gyroscope=] and ∂t being the time between measurements.
+With α being the weight constant, a the acceleration from [=accelerometer=], ω the [=angular
+velocity=] from [=gyroscope=] and ∂t being the time between measurements.
 
 A common value for α is 0.98, which means that 98% of the weight lays on the [=gyroscope=]
 measurements.
@@ -455,18 +458,18 @@ measurements.
 
   The [=gyroscope=] measures <i><a>angular velocity</a></i>, so by multiplying with the time difference,
   we get the <i>change of angle</i>. This change is always calculated relative to the current device
-  position, so we need to use the [=accelerometer=], which includes gravity, to calibrate this
+  position, so we need to use the [=accelerometer=], which includes [=gravity=], to calibrate this
   to the ground plane.
 
   The values from the [=accelerometer=] bring no information about the heading (alpha, the
   rotation around z), so we don't include that in our alpha component. On the other hand,
-  the [=accelerometer=] (due to gravity) provides information on how the device is held around
+  the [=accelerometer=] (due to [=gravity=]) provides information on how the device is held around
   the x and y axis (beta and gamma).
 
   When there is no or little movement, the vector obtained from the [=accelerometer=]
   reading will contribute more to the (alpha, beta, gamma) angles than the [=gyroscope=].
 
-  As values from a steady [=accelerometer=] represent the gravity vector, and we don't
+  As values from a steady [=accelerometer=] represent the [=gravity=] vector, and we don't
   include the z component in the alpha, the result of this is that the orientation will
   just follow the [=gyroscope=] and be stable. But as the origin of the heading depends on 
   the device position at start this a <i>device-relative orientation sensor</i>.
@@ -536,16 +539,19 @@ measurements.
 
 ## Gravity and Linear Acceleration Sensor ## {#gravity-and-linear-acceleration}
 
-The [=complementary filter=] used above is quite good at isolating the gravity, and most sensor
-hubs thus isolate <i>gravity</i> from the [=accelerometer=] using the [=gyroscope=], and the
-<a>linear acceleration</a> is isolated by removing the isolated gravity, from the [=accelerometer=] values. 
+The [=complementary filter=] used above is quite good at isolating the [=gravity=], and most sensor
+hubs thus isolate <i>[=gravity=]</i> from the [=accelerometer=] using the [=gyroscope=], and the
+<a>linear acceleration</a> is isolated by removing the isolated [=gravity=], from the [=accelerometer=] values. 
 
 This also means that the <dfn>Linear Acceleration Sensor</dfn> and the <dfn>Gravity Sensor</dfn>
 as exposed by most sensor hubs are most likely fusion sensors.
 
-Gravity can also be removed from a [=linear acceleration sensor=] using a [=magnetometer=],
+[=Gravity=] can also be removed from a [=linear acceleration sensor=] using a [=magnetometer=],
 as the <a>magnetic field</a> vector is more or less stable.
 
-Note, as the gravity changes with the frequency of the movements, i.e., 0 in falling direction
+The [=LinearAccelerationSensor interface=] and [=GravitySensor interface=] are defined in
+[[ACCELEROMETER]] specification.
+
+Note, as the [=gravity=] changes with the frequency of the movements, i.e., 0 in falling direction
 in free fall, you can imagine that <a>linear acceleration</a> will be quite imprecise if you are
 trying to detect a shake, so keep that in mind.
