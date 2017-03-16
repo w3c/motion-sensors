@@ -379,7 +379,7 @@ controller for say a driving game on a phone, as it would not allow you to move 
 even slightly or slowly, without affecting your driving direction.
 (See [=Relative Orientation Sensor=]).
 
-The orientation vector of the [=Orientation Sensor=], can be calculated in the following way:
+The orientation vector of the [=Absolute Orientation Sensor=], can be calculated in the following way:
 
 As the [=Accelerometer=] is an <a>inertial-frame sensor</a>, the [=gravity=] vector will point
 towards the sky when the device is mostly stationary, and as long as the device is not in free fall,
