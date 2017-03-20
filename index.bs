@@ -13,7 +13,7 @@ Abstract:
   their relationship, inner workings and common use-cases. Common cases of event
   filtering and sensor fusion are introduced with examples, showing how to apply
   that on sensors following the Generic Sensor API specification.
-Version History:
+Version History: https://github.com/w3c/motion-sensors/commits/gh-pages/index.bs
 !Bug Reports: <a href="https://www.github.com/w3c/motion-sensors/issues/new">via the w3c/motion-sensors repository on GitHub</a>
 Indent: 2
 Repository: w3c/motion-sensors
