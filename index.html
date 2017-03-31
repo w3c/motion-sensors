@@ -1183,7 +1183,8 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version fa6d32dea6b39d19cbb9dd6d5e69f189e8bdd53f" name="generator">
+  <meta content="Bikeshed version b734e371910e25ac23b774dca3dea5cfc7b7fc0b" name="generator">
+  <link href="http://www.w3.org/TR/motion-sensors/" rel="canonical">
 <style>
 table {
   border-collapse: collapse;
@@ -1440,7 +1441,7 @@ table, th, td {
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Motion Sensors Explainer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-20">20 March 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-31">31 March 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1524,6 +1525,7 @@ that on sensors following the Generic Sensor API specification.</p>
         <li><a href="#complementary-filters"><span class="secno">4.5.1</span> <span class="content">Complementary filter</span></a>
        </ol>
       <li><a href="#gravity-and-linear-acceleration"><span class="secno">4.6</span> <span class="content">Gravity and Linear Acceleration Sensor</span></a>
+      <li><a href="#usecases-and-requirements"><span class="secno">4.7</span> <span class="content">Use Cases and Requirements</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -1535,6 +1537,7 @@ that on sensors following the Generic Sensor API specification.</p>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
    </ol>
   </nav>
@@ -1869,6 +1872,30 @@ as the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic
    <p class="note" role="note"><span>Note,</span> as the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity">gravity</a> changes with the frequency of the movements, i.e., 0 in falling direction
 in free fall, you can imagine that <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#linear-acceleration">linear acceleration</a> will be quite imprecise if you are
 trying to detect a shake, so keep that in mind.</p>
+   <h3 class="heading settled" data-level="4.7" id="usecases-and-requirements"><span class="secno">4.7. </span><span class="content">Use Cases and Requirements</span><a class="self-link" href="#usecases-and-requirements"></a></h3>
+   <p>Advanced motion sensor use-cases could have requirements for accurate sensor readings, high
+sampling rates at which hardware sensor operates, and reading delivery rate that is preferable
+for particular application.</p>
+   <p>Motion sensors can be used for variety of advanced use-cases, such as:</p>
+   <ul>
+    <li data-md="">
+     <p>Virtual reality HMD tracking <a data-link-type="biblio" href="#biblio-hmdtracking">[HMDTRACKING]</a></p>
+    <li data-md="">
+     <p>Sensor assisted indoor navigation <a data-link-type="biblio" href="#biblio-indoornav">[INDOORNAV]</a>, <a data-link-type="biblio" href="#biblio-ipin">[IPIN]</a></p>
+    <li data-md="">
+     <p>Photo and video capture stabilization <a data-link-type="biblio" href="#biblio-rollstabilizer">[ROLLSTABILIZER]</a>, <a data-link-type="biblio" href="#biblio-videostabilizer">[VIDEOSTABILIZER]</a></p>
+    <li data-md="">
+     <p>Games that require high-frequency sampling rates with high accuracy readings.</p>
+   </ul>
+   <p>The generic requirement for games or UI applications that use motion sensors is to have a new
+sensor reading per rendered frame. The higher sampling rates in this case, will reduce latency,
+thus improve user experience.</p>
+   <p>In case of virtual reality HMD tracking, sensors might run at very high sampling rates
+(up to several kHz) and minimize motion-to-photon latency by providing latest sensor reading
+for every rendered frame at refresh rates of 75-120Hz.</p>
+   <p>Indoor navigation or non-realtime video (image) stabilization applications could benefit from
+collecting high accuracy sensor readings at high sampling rates (80-100Hz), so that data
+processing algorithms have enough samples to provide accurate results.</p>
   </main>
 <script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
@@ -1934,6 +1961,19 @@ trying to detect a shake, so keep that in mind.</p>
    <dd>Anssi Kostiainen; Mikhail Pozdnyakov. <a href="https://www.w3.org/TR/gyroscope/">Gyroscope Sensor</a>. URL: <a href="https://www.w3.org/TR/gyroscope/">https://www.w3.org/TR/gyroscope/</a>
    <dt id="biblio-magnetometer">[MAGNETOMETER]
    <dd>Anssi Kostiainen; Rijubrata Bhaumik. <a href="https://www.w3.org/TR/magnetometer/">Magnetometer Sensor</a>. URL: <a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
+  </dl>
+  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <dl>
+   <dt id="biblio-hmdtracking">[HMDTRACKING]
+   <dd>LaValle, Steven M., et al.. <a href="http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf">Head tracking for the Oculus Rift</a>. 2014. Informational. URL: <a href="http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf">http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf</a>
+   <dt id="biblio-indoornav">[INDOORNAV]
+   <dd>Shala, Ubejd, and Angel Rodriguez. <a href="http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050">Indoor positioning using sensor-fusion in android devices</a>. 2011. Informational. URL: <a href="http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050">http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050</a>
+   <dt id="biblio-ipin">[IPIN]
+   <dd>Gallagher, Thomas, et al.. <a href="http://ieeexplore.ieee.org/abstract/document/6418882/">Indoor positioning system based on sensor fusion for the blind and visually impaired</a>. 2012. Informational. URL: <a href="http://ieeexplore.ieee.org/abstract/document/6418882/">http://ieeexplore.ieee.org/abstract/document/6418882/</a>
+   <dt id="biblio-rollstabilizer">[ROLLSTABILIZER]
+   <dd>Karpenko, Alexandre, et al.. <a href="http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf">Digital video stabilization and rolling shutter correction using gyroscopes</a>. 2011. Informational. URL: <a href="http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf">http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf</a>
+   <dt id="biblio-videostabilizer">[VIDEOSTABILIZER]
+   <dd>Hanning, Gustav, et al.. <a href="http://ieeexplore.ieee.org/abstract/document/6130215/">Stabilizing cell phone video using inertial measurement sensors</a>. 2011. Informational. URL: <a href="http://ieeexplore.ieee.org/abstract/document/6130215/">http://ieeexplore.ieee.org/abstract/document/6130215/</a>
   </dl>
   <aside class="dfn-panel" data-for="accelerometer">
    <b><a href="#accelerometer">#accelerometer</a></b><b>Referenced in:</b>

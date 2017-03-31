@@ -76,6 +76,61 @@ spec:generic-sensor-1;
         "date": "1999",
         "status": "Informational",
         "publisher": "Princeton university press"
+    },
+    "HMDTRACKING": {
+        "authors": [
+            "LaValle, Steven M., et al."
+        ],
+        "id": "HMDTRACKING",
+        "href": "http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf",
+        "title": "Head tracking for the Oculus Rift",
+        "date": "2014",
+        "status": "Informational",
+        "publisher": "IEEE"
+    },
+    "IPIN": {
+        "authors": [
+            "Gallagher, Thomas, et al."
+        ],
+        "id": "IPIN",
+        "href": "http://ieeexplore.ieee.org/abstract/document/6418882/",
+        "title": "Indoor positioning system based on sensor fusion for the blind and visually impaired",
+        "date": "2012",
+        "status": "Informational",
+        "publisher": "IEEE"
+    },
+    "INDOORNAV": {
+        "authors": [
+            "Shala, Ubejd, and Angel Rodriguez"
+        ],
+        "id": "INDOORNAV",
+        "href": "http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&dswid=9050",
+        "title": "Indoor positioning using sensor-fusion in android devices",
+        "date": "2011",
+        "status": "Informational",
+        "publisher": "Department of Computer Science, Kristianstad University, Sweden"
+    },
+    "ROLLSTABILIZER": {
+        "authors": [
+            "Karpenko, Alexandre, et al."
+        ],
+        "id": "ROLLSTABILIZER",
+        "href": "http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf",
+        "title": "Digital video stabilization and rolling shutter correction using gyroscopes",
+        "date": "2011",
+        "status": "Informational",
+        "publisher": "Stanford Tech Report CTSR 2011-03"
+    },
+    "VIDEOSTABILIZER": {
+        "authors": [
+            "Hanning, Gustav, et al."
+        ],
+        "id": "VIDEOSTABILIZER",
+        "href": "http://ieeexplore.ieee.org/abstract/document/6130215/",
+        "title": "Stabilizing cell phone video using inertial measurement sensors",
+        "date": "2011",
+        "status": "Informational",
+        "publisher": "IEEE"
     }
 }
 </pre>
@@ -556,3 +611,28 @@ The [=LinearAccelerationSensor interface=] and [=GravitySensor interface=] are d
 Note, as the [=gravity=] changes with the frequency of the movements, i.e., 0 in falling direction
 in free fall, you can imagine that <a>linear acceleration</a> will be quite imprecise if you are
 trying to detect a shake, so keep that in mind.
+
+## Use Cases and Requirements ## {#usecases-and-requirements}
+
+Advanced motion sensor use-cases could have requirements for accurate sensor readings, high
+sampling rates at which hardware sensor operates, and reading delivery rate that is preferable
+for particular application.
+
+Motion sensors can be used for variety of advanced use-cases, such as:
+
+- Virtual reality HMD tracking [[HMDTRACKING]]
+- Sensor assisted indoor navigation [[INDOORNAV]], [[IPIN]]
+- Photo and video capture stabilization [[ROLLSTABILIZER]], [[VIDEOSTABILIZER]]
+- Games that require high-frequency sampling rates with high accuracy readings.
+
+The generic requirement for games or UI applications that use motion sensors is to have a new
+sensor reading per rendered frame. The higher sampling rates in this case, will reduce latency,
+thus improve user experience.
+
+In case of virtual reality HMD tracking, sensors might run at very high sampling rates
+(up to several kHz) and minimize motion-to-photon latency by providing latest sensor reading
+for every rendered frame at refresh rates of 75-120Hz.
+
+Indoor navigation or non-realtime video (image) stabilization applications could benefit from
+collecting high accuracy sensor readings at high sampling rates (80-100Hz), so that data
+processing algorithms have enough samples to provide accurate results.
