@@ -4,10 +4,9 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Motion Sensors Explainer</title>
   <meta content="WD" name="w3c-status">
-  <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD" rel="stylesheet">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
   <meta content="Bikeshed version 5bd73bb15eb04ad9f7d1a57f012e9ee6eca5a765" name="generator">
-  <link href="http://www.w3.org/TR/motion-sensors/" rel="canonical">
+  <link href="https://www.w3.org/TR/motion-sensors/" rel="canonical">
 <style>
 table {
   border-collapse: collapse;
@@ -171,7 +170,6 @@ table, th, td {
             position: absolute;
             z-index: 35;
             height: auto;
-            width: -webkit-fit-content;
             width: fit-content;
             max-width: 300px;
             max-height: 500px;
@@ -260,6 +258,7 @@ table, th, td {
         .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
         .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
         </style>
+        <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD" rel="stylesheet">
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
@@ -268,9 +267,9 @@ table, th, td {
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://www.w3.org/TR/2017/WD-motion-sensors-1-20170511/">https://www.w3.org/TR/2017/WD-motion-sensors-1-20170511/</a>
+     <dd><a class="u-url" href="https://www.w3.org/TR/2017/WD-motion-sensors-20170511/">https://www.w3.org/TR/2017/WD-motion-sensors-20170511/</a>
      <dt>Latest published version:
-     <dd><a href="http://www.w3.org/TR/motion-sensors/">http://www.w3.org/TR/motion-sensors/</a>
+     <dd><a href="https://www.w3.org/TR/motion-sensors/">https://www.w3.org/TR/motion-sensors/</a>
      <dt>Editor's Draft:
      <dd><a href="https://w3c.github.io/motion-sensors/">https://w3c.github.io/motion-sensors/</a>
      <dt>Version History:
@@ -318,10 +317,10 @@ that on sensors following the Generic Sensor API specification.</p>
   obsoleted by other documents at any time. It is inappropriate to cite this
   document as other than work in progress. </p>
    <p> This document was produced by a group operating under
-	the <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 W3C Patent Policy</a>.
+	the <a href="https://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 W3C Patent Policy</a>.
 	W3C maintains a <a href="https://www.w3.org/2004/01/pp-impl/43696/status" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
 	that page also includes instructions for disclosing a patent.
-	An individual who has actual knowledge of a patent which the individual believes contains <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
+	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
    <p> This document is governed by the <a href="https://www.w3.org/2017/Process-20170301/" id="w3c_process_revision">1 March 2017 W3C Process Document</a>. </p>
    <p></p>
   </div>
@@ -479,19 +478,18 @@ hardware, it most often makes sense to use these from a power and performance po
      <tr>
       <td><a data-link-type="dfn" href="#relative-orientation-sensor" id="ref-for-relative-orientation-sensor-1">Relative Orientation Sensor</a>
       <td><a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-3">Accelerometer</a>, <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-2">Gyroscope</a>, MUST NOT USE <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-2">Magnetometer</a>
-    <tbody>
      <tr>
       <td><a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-1">Absolute Orientation Sensor</a>
       <td><a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-4">Accelerometer</a>, <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-3">Magnetometer</a>, AND (when present) <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-3">Gyroscope</a>
-    <tbody>
+     </tr>
      <tr>
       <td><a data-link-type="dfn" href="#geomagnetic-orientation-sensor" id="ref-for-geomagnetic-orientation-sensor-1">Geomagnetic Orientation Sensor</a>
       <td><a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-5">Accelerometer</a>, <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-4">Magnetometer</a>, MUST NOT USE <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-4">Gyroscope</a>
-    <tbody>
+     </tr>
      <tr>
       <td><a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-2">Gravity Sensor</a>
       <td><a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-6">Accelerometer</a>, <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-5">Gyroscope</a>
-    <tbody>
+     </tr>
      <tr>
       <td><a data-link-type="dfn" href="#linear-acceleration-sensor" id="ref-for-linear-acceleration-sensor-2">Linear Acceleration Sensor</a>
       <td><a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-7">Accelerometer</a>, AND EITHER <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-6">Gyroscope</a> OR <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-5">Magnetometer</a>
@@ -793,7 +791,7 @@ processing algorithms have enough samples to provide accurate results.</p>
    <dt id="biblio-magnetometer">[MAGNETOMETER]
    <dd>Anssi Kostiainen; Rijubrata Bhaumik. <a href="https://www.w3.org/TR/magnetometer/">Magnetometer</a>. URL: <a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
    <dt id="biblio-orientation-sensor">[ORIENTATION-SENSOR]
-   <dd>Mikhail Pozdnyakov; Alexander Shalamov; Kenneth Rohde Christiansen; Anssi Kostiainen. <a href="http://www.w3.org/TR/orientation-sensor/">Orientation Sensor</a>. URL: <a href="http://www.w3.org/TR/orientation-sensor/">http://www.w3.org/TR/orientation-sensor/</a>
+   <dd>Mikhail Pozdnyakov; Alexander Shalamov; Kenneth Rohde Christiansen; Anssi Kostiainen. <a href="https://www.w3.org/TR/orientation-sensor/">Orientation Sensor</a>. URL: <a href="https://www.w3.org/TR/orientation-sensor/">https://www.w3.org/TR/orientation-sensor/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
