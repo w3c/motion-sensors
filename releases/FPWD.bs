@@ -1,10 +1,11 @@
 <pre class="metadata">
 Title: Motion Sensors Explainer
-Status: ED
-Level: 1
+Status: FPWD
+Date: 2017-05-11
+#Level: 1
 ED: https://w3c.github.io/motion-sensors/
 Shortname: motion-sensors
-TR: http://www.w3.org/TR/motion-sensors/
+TR: https://www.w3.org/TR/motion-sensors/
 Editor: Kenneth Rohde Christiansen 57705, Intel Corporation, https://intel.com/
 Editor: Alexander Shalamov 78335, Intel Corporation, http://intel.com/
 Group: dap
@@ -131,6 +132,15 @@ spec:generic-sensor-1;
         "date": "2011",
         "status": "Informational",
         "publisher": "IEEE"
+    },
+    "ORIENTATION-SENSOR": {
+        "authors": [
+            "Mikhail Pozdnyakov; Alexander Shalamov; Kenneth Rohde Christiansen; Anssi Kostiainen"
+        ],
+        "id": "ORIENTATION-SENSOR",
+        "href": "http://www.w3.org/TR/orientation-sensor/",
+        "title": "Orientation Sensor",
+        "publisher": "W3C"
     }
 }
 </pre>
