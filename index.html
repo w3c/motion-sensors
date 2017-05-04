@@ -1183,7 +1183,7 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version b734e371910e25ac23b774dca3dea5cfc7b7fc0b" name="generator">
+  <meta content="Bikeshed version 5bd73bb15eb04ad9f7d1a57f012e9ee6eca5a765" name="generator">
   <link href="http://www.w3.org/TR/motion-sensors/" rel="canonical">
 <style>
 table {
@@ -1441,7 +1441,7 @@ table, th, td {
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Motion Sensors Explainer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-31">31 March 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-05-04">4 May 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1465,8 +1465,8 @@ table, th, td {
    <p class="copyright" data-fill-with="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2017 <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
-  <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
   <div class="p-summary" data-fill-with="abstract">
+   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>This explainer is an introduction to low-level and high-level motion sensors,
 
 their relationship, inner workings and common use-cases. Common cases of event
@@ -1695,7 +1695,7 @@ solution introduces a delay in registering the actual events.</p>
 <span class="c1">// Isolate gravity with low-pass filter.
 </span><span class="kr">const</span> filter <span class="o">=</span> <span class="k">new</span> LowPassFilterData<span class="p">(</span>accl<span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span><span class="p">;</span>
 
-accl<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=></span> <span class="p">{</span>
+accl<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="o">=></span> <span class="p">{</span>
   filter<span class="p">.</span>update<span class="p">(</span>accl<span class="p">)</span><span class="p">;</span> <span class="c1">// Pass latest values through filter.
 </span>  console<span class="p">.</span>log<span class="p">(</span><span class="sb">`</span><span class="sb">Isolated gravity (</span><span class="si">${</span>filter<span class="p">.</span>x<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>y<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>z<span class="si">}</span><span class="sb">)</span><span class="sb">`</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1732,7 +1732,7 @@ with <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-7">gyroscop
 <span class="c1">// Remove drift with a  high pass filter.
 </span><span class="kr">const</span> filter <span class="o">=</span> <span class="k">new</span> HighPassFilterData<span class="p">(</span>gyro<span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span><span class="p">;</span>
 
-gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=></span> <span class="p">{</span>
+gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="o">=></span> <span class="p">{</span>
   filter<span class="p">.</span>update<span class="p">(</span>gyro<span class="p">)</span><span class="p">;</span> <span class="c1">// Pass latest values through filter.
 </span>  console<span class="p">.</span>log<span class="p">(</span><span class="sb">`</span><span class="sb">Steady gyroscope (</span><span class="si">${</span>filter<span class="p">.</span>x<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>y<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>z<span class="si">}</span><span class="sb">)</span><span class="sb">`</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1765,7 +1765,7 @@ North. The reading from the <a data-link-type="dfn" href="#magnetometer-magnetom
 {x: 0.11, y: 0.07, z: 9.81} <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#acceleration">acceleration</a>. The uG is a unit vector representing the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity">gravity</a>,
 uB represents <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field">magnetic field</a> vector, uE = uB × uG and points East. The uN = uG × uE points to
 the northern direction.</p>
-   <p><img alt="OrientationSensor fusion." src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;"></p>
+   <p><img alt="OrientationSensor fusion." src="images/orientation_fusion.png" srcset="images/orientation_fusion.svg" style="display: block;margin: auto;"></p>
    <p>That means an <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-3">Absolute Orientation Sensor</a> is a fusion sensor of the <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers-8">Magnetometer</a> and the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer-10">Accelerometer</a>, and potentially the <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope-8">Gyroscope</a> for better isolated <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity">gravity</a> (see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor-4">Gravity Sensor</a>).</p>
    <h3 class="heading settled" data-level="4.4" id="geomagnetic-orientation"><span class="secno">4.4. </span><span class="content">Geomagnetic Orientation Sensor</span><a class="self-link" href="#geomagnetic-orientation"></a></h3>
    <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</dfn>, is like a <a data-link-type="dfn" href="#absolute-orientation-sensor" id="ref-for-absolute-orientation-sensor-4">Absolute Orientation Sensor</a>, but
@@ -1818,7 +1818,7 @@ velocity</a> from <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscop
 <span class="kd">let</span> alpha <span class="o">=</span> beta <span class="o">=</span> gamma <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kr">const</span> bias <span class="o">=</span> <span class="mf">0.98</span><span class="p">;</span>
 
-gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=></span> <span class="p">{</span>
+gyro<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="o">=></span> <span class="p">{</span>
    <span class="kd">let</span> dt <span class="o">=</span> timestamp <span class="o">?</span> <span class="p">(</span>gyro<span class="p">.</span>timestamp <span class="o">-</span> timestamp<span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
    timestamp <span class="o">=</span> gyro<span class="p">.</span>timestamp<span class="p">;</span>
 
@@ -1954,13 +1954,13 @@ processing algorithms have enough samples to provide accurate results.</p>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-accelerometer">[ACCELEROMETER]
-   <dd>Anssi Kostiainen; Alexander Shalamov. <a href="https://www.w3.org/TR/accelerometer/">Accelerometer Sensor</a>. URL: <a href="https://www.w3.org/TR/accelerometer/">https://www.w3.org/TR/accelerometer/</a>
+   <dd>Anssi Kostiainen; Alexander Shalamov. <a href="https://www.w3.org/TR/accelerometer/">Accelerometer</a>. URL: <a href="https://www.w3.org/TR/accelerometer/">https://www.w3.org/TR/accelerometer/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Tobie Langel; Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
    <dt id="biblio-gyroscope">[GYROSCOPE]
-   <dd>Anssi Kostiainen; Mikhail Pozdnyakov. <a href="https://www.w3.org/TR/gyroscope/">Gyroscope Sensor</a>. URL: <a href="https://www.w3.org/TR/gyroscope/">https://www.w3.org/TR/gyroscope/</a>
+   <dd>Anssi Kostiainen; Mikhail Pozdnyakov. <a href="https://www.w3.org/TR/gyroscope/">Gyroscope</a>. URL: <a href="https://www.w3.org/TR/gyroscope/">https://www.w3.org/TR/gyroscope/</a>
    <dt id="biblio-magnetometer">[MAGNETOMETER]
-   <dd>Anssi Kostiainen; Rijubrata Bhaumik. <a href="https://www.w3.org/TR/magnetometer/">Magnetometer Sensor</a>. URL: <a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
+   <dd>Anssi Kostiainen; Rijubrata Bhaumik. <a href="https://www.w3.org/TR/magnetometer/">Magnetometer</a>. URL: <a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>

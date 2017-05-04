@@ -456,7 +456,7 @@ North. The reading from the [=Magnetometer=] is {x: 0, y: 11, z: -16} and [=Acce
 uB represents <a>magnetic field</a> vector, uE = uB × uG and points East. The uN = uG × uE points to
 the northern direction.
 
-<img src="orientation_fusion.png" srcset="orientation_fusion.svg" style="display: block;margin: auto;" alt="OrientationSensor fusion.">
+<img src="images/orientation_fusion.png" srcset="images/orientation_fusion.svg" style="display: block;margin: auto;" alt="OrientationSensor fusion.">
 
 That means an [=Absolute Orientation Sensor=] is a fusion sensor of the [=Magnetometer=] and the
 [=Accelerometer=], and potentially the [=Gyroscope=] for better isolated [=gravity=]
