@@ -376,7 +376,7 @@ solution introduces a delay in registering the actual events.
       // Isolate gravity with low-pass filter.
       const filter = new LowPassFilterData(accl, 0.8);
 
-      accl.onchange = () => {
+      accl.onreading = () => {
         filter.update(accl); // Pass latest values through filter.
         console.log(&#96;Isolated gravity (${filter.x}, ${filter.y}, ${filter.z})&#96;);
       }
@@ -418,7 +418,7 @@ with [=gyroscope=] readings.
       // Remove drift with a  high pass filter.
       const filter = new HighPassFilterData(gyro, 0.8);
 
-      gyro.onchange = () => {
+      gyro.onreading = () => {
         filter.update(gyro); // Pass latest values through filter.
         console.log(&#96;Steady gyroscope (${filter.x}, ${filter.y}, ${filter.z})&#96;);
       }
@@ -549,7 +549,7 @@ measurements.
      let alpha = beta = gamma = 0;
      const bias = 0.98;
 
-     gyro.onchange = () => {
+     gyro.onreading = () => {
         let dt = timestamp ? (gyro.timestamp - timestamp) / 1000 : 0;
         timestamp = gyro.timestamp;
 
