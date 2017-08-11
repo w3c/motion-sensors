@@ -1,7 +1,7 @@
 <pre class="metadata">
 Title: Motion Sensors Explainer
 Status: ED
-Level: 1
+Level: none
 ED: https://w3c.github.io/motion-sensors/
 Shortname: motion-sensors
 TR: https://www.w3.org/TR/motion-sensors/
