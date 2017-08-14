@@ -1448,6 +1448,8 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
      <dd><a class="u-url" href="https://w3c.github.io/motion-sensors/">https://w3c.github.io/motion-sensors/</a>
      <dt>Latest published version:
      <dd><a href="https://www.w3.org/TR/motion-sensors/">https://www.w3.org/TR/motion-sensors/</a>
+     <dt>Previous Versions:
+     <dd><a href="https://www.w3.org/TR/2017/NOTE-motion-sensors-20170511/" rel="prev">https://www.w3.org/TR/2017/NOTE-motion-sensors-20170511/</a>
      <dt>Version History:
      <dd><a href="https://github.com/w3c/motion-sensors/commits/gh-pages/index.bs">https://github.com/w3c/motion-sensors/commits/gh-pages/index.bs</a>
      <dt>Feedback:
@@ -1695,7 +1697,7 @@ solution introduces a delay in registering the actual events.</p>
 <span class="c1">// Isolate gravity with low-pass filter.</span>
 <span class="c1"></span><span class="kr">const</span> filter <span class="o">=</span> <span class="k">new</span> LowPassFilterData<span class="p">(</span>accl<span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
 
-accl<span class="p">.</span>onreading <span class="o">=</span> <span class="p">()</span> <span class="p">=></span> <span class="p">{</span>
+accl<span class="p">.</span>onreading <span class="o">=</span> <span class="p">()</span> <span class="o">=></span> <span class="p">{</span>
   filter<span class="p">.</span>update<span class="p">(</span>accl<span class="p">);</span> <span class="c1">// Pass latest values through filter.</span>
 <span class="c1"></span>  console<span class="p">.</span>log<span class="p">(</span><span class="sb">`Isolated gravity (</span><span class="si">${</span>filter<span class="p">.</span>x<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>y<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>z<span class="si">}</span><span class="sb">)`</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1732,7 +1734,7 @@ with <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope⑥">gyrosco
 <span class="c1">// Remove drift with a  high pass filter.</span>
 <span class="c1"></span><span class="kr">const</span> filter <span class="o">=</span> <span class="k">new</span> HighPassFilterData<span class="p">(</span>gyro<span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
 
-gyro<span class="p">.</span>onreading <span class="o">=</span> <span class="p">()</span> <span class="p">=></span> <span class="p">{</span>
+gyro<span class="p">.</span>onreading <span class="o">=</span> <span class="p">()</span> <span class="o">=></span> <span class="p">{</span>
   filter<span class="p">.</span>update<span class="p">(</span>gyro<span class="p">);</span> <span class="c1">// Pass latest values through filter.</span>
 <span class="c1"></span>  console<span class="p">.</span>log<span class="p">(</span><span class="sb">`Steady gyroscope (</span><span class="si">${</span>filter<span class="p">.</span>x<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>y<span class="si">}</span><span class="sb">, </span><span class="si">${</span>filter<span class="p">.</span>z<span class="si">}</span><span class="sb">)`</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1818,7 +1820,7 @@ velocity</a> from <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscop
 <span class="kd">let</span> alpha <span class="o">=</span> beta <span class="o">=</span> gamma <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kr">const</span> bias <span class="o">=</span> <span class="mf">0.98</span><span class="p">;</span>
 
-gyro<span class="p">.</span>onreading <span class="o">=</span> <span class="p">()</span> <span class="p">=></span> <span class="p">{</span>
+gyro<span class="p">.</span>onreading <span class="o">=</span> <span class="p">()</span> <span class="o">=></span> <span class="p">{</span>
    <span class="kd">let</span> dt <span class="o">=</span> timestamp <span class="o">?</span> <span class="p">(</span>gyro<span class="p">.</span>timestamp <span class="o">-</span> timestamp<span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
    timestamp <span class="o">=</span> gyro<span class="p">.</span>timestamp<span class="p">;</span>
 

@@ -5,6 +5,7 @@ Level: none
 ED: https://w3c.github.io/motion-sensors/
 Shortname: motion-sensors
 TR: https://www.w3.org/TR/motion-sensors/
+Previous Version: https://www.w3.org/TR/2017/NOTE-motion-sensors-20170511/
 Editor: Kenneth Rohde Christiansen 57705, Intel Corporation, https://intel.com/
 Editor: Alexander Shalamov 78335, Intel Corporation, http://intel.com/
 Group: dap
