@@ -140,6 +140,39 @@ spec:generic-sensor-1;
         "href": "https://www.w3.org/TR/orientation-sensor/",
         "title": "Orientation Sensor",
         "publisher": "W3C"
+    },
+    "3DSCANNING": {
+        "authors": [
+            "Grivon, Daniel, Enrico Vezzetti, and Maria Grazia Violante"
+        ],
+        "id": "3DSCANNING",
+        "href": "http://porto.polito.it/2511714/",
+        "title": "Development of an innovative low-cost MARG sensors alignment and distortion compensation methodology for 3D scanning applications",
+        "date": "2013",
+        "status": "Informational",
+        "publisher": "Elsevier"
+    },
+    "PHYSMON": {
+        "authors": [
+            "Yang, Che-Chang, and Yeh-Liang Hsu"
+        ],
+        "id": "PHYSMON",
+        "href": "http://www.mdpi.com/1424-8220/10/8/7772/html",
+        "title": "A Review of Accelerometry-Based Wearable Motion Detectors for Physical Activity Monitoring",
+        "date": "2010",
+        "status": "Informational",
+        "publisher": "MDPI"
+    },
+    "MEMSGESTURES": {
+        "authors": [
+            "Xu, Ruize, Shengli Zhou, and Wen J. Li"
+        ],
+        "id": "MEMSGESTURES",
+        "href": "http://ieeexplore.ieee.org/abstract/document/6009159/",
+        "title": "MEMS Accelerometer Based Nonspecific-User Hand Gesture Recognition",
+        "date": "2012",
+        "status": "Informational",
+        "publisher": "IEEE"
     }
 }
 </pre>
@@ -629,10 +662,13 @@ for particular application.
 
 Motion sensors can be used for variety of advanced use-cases, such as:
 
-- Virtual reality HMD tracking [[HMDTRACKING]]
-- Sensor assisted indoor navigation [[INDOORNAV]], [[IPIN]]
+- Virtual and augmented reality HMD tracking [[HMDTRACKING]]
+- Sensor assisted indoor mapping and navigation [[INDOORNAV]], [[IPIN]]
 - Photo and video capture stabilization [[ROLLSTABILIZER]], [[VIDEOSTABILIZER]]
 - Games that require high-frequency sampling rates with high accuracy readings.
+- 3D scanning [[3DSCANNING]]
+- Advanced gesture recognition [[MEMSGESTURES]]
+- Step counting and monitoring of other physical activities [[PHYSMON]]
 
 The generic requirement for games or UI applications that use motion sensors is to have a new
 sensor reading per rendered frame. The higher sampling rates in this case, will reduce latency,
