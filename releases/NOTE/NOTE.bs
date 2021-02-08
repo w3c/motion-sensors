@@ -371,6 +371,10 @@ table, th, td {
   </thead>
   <tbody>
     <tr>
+      <td>[=Relative Orientation Sensor=]</td>
+      <td>[=Accelerometer=], [=Gyroscope=], MUST NOT USE [=Magnetometer=]</td>
+    </tr>
+    <tr>
       <td>[=Absolute Orientation Sensor=]</td>
       <td>[=Accelerometer=], [=Magnetometer=], AND (when present) [=Gyroscope=]</td>
     </tr>
@@ -387,12 +391,6 @@ table, th, td {
       <td>[=Accelerometer=], AND EITHER [=Gyroscope=] OR [=Magnetometer=]</td>
     </tr>
   </tbody>
-  <tfoot>
-    <tr>
-      <td>[=Relative Orientation Sensor=]</td>
-      <td>[=Accelerometer=], [=Gyroscope=], MUST NOT USE [=Magnetometer=]</td>
-    </tr>
-  </tfoot>
 </table>
 
 ## Low and high pass filters ## {#pass-filters}
