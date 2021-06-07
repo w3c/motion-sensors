@@ -646,9 +646,9 @@ The [=LinearAccelerationSensor interface=] and [=GravitySensor interface=] are d
 <div class="example">
   The following example implements a [=GravitySensor=] polyfill. It shows the complexity of extracting the [=gravity=] value from
   the [=Accelerometer interface=] and [=LinearAccelerationSensor interface=], in case both sensors are hardware-based sensors.
-  In case there is no hardware-based [=LinearAccelerationSensor=], the web engine will implement some fusion logic based on
+  In case there is no hardware-based [=LinearAccelerationSensor=], the user agent needs to implement some fusion logic based on
   the [=Accelerometer=] value and provide a less accurate value. In the example, a simplification shortcut has been made
-  to listen only to [=accelerometer=] events and not to both sensors' events.
+  to only listen to [=accelerometer=] events and not to both sensors' events.
     <pre highlight="js">
       class GravitySensor extends EventTarget {
         #accelerometer = new Accelerometer();
@@ -701,7 +701,7 @@ Motion sensors can be used for variety of advanced use-cases, such as:
 - Sensor assisted indoor mapping and navigation [[INDOORNAV]], [[IPIN]]
 - Photo and video capture stabilization [[ROLLSTABILIZER]], [[VIDEOSTABILIZER]]
 - Games that require high-frequency sampling rates with high accuracy readings.
-- Many casual games which do not use touch input but use instead sensor value, such as gravity:
+- Many casual games which do not use touch input but instead use sensor value, such as gravity:
     - Steering a rolling ball through a maze (either tilting the maze, or changing the ball's direction)
     - Turn a vehicle by tilting the device left and right through traffic.
     - Creating a "spirit-level" balance game where you have to balance objects by adjusting the device to change the gravity reading.

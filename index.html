@@ -573,7 +573,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Motion Sensors Explainer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-06-04">4 June 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-06-07">7 June 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -999,12 +999,12 @@ hubs thus isolate <i><a data-link-type="dfn" href="https://w3c.github.io/acceler
    <p><a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity②⑦">Gravity</a> can also be removed from a <a data-link-type="dfn" href="#linear-acceleration-sensor" id="ref-for-linear-acceleration-sensor②">linear acceleration sensor</a> using a <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers⑨">magnetometer</a>,
 as the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field" id="ref-for-magnetic-field⑧">magnetic field</a> vector is more or less stable.</p>
    <p>The <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#linearaccelerationsensor-interface" id="ref-for-linearaccelerationsensor-interface">LinearAccelerationSensor interface</a> and <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravitysensor-interface" id="ref-for-gravitysensor-interface">GravitySensor interface</a> are defined in <a data-link-type="biblio" href="#biblio-accelerometer">[ACCELEROMETER]</a> specification.</p>
-   <div class="example" id="example-2401aa89">
-    <a class="self-link" href="#example-2401aa89"></a> The following example implements a <a data-link-type="dfn">GravitySensor</a> polyfill. It shows the complexity of extracting the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity②⑧">gravity</a> value from
+   <div class="example" id="example-bd1f66c4">
+    <a class="self-link" href="#example-bd1f66c4"></a> The following example implements a <a data-link-type="dfn">GravitySensor</a> polyfill. It shows the complexity of extracting the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity②⑧">gravity</a> value from
   the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#accelerometer-interface" id="ref-for-accelerometer-interface①">Accelerometer interface</a> and <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#linearaccelerationsensor-interface" id="ref-for-linearaccelerationsensor-interface①">LinearAccelerationSensor interface</a>, in case both sensors are hardware-based sensors.
-  In case there is no hardware-based <a data-link-type="dfn">LinearAccelerationSensor</a>, the web engine will implement some fusion logic based on
+  In case there is no hardware-based <a data-link-type="dfn">LinearAccelerationSensor</a>, the user agent needs to implement some fusion logic based on
   the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer②③">Accelerometer</a> value and provide a less accurate value. In the example, a simplification shortcut has been made
-  to listen only to <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer②④">accelerometer</a> events and not to both sensors' events. 
+  to only listen to <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer②④">accelerometer</a> events and not to both sensors' events. 
 <pre class="highlight">  <c- a>class</c-> GravitySensor <c- k>extends</c-> EventTarget <c- p>{</c->
     #accelerometer <c- o>=</c-> <c- k>new</c-> Accelerometer<c- p>();</c->
     #linearAccelerationSensor <c- o>=</c-> <c- k>new</c-> LinearAcceleration<c- p>();</c->
@@ -1056,7 +1056,7 @@ for particular application.</p>
     <li data-md>
      <p>Games that require high-frequency sampling rates with high accuracy readings.</p>
     <li data-md>
-     <p>Many casual games which do not use touch input but use instead sensor value, such as gravity:</p>
+     <p>Many casual games which do not use touch input but instead use sensor value, such as gravity:</p>
      <ul>
       <li data-md>
        <p>Steering a rolling ball through a maze (either tilting the maze, or changing the ball’s direction)</p>
