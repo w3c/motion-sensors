@@ -56,15 +56,6 @@ urlPrefix: https://w3c.github.io/orientation-sensor; spec: ORIENTATION-SENSOR
     text: absoluteorientationsensor interface
 </pre>
 
-<pre class="link-defaults">
-spec:infra;
-  type:dfn;
-    text:list
-spec:generic-sensor-1;
-  type:enum-value;
-    text:"activated"
-</pre>
-
 <pre class=biblio>
 {
     "QUATERNIONS": {
@@ -644,15 +635,15 @@ The [=LinearAccelerationSensor interface=] and [=GravitySensor interface=] are d
 [[ACCELEROMETER]] specification.
 
 <div class="example">
-  The following example implements a [=GravitySensor=] polyfill. It shows the complexity of extracting the [=gravity=] value from
+  The following example implements a {{GravitySensor}} polyfill. It shows the complexity of extracting the [=gravity=] value from
   the [=Accelerometer interface=] and [=LinearAccelerationSensor interface=], in case both sensors are hardware-based sensors.
-  In case there is no hardware-based [=LinearAccelerationSensor=], the user agent needs to implement some fusion logic based on
+  In case there is no hardware-based [=Linear Acceleration Sensor=], the user agent needs to implement some fusion logic based on
   the [=Accelerometer=] value and provide a less accurate value. In the example, a simplification shortcut has been made
   to only listen to [=accelerometer=] events and not to both sensors' events.
     <pre highlight="js">
       class GravitySensor extends EventTarget {
         #accelerometer = new Accelerometer();
-        #linearAccelerationSensor = new LinearAcceleration();
+        #linearAccelerationSensor = new LinearAccelerationSensor();
         x = 0;
         y = 0;
         z = 0;
