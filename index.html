@@ -4,8 +4,8 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Motion Sensors Explainer</title>
   <meta content="ED" name="w3c-status">
-  <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED" rel="stylesheet" type="text/css">
-  <meta content="Bikeshed version 800b43329, updated Tue May 25 14:13:32 2021 -0700" name="generator">
+  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
+  <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://www.w3.org/TR/motion-sensors/" rel="canonical">
 <style>
 table {
@@ -17,8 +17,7 @@ table, th, td {
   border: 1px solid black;
 }
 </style>
-<style>/* style-autolinks */
-
+<style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
     font-size: inherit;
@@ -78,8 +77,17 @@ pre .property::before, pre .property::after {
 
 [data-link-type=biblio] {
     white-space: pre;
-}</style>
-<style>/* style-colors */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --selflink-text: black;
+        --selflink-bg: silver;
+        --selflink-hover-text: white;
+    }
+}
+</style>
+<style>/* Boilerplate: style-colors */
 
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
 :root {
@@ -187,199 +195,7 @@ pre .property::before, pre .property::after {
     --outdated-shadow: red;
 
     --editedrec-bg: darkorange;
-}</style>
-<style>/* style-counters */
-
-body {
-    counter-reset: example figure issue;
 }
-.issue {
-    counter-increment: issue;
-}
-.issue:not(.no-marker)::before {
-    content: "Issue " counter(issue);
-}
-
-.example {
-    counter-increment: example;
-}
-.example:not(.no-marker)::before {
-    content: "Example " counter(example);
-}
-.invalid.example:not(.no-marker)::before,
-.illegal.example:not(.no-marker)::before {
-    content: "Invalid Example" counter(example);
-}
-
-figcaption {
-    counter-increment: figure;
-}
-figcaption:not(.no-marker)::before {
-    content: "Figure " counter(figure) " ";
-}</style>
-<style>/* style-dfn-panel */
-
-:root {
-    --dfnpanel-bg: #ddd;
-    --dfnpanel-text: var(--text);
-}
-.dfn-panel {
-    position: absolute;
-    z-index: 35;
-    height: auto;
-    width: -webkit-fit-content;
-    width: fit-content;
-    max-width: 300px;
-    max-height: 500px;
-    overflow: auto;
-    padding: 0.5em 0.75em;
-    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-    background: var(--dfnpanel-bg);
-    color: var(--dfnpanel-text);
-    border: outset 0.2em;
-}
-.dfn-panel:not(.on) { display: none; }
-.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
-.dfn-panel > b { display: block; }
-.dfn-panel a { color: var(--dfnpanel-text); }
-.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
-.dfn-panel > b + b { margin-top: 0.25em; }
-.dfn-panel ul { padding: 0; }
-.dfn-panel li { list-style: inside; }
-.dfn-panel.activated {
-    display: inline-block;
-    position: fixed;
-    left: .5em;
-    bottom: 2em;
-    margin: 0 auto;
-    max-width: calc(100vw - 1.5em - .4em - .5em);
-    max-height: 30vh;
-}
-
-.dfn-paneled { cursor: pointer; }
-</style>
-<style>/* style-md-lists */
-
-/* This is a weird hack for me not yet following the commonmark spec
-   regarding paragraph and lists. */
-[data-md] > :first-child {
-    margin-top: 0;
-}
-[data-md] > :last-child {
-    margin-bottom: 0;
-}</style>
-<style>/* style-selflinks */
-
-:root {
-    --selflink-text: white;
-    --selflink-bg: gray;
-    --selflink-hover-text: black;
-}
-.heading, .issue, .note, .example, li, dt {
-    position: relative;
-}
-a.self-link {
-    position: absolute;
-    top: 0;
-    left: calc(-1 * (3.5rem - 26px));
-    width: calc(3.5rem - 26px);
-    height: 2em;
-    text-align: center;
-    border: none;
-    transition: opacity .2s;
-    opacity: .5;
-}
-a.self-link:hover {
-    opacity: 1;
-}
-.heading > a.self-link {
-    font-size: 83%;
-}
-li > a.self-link {
-    left: calc(-1 * (3.5rem - 26px) - 2em);
-}
-dfn > a.self-link {
-    top: auto;
-    left: auto;
-    opacity: 0;
-    width: 1.5em;
-    height: 1.5em;
-    background: var(--selflink-bg);
-    color: var(--selflink-text);
-    font-style: normal;
-    transition: opacity .2s, background-color .2s, color .2s;
-}
-dfn:hover > a.self-link {
-    opacity: 1;
-}
-dfn > a.self-link:hover {
-    color: var(--selflink-hover-text);
-}
-
-a.self-link::before            { content: "¶"; }
-.heading > a.self-link::before { content: "§"; }
-dfn > a.self-link::before      { content: "#"; }
-</style>
-<style>/* style-syntax-highlighting */
-
-code.highlight { padding: .1em; border-radius: .3em; }
-pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-
-.highlight:not(.idl) { background: rgba(0, 0, 0, .03); }
-c-[a] { color: #990055 } /* Keyword.Declaration */
-c-[b] { color: #990055 } /* Keyword.Type */
-c-[c] { color: #708090 } /* Comment */
-c-[d] { color: #708090 } /* Comment.Multiline */
-c-[e] { color: #0077aa } /* Name.Attribute */
-c-[f] { color: #669900 } /* Name.Tag */
-c-[g] { color: #222222 } /* Name.Variable */
-c-[k] { color: #990055 } /* Keyword */
-c-[l] { color: #000000 } /* Literal */
-c-[m] { color: #000000 } /* Literal.Number */
-c-[n] { color: #0077aa } /* Name */
-c-[o] { color: #999999 } /* Operator */
-c-[p] { color: #999999 } /* Punctuation */
-c-[s] { color: #a67f59 } /* Literal.String */
-c-[t] { color: #a67f59 } /* Literal.String.Single */
-c-[u] { color: #a67f59 } /* Literal.String.Double */
-c-[cp] { color: #708090 } /* Comment.Preproc */
-c-[c1] { color: #708090 } /* Comment.Single */
-c-[cs] { color: #708090 } /* Comment.Special */
-c-[kc] { color: #990055 } /* Keyword.Constant */
-c-[kn] { color: #990055 } /* Keyword.Namespace */
-c-[kp] { color: #990055 } /* Keyword.Pseudo */
-c-[kr] { color: #990055 } /* Keyword.Reserved */
-c-[ld] { color: #000000 } /* Literal.Date */
-c-[nc] { color: #0077aa } /* Name.Class */
-c-[no] { color: #0077aa } /* Name.Constant */
-c-[nd] { color: #0077aa } /* Name.Decorator */
-c-[ni] { color: #0077aa } /* Name.Entity */
-c-[ne] { color: #0077aa } /* Name.Exception */
-c-[nf] { color: #0077aa } /* Name.Function */
-c-[nl] { color: #0077aa } /* Name.Label */
-c-[nn] { color: #0077aa } /* Name.Namespace */
-c-[py] { color: #0077aa } /* Name.Property */
-c-[ow] { color: #999999 } /* Operator.Word */
-c-[mb] { color: #000000 } /* Literal.Number.Bin */
-c-[mf] { color: #000000 } /* Literal.Number.Float */
-c-[mh] { color: #000000 } /* Literal.Number.Hex */
-c-[mi] { color: #000000 } /* Literal.Number.Integer */
-c-[mo] { color: #000000 } /* Literal.Number.Oct */
-c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
-c-[sc] { color: #a67f59 } /* Literal.String.Char */
-c-[sd] { color: #a67f59 } /* Literal.String.Doc */
-c-[se] { color: #a67f59 } /* Literal.String.Escape */
-c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
-c-[si] { color: #a67f59 } /* Literal.String.Interpol */
-c-[sx] { color: #a67f59 } /* Literal.String.Other */
-c-[sr] { color: #a67f59 } /* Literal.String.Regex */
-c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
-c-[vc] { color: #0077aa } /* Name.Variable.Class */
-c-[vg] { color: #0077aa } /* Name.Variable.Global */
-c-[vi] { color: #0077aa } /* Name.Variable.Instance */
-c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
-</style>
-<style>/* style-darkmode */
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -492,20 +308,281 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        which is quite common in practice... */
     img { background: white; }
 }
-@media (prefers-color-scheme: dark) {
-    :root {
-        --selflink-text: black;
-        --selflink-bg: silver;
-        --selflink-hover-text: white;
-    }
+</style>
+<style>/* Boilerplate: style-counters */
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
 }
 
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}
+</style>
+<style>/* Boilerplate: style-dfn-panel */
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
 @media (prefers-color-scheme: dark) {
     :root {
         --dfnpanel-bg: #222;
         --dfnpanel-text: var(--text);
     }
 }
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0 0 0 1em; list-style: none; }
+.dfn-panel li a {
+    white-space: pre;
+    display: inline-block;
+    max-width: calc(300px - 1.5em - 1em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled[role="button"] { cursor: pointer; }
+</style>
+<style>/* Boilerplate: style-dfn-panel */
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dfnpanel-bg: #222;
+        --dfnpanel-text: var(--text);
+    }
+}
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0 0 0 1em; list-style: none; }
+.dfn-panel li a {
+    white-space: pre;
+    display: inline-block;
+    max-width: calc(300px - 1.5em - 1em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled[role="button"] { cursor: pointer; }
+</style>
+<style>/* Boilerplate: style-issues */
+a[href].issue-return {
+    float: right;
+    float: inline-end;
+    color: var(--issueheading-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+<style>/* Boilerplate: style-md-lists */
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}
+</style>
+<style>/* Boilerplate: style-selflinks */
+
+:root {
+    --selflink-text: white;
+    --selflink-bg: gray;
+    --selflink-hover-text: black;
+}
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+.example > a.self-link,
+.note > a.self-link,
+.issue > a.self-link {
+    /* These blocks are overflow:auto, so positioning outside
+       doesn't work. */
+    left: auto;
+    right: 0;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--selflink-bg);
+    color: var(--selflink-text);
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: var(--selflink-hover-text);
+}
+
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }
+</style>
+<style>/* Boilerplate: style-syntax-highlighting */
+
+code.highlight { padding: .1em; border-radius: .3em; }
+pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+
+.highlight:not(.idl) { background: rgba(0, 0, 0, .03); }
+c-[a] { color: #990055 } /* Keyword.Declaration */
+c-[b] { color: #990055 } /* Keyword.Type */
+c-[c] { color: #708090 } /* Comment */
+c-[d] { color: #708090 } /* Comment.Multiline */
+c-[e] { color: #0077aa } /* Name.Attribute */
+c-[f] { color: #669900 } /* Name.Tag */
+c-[g] { color: #222222 } /* Name.Variable */
+c-[k] { color: #990055 } /* Keyword */
+c-[l] { color: #000000 } /* Literal */
+c-[m] { color: #000000 } /* Literal.Number */
+c-[n] { color: #0077aa } /* Name */
+c-[o] { color: #999999 } /* Operator */
+c-[p] { color: #999999 } /* Punctuation */
+c-[s] { color: #a67f59 } /* Literal.String */
+c-[t] { color: #a67f59 } /* Literal.String.Single */
+c-[u] { color: #a67f59 } /* Literal.String.Double */
+c-[cp] { color: #708090 } /* Comment.Preproc */
+c-[c1] { color: #708090 } /* Comment.Single */
+c-[cs] { color: #708090 } /* Comment.Special */
+c-[kc] { color: #990055 } /* Keyword.Constant */
+c-[kn] { color: #990055 } /* Keyword.Namespace */
+c-[kp] { color: #990055 } /* Keyword.Pseudo */
+c-[kr] { color: #990055 } /* Keyword.Reserved */
+c-[ld] { color: #000000 } /* Literal.Date */
+c-[nc] { color: #0077aa } /* Name.Class */
+c-[no] { color: #0077aa } /* Name.Constant */
+c-[nd] { color: #0077aa } /* Name.Decorator */
+c-[ni] { color: #0077aa } /* Name.Entity */
+c-[ne] { color: #0077aa } /* Name.Exception */
+c-[nf] { color: #0077aa } /* Name.Function */
+c-[nl] { color: #0077aa } /* Name.Label */
+c-[nn] { color: #0077aa } /* Name.Namespace */
+c-[py] { color: #0077aa } /* Name.Property */
+c-[ow] { color: #999999 } /* Operator.Word */
+c-[mb] { color: #000000 } /* Literal.Number.Bin */
+c-[mf] { color: #000000 } /* Literal.Number.Float */
+c-[mh] { color: #000000 } /* Literal.Number.Hex */
+c-[mi] { color: #000000 } /* Literal.Number.Integer */
+c-[mo] { color: #000000 } /* Literal.Number.Oct */
+c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
+c-[sc] { color: #a67f59 } /* Literal.String.Char */
+c-[sd] { color: #a67f59 } /* Literal.String.Doc */
+c-[se] { color: #a67f59 } /* Literal.String.Escape */
+c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
+c-[si] { color: #a67f59 } /* Literal.String.Interpol */
+c-[sx] { color: #a67f59 } /* Literal.String.Other */
+c-[sr] { color: #a67f59 } /* Literal.String.Regex */
+c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
+c-[vc] { color: #0077aa } /* Name.Variable.Class */
+c-[vg] { color: #0077aa } /* Name.Variable.Global */
+c-[vi] { color: #0077aa } /* Name.Variable.Instance */
+c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
+
+
 @media (prefers-color-scheme: dark) {
     .highlight:not(.idl) { background: rgba(255, 255, 255, .05); }
 
@@ -571,32 +648,35 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 </style>
  <body class="h-entry">
   <div class="head">
-   <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
+   <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Motion Sensors Explainer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-06-07">7 June 2021</time></span></h2>
-   <div data-fill-with="spec-metadata">
-    <dl>
-     <dt>This version:
-     <dd><a class="u-url" href="https://w3c.github.io/motion-sensors/">https://w3c.github.io/motion-sensors/</a>
-     <dt>Latest published version:
-     <dd><a href="https://www.w3.org/TR/motion-sensors/">https://www.w3.org/TR/motion-sensors/</a>
-     <dt>Previous Versions:
-     <dd><a href="https://www.w3.org/TR/2017/NOTE-motion-sensors-20170511/" rel="prev">https://www.w3.org/TR/2017/NOTE-motion-sensors-20170511/</a>
-     <dt>Version History:
-     <dd><a href="https://github.com/w3c/motion-sensors/commits/gh-pages/index.bs">https://github.com/w3c/motion-sensors/commits/gh-pages/index.bs</a>
-     <dt>Feedback:
-     <dd><span><a href="mailto:public-device-apis@w3.org?subject=%5Bmotion-sensors%5D%20YOUR%20TOPIC%20HERE">public-device-apis@w3.org</a> with subject line “<kbd>[motion-sensors] <i data-lt>… message topic …</i></kbd>” (<a href="https://lists.w3.org/Archives/Public/public-device-apis/" rel="discussion">archives</a>)</span>
-     <dt>Issue Tracking:
-     <dd><a href="https://github.com/w3c/motion-sensors/issues/">GitHub</a>
-     <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard" data-editor-id="57705"><a class="p-name fn u-url url" href="https://intel.com/">Kenneth Rohde Christiansen</a> (<span class="p-org org">Intel Corporation</span>)
-     <dd class="editor p-author h-card vcard" data-editor-id="78335"><a class="p-name fn u-url url" href="http://intel.com/">Alexander Shalamov</a> (<span class="p-org org">Intel Corporation</span>)
-     <dt>Bug Reports:
-     <dd><a href="https://www.github.com/w3c/motion-sensors/issues/new">via the w3c/motion-sensors repository on GitHub</a>
-    </dl>
-   </div>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-11-02">2 November 2023</time></p>
+   <details open>
+    <summary>More details about this document</summary>
+    <div data-fill-with="spec-metadata">
+     <dl>
+      <dt>This version:
+      <dd><a class="u-url" href="https://w3c.github.io/motion-sensors/">https://w3c.github.io/motion-sensors/</a>
+      <dt>Latest published version:
+      <dd><a href="https://www.w3.org/TR/motion-sensors/">https://www.w3.org/TR/motion-sensors/</a>
+      <dt>Previous Versions:
+      <dd><a href="https://www.w3.org/TR/2017/NOTE-motion-sensors-20170511/" rel="prev">https://www.w3.org/TR/2017/NOTE-motion-sensors-20170511/</a>
+      <dt>Version History:
+      <dd><a href="https://github.com/w3c/motion-sensors/commits/gh-pages/index.bs">https://github.com/w3c/motion-sensors/commits/gh-pages/index.bs</a>
+      <dt>Feedback:
+      <dd><span><a href="mailto:public-device-apis@w3.org?subject=%5Bmotion-sensors%5D%20YOUR%20TOPIC%20HERE">public-device-apis@w3.org</a> with subject line “<kbd>[motion-sensors] <i data-lt>… message topic …</i></kbd>” (<a href="https://lists.w3.org/Archives/Public/public-device-apis/" rel="discussion">archives</a>)</span>
+      <dd><a href="https://github.com/w3c/motion-sensors/issues/">GitHub</a>
+      <dt class="editor">Editor:
+      <dd class="editor p-author h-card vcard" data-editor-id="57705"><a class="p-name fn u-url url" href="https://intel.com/">Kenneth Rohde Christiansen</a> (<span class="p-org org">Intel Corporation</span>)
+      <dt class="editor">Former Editor:
+      <dd class="editor p-author h-card vcard" data-editor-id="78335"><a class="p-name fn u-url url" href="http://intel.com/">Alexander Shalamov</a> (<span class="p-org org">Intel Corporation</span>)
+      <dt>Bug Reports:
+      <dd><a href="https://www.github.com/w3c/motion-sensors/issues/new">via the w3c/motion-sensors repository on GitHub</a>
+     </dl>
+    </div>
+   </details>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2021 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2023 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/copyright-software" rel="license" title="W3C Software and Document License">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
@@ -619,13 +699,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	preferably like this:
 	“[motion-sensors] <em>…summary of comment…</em>”.
 	All comments are welcome. </p>
-   <p> This document was produced by the <a href="https://www.w3.org/das/">Devices and Sensors Working Group</a>. </p>
+   <p> This document was produced by the <a href="https://www.w3.org/groups/wg/das">Devices and Sensors Working Group</a>. </p>
    <p> This document was produced by a group operating under
-	the <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/">W3C Patent Policy</a>.
-	W3C maintains a <a href="https://www.w3.org/2004/01/pp-impl/43696/status" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
+	the <a href="https://www.w3.org/Consortium/Patent-Policy/">W3C Patent Policy</a>.
+	W3C maintains a <a href="https://www.w3.org/groups/wg/das/ipr" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
 	that page also includes instructions for disclosing a patent.
 	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
-   <p> This document is governed by the <a href="https://www.w3.org/2020/Process-20200915/" id="w3c_process_revision">15 September 2020 W3C Process Document</a>. </p>
+   <p> This document is governed by the <a href="https://www.w3.org/2023/Process-20230612/" id="w3c_process_revision">12 June 2023 W3C Process Document</a>. </p>
    <p></p>
   </div>
   <div data-fill-with="at-risk"></div>
@@ -679,7 +759,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p>There are a handful of different motion sensors available in modern hardware such
 as phones.</p>
-   <p>The motion sensors extends the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> to expose
+   <p>The motion sensors extends the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a> to expose
 a class of low-level and fusion sensors. This document explains the relationship
 between these sensors.</p>
    <p>The low-level sensors include:</p>
@@ -695,11 +775,11 @@ between these sensors.</p>
 in different ways. These are commonly known as fusion sensors.</p>
    <h2 class="heading settled" data-level="2" id="security-and-privacy"><span class="secno">2. </span><span class="content">Security and Privacy Considerations</span><a class="self-link" href="#security-and-privacy"></a></h2>
    <p>There are no specific security and privacy considerations
-beyond those described in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a>.</p>
+beyond those described in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a>.</p>
    <h2 class="heading settled" data-level="3" id="low-level-sensors"><span class="secno">3. </span><span class="content">Low-level Sensors</span><a class="self-link" href="#low-level-sensors"></a></h2>
    <h3 class="heading settled" data-level="3.1" id="accelerometer-sensor"><span class="secno">3.1. </span><span class="content">Accelerometer</span><a class="self-link" href="#accelerometer-sensor"></a></h3>
    <p>A raw <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accelerometer">accelerometer</dfn> sensor measures changes in acceleration in 3 different
-directions, but is affected by <i><a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity">gravity</a></i>. The <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#accelerometer-interface" id="ref-for-accelerometer-interface">Accelerometer interface</a> is defined in <a data-link-type="biblio" href="#biblio-accelerometer">[ACCELEROMETER]</a> specification.</p>
+directions, but is affected by <i><a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity">gravity</a></i>. The <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#accelerometer-interface" id="ref-for-accelerometer-interface">Accelerometer interface</a> is defined in <a data-link-type="biblio" href="#biblio-accelerometer" title="Accelerometer">[ACCELEROMETER]</a> specification.</p>
    <p>The <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer①">Accelerometer</a> sensor is an <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="inertial-frame-sensor">inertial-frame sensor</dfn>, this means that when the device
 is in free fall, the acceleration is 0 m/s<sup>2</sup> in the falling direction, and
 when a device is laying flat on a table, the acceleration in upwards direction will be equal
@@ -728,7 +808,7 @@ acceptable.</p>
 using an inertial force called the Coriolis effect. Gyroscopes oscillate at relative high frequency in
 order to measure this and are thus one of the most power hungry motion sensors. This also means
 that they can easily be affected by other vibrations, like a vibration (rumble) motor or speaker
-on the same device. The <a data-link-type="dfn" href="https://w3c.github.io/gyroscope#gyroscope-interface" id="ref-for-gyroscope-interface">Gyroscope interface</a> is defined in <a data-link-type="biblio" href="#biblio-gyroscope">[GYROSCOPE]</a> specification.</p>
+on the same device. The <a data-link-type="dfn" href="https://w3c.github.io/gyroscope#gyroscope-interface" id="ref-for-gyroscope-interface">Gyroscope interface</a> is defined in <a data-link-type="biblio" href="#biblio-gyroscope" title="Gyroscope">[GYROSCOPE]</a> specification.</p>
    <p>In order to get rotation (angle) from a gyroscope, which senses <a data-link-type="dfn" href="https://w3c.github.io/gyroscope#angular-velocity" id="ref-for-angular-velocity①">angular velocity</a>, you need to
 perform a single integration.</p>
    <p>f ≡ frequency</p>
@@ -745,7 +825,7 @@ meaning the gyroscope will drift over time.</p>
    <h3 class="heading settled" data-level="3.3" id="magnetometer-sensor"><span class="secno">3.3. </span><span class="content">Magnetometer</span><a class="self-link" href="#magnetometer-sensor"></a></h3>
    <p><dfn class="dfn-paneled" data-dfn-for="magnetometer" data-dfn-type="dfn" data-noexport id="magnetometer-magnetometers">Magnetometers</dfn> are <i><a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field" id="ref-for-magnetic-field">magnetic field</a> sensors</i>, which means that without
 any strong magnetic influence close by, it will sense the Earth’s <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field" id="ref-for-magnetic-field①">magnetic field</a>, which more or less points
-in the direction of North, but not true North. The <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetometer-interface" id="ref-for-magnetometer-interface">Magnetometer interface</a> is defined in <a data-link-type="biblio" href="#biblio-magnetometer">[MAGNETOMETER]</a> specification.</p>
+in the direction of North, but not true North. The <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetometer-interface" id="ref-for-magnetometer-interface">Magnetometer interface</a> is defined in <a data-link-type="biblio" href="#biblio-magnetometer" title="Magnetometer">[MAGNETOMETER]</a> specification.</p>
    <p>As said, magnetometers are very sensitive to outside influence, like anything on a table that
 has been slightly magnetized, and it is even affected by other things inside a device, though
 the device manufacturer can compensate for this somewhat. In practise though, these sensors
@@ -808,7 +888,7 @@ solution introduces a delay in registering the actual events.</p>
    <div class="example" id="example-f3515ccc">
     <a class="self-link" href="#example-f3515ccc"></a> 
 <pre class="highlight"><c- a>class</c-> LowPassFilterData <c- p>{</c->
-  constructor<c- p>(</c->reading<c- p>,</c-> bias<c- p>)</c-> <c- p>{</c->
+  <c- kr>constructor</c-><c- p>(</c->reading<c- p>,</c-> bias<c- p>)</c-> <c- p>{</c->
     Object<c- p>.</c->assign<c- p>(</c-><c- k>this</c-><c- p>,</c-> <c- p>{</c-> x<c- o>:</c-> reading<c- p>.</c->x<c- p>,</c-> y<c- o>:</c-> reading<c- p>.</c->y<c- p>,</c-> z<c- o>:</c-> reading<c- p>.</c->z <c- p>});</c->
     <c- k>this</c-><c- p>.</c->bias <c- o>=</c-> bias<c- p>;</c->
   <c- p>}</c->
@@ -820,10 +900,10 @@ solution introduces a delay in registering the actual events.</p>
   <c- p>}</c->
 <c- p>};</c->
 
-<c- a>const</c-> accl <c- o>=</c-> <c- k>new</c-> Accelerometer<c- p>({</c-> frequency<c- o>:</c-> <c- mf>20</c-> <c- p>});</c->
+<c- a>const</c-> accl <c- o>=</c-> <c- ow>new</c-> Accelerometer<c- p>({</c-> frequency<c- o>:</c-> <c- mf>20</c-> <c- p>});</c->
               
 <c- c1>// Isolate gravity with low-pass filter.</c->
-<c- a>const</c-> filter <c- o>=</c-> <c- k>new</c-> LowPassFilterData<c- p>(</c->accl<c- p>,</c-> <c- mf>0.8</c-><c- p>);</c->
+<c- a>const</c-> filter <c- o>=</c-> <c- ow>new</c-> LowPassFilterData<c- p>(</c->accl<c- p>,</c-> <c- mf>0.8</c-><c- p>);</c->
 
 accl<c- p>.</c->onreading <c- o>=</c-> <c- p>()</c-> <c- p>=></c-> <c- p>{</c->
   filter<c- p>.</c->update<c- p>(</c->accl<c- p>);</c-> <c- c1>// Pass latest values through filter.</c->
@@ -840,7 +920,7 @@ with <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope⑥">gyrosco
    <div class="example" id="example-ab2bf684">
     <a class="self-link" href="#example-ab2bf684"></a> 
 <pre class="highlight"><c- a>class</c-> HighPassFilterData <c- p>{</c->
-  constructor<c- p>(</c->reading<c- p>,</c-> cutoffFrequency<c- p>)</c-> <c- p>{</c->
+  <c- kr>constructor</c-><c- p>(</c->reading<c- p>,</c-> cutoffFrequency<c- p>)</c-> <c- p>{</c->
     Object<c- p>.</c->assign<c- p>(</c-><c- k>this</c-><c- p>,</c-> <c- p>{</c-> x<c- o>:</c-> reading<c- p>.</c->x<c- p>,</c-> y<c- o>:</c-> reading<c- p>.</c->y<c- p>,</c-> z<c- o>:</c-> reading<c- p>.</c->z <c- p>});</c->
     <c- k>this</c-><c- p>.</c->cutoff <c- o>=</c-> cutoffFrequency<c- p>;</c->
     <c- k>this</c-><c- p>.</c->timestamp <c- o>=</c-> reading<c- p>.</c->timestamp<c- p>;</c->
@@ -857,10 +937,10 @@ with <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscope⑥">gyrosco
   <c- p>}</c->
 <c- p>};</c->
 
-<c- a>const</c-> gyro <c- o>=</c-> <c- k>new</c-> Gyroscope<c- p>({</c-> frequency<c- o>:</c-> <c- mf>20</c-> <c- p>});</c->
+<c- a>const</c-> gyro <c- o>=</c-> <c- ow>new</c-> Gyroscope<c- p>({</c-> frequency<c- o>:</c-> <c- mf>20</c-> <c- p>});</c->
               
 <c- c1>// Remove drift with a  high pass filter.</c->
-<c- a>const</c-> filter <c- o>=</c-> <c- k>new</c-> HighPassFilterData<c- p>(</c->gyro<c- p>,</c-> <c- mf>0.8</c-><c- p>);</c->
+<c- a>const</c-> filter <c- o>=</c-> <c- ow>new</c-> HighPassFilterData<c- p>(</c->gyro<c- p>,</c-> <c- mf>0.8</c-><c- p>);</c->
 
 gyro<c- p>.</c->onreading <c- o>=</c-> <c- p>()</c-> <c- p>=></c-> <c- p>{</c->
   filter<c- p>.</c->update<c- p>(</c->gyro<c- p>);</c-> <c- c1>// Pass latest values through filter.</c->
@@ -872,7 +952,7 @@ gyro<c- p>.</c->start<c- p>();</c->
    </div>
    <h3 class="heading settled" data-level="4.3" id="absolute-orientation"><span class="secno">4.3. </span><span class="content">Absolute Orientation Sensor</span><a class="self-link" href="#absolute-orientation"></a></h3>
    <p>As mentioned before, the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="absolute-orientation-sensor">Absolute Orientation Sensor</dfn>, is one of the common use-cases of a <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers⑤">magnetometer</a>, and is a sensor representing an orientation stationary (fixed to the magnetic
-field vector and <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity①⓪">gravity</a> vector) to the Earth plane. The <a data-link-type="dfn" href="https://w3c.github.io/orientation-sensor#absoluteorientationsensor-interface" id="ref-for-absoluteorientationsensor-interface">AbsoluteOrientationSensor interface</a> is defined in <a data-link-type="biblio" href="#biblio-orientation-sensor">[ORIENTATION-SENSOR]</a> specification.</p>
+field vector and <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity①⓪">gravity</a> vector) to the Earth plane. The <a data-link-type="dfn" href="https://w3c.github.io/orientation-sensor#absoluteorientationsensor-interface" id="ref-for-absoluteorientationsensor-interface">AbsoluteOrientationSensor interface</a> is defined in <a data-link-type="biblio" href="#biblio-orientation-sensor" title="Orientation Sensor">[ORIENTATION-SENSOR]</a> specification.</p>
    <p>An absolute orientation sensor can be useful for game controls such as a ball-in-a-maze puzzle, or
 for a head-mounted display where you want to be able to rotate the display and look in all
 directions.</p>
@@ -884,7 +964,7 @@ even slightly or slowly, without affecting your driving direction.
    <p>As the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer⑦">Accelerometer</a> is an <a data-link-type="dfn" href="#inertial-frame-sensor" id="ref-for-inertial-frame-sensor">inertial-frame sensor</a>, the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity①①">gravity</a> vector will point
 towards the sky when the device is mostly stationary, and as long as the device is not in free fall,
 there is enough vector length to project the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field" id="ref-for-magnetic-field③">magnetic field</a> vector onto the ground plane.</p>
-   <p class="note" role="note"><span>Note,</span> this will fail at the magnetic poles as the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field" id="ref-for-magnetic-field④">magnetic field</a> vector will point mostly in
+   <p class="note" role="note"><span class="marker">Note,</span> this will fail at the magnetic poles as the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field" id="ref-for-magnetic-field④">magnetic field</a> vector will point mostly in
 the opposite direction as the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity①②">gravity</a> vector and generally be very unreliable.</p>
    <p>By taking the cross product between the the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field" id="ref-for-magnetic-field⑤">magnetic field</a> vector and <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity①③">gravity</a> vector
 (see <a data-link-type="dfn" href="#gravity-sensor" id="ref-for-gravity-sensor②">Gravity Sensor</a>), we get a vector which points East on the ground plane, using the right hand rule.</p>
@@ -941,8 +1021,8 @@ velocity</a> from <a data-link-type="dfn" href="#gyroscope" id="ref-for-gyroscop
   the device position at start this a <i>device-relative orientation sensor</i>.</p>
 <pre class="highlight"><c- a>const</c-> options <c- o>=</c-> <c- p>{</c-> frequency<c- o>:</c-> <c- mf>50</c-> <c- p>};</c->
 
-<c- a>const</c-> accl <c- o>=</c-> <c- k>new</c-> Accelerometer<c- p>(</c->options<c- p>);</c->
-<c- a>const</c-> gyro <c- o>=</c-> <c- k>new</c-> Gyroscope<c- p>(</c->options<c- p>);</c->
+<c- a>const</c-> accl <c- o>=</c-> <c- ow>new</c-> Accelerometer<c- p>(</c->options<c- p>);</c->
+<c- a>const</c-> gyro <c- o>=</c-> <c- ow>new</c-> Gyroscope<c- p>(</c->options<c- p>);</c->
 
 <c- a>let</c-> timestamp <c- o>=</c-> <c- kc>null</c-><c- p>;</c->
 <c- a>let</c-> alpha <c- o>=</c-> beta <c- o>=</c-> gamma <c- o>=</c-> <c- mf>0</c-><c- p>;</c->
@@ -998,7 +1078,7 @@ hubs thus isolate <i><a data-link-type="dfn" href="https://w3c.github.io/acceler
    <p>This also means that the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="linear-acceleration-sensor">Linear Acceleration Sensor</dfn> and the <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="gravity-sensor">Gravity Sensor</dfn> as exposed by most sensor hubs are most likely fusion sensors.</p>
    <p><a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity②⑦">Gravity</a> can also be removed from a <a data-link-type="dfn" href="#linear-acceleration-sensor" id="ref-for-linear-acceleration-sensor②">linear acceleration sensor</a> using a <a data-link-type="dfn" href="#magnetometer-magnetometers" id="ref-for-magnetometer-magnetometers⑨">magnetometer</a>,
 as the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic-field" id="ref-for-magnetic-field⑧">magnetic field</a> vector is more or less stable.</p>
-   <p>The <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#linearaccelerationsensor-interface" id="ref-for-linearaccelerationsensor-interface">LinearAccelerationSensor interface</a> and <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravitysensor-interface" id="ref-for-gravitysensor-interface">GravitySensor interface</a> are defined in <a data-link-type="biblio" href="#biblio-accelerometer">[ACCELEROMETER]</a> specification.</p>
+   <p>The <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#linearaccelerationsensor-interface" id="ref-for-linearaccelerationsensor-interface">LinearAccelerationSensor interface</a> and <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravitysensor-interface" id="ref-for-gravitysensor-interface">GravitySensor interface</a> are defined in <a data-link-type="biblio" href="#biblio-accelerometer" title="Accelerometer">[ACCELEROMETER]</a> specification.</p>
    <div class="example" id="example-bd1f66c4">
     <a class="self-link" href="#example-bd1f66c4"></a> The following example implements a <a data-link-type="dfn">GravitySensor</a> polyfill. It shows the complexity of extracting the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity②⑧">gravity</a> value from
   the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#accelerometer-interface" id="ref-for-accelerometer-interface①">Accelerometer interface</a> and <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#linearaccelerationsensor-interface" id="ref-for-linearaccelerationsensor-interface①">LinearAccelerationSensor interface</a>, in case both sensors are hardware-based sensors.
@@ -1006,8 +1086,8 @@ as the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic
   the <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer②③">Accelerometer</a> value and provide a less accurate value. In the example, a simplification shortcut has been made
   to only listen to <a data-link-type="dfn" href="#accelerometer" id="ref-for-accelerometer②④">accelerometer</a> events and not to both sensors' events. 
 <pre class="highlight">  <c- a>class</c-> GravitySensor <c- k>extends</c-> EventTarget <c- p>{</c->
-    #accelerometer <c- o>=</c-> <c- k>new</c-> Accelerometer<c- p>();</c->
-    #linearAccelerationSensor <c- o>=</c-> <c- k>new</c-> LinearAcceleration<c- p>();</c->
+    #accelerometer <c- o>=</c-> <c- ow>new</c-> Accelerometer<c- p>();</c->
+    #linearAccelerationSensor <c- o>=</c-> <c- ow>new</c-> LinearAcceleration<c- p>();</c->
     x <c- o>=</c-> <c- mf>0</c-><c- p>;</c->
     y <c- o>=</c-> <c- mf>0</c-><c- p>;</c->
     z <c- o>=</c-> <c- mf>0</c-><c- p>;</c->
@@ -1017,7 +1097,7 @@ as the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic
       <c- k>this</c-><c- p>.</c->x <c- o>=</c-> <c- k>this</c-><c- p>.</c->#accelerometer<c- p>.</c->x <c- o>-</c-> <c- k>this</c-><c- p>.</c->#linearAccelerationSensor<c- p>.</c->x<c- p>;</c->
       <c- k>this</c-><c- p>.</c->y <c- o>=</c-> <c- k>this</c-><c- p>.</c->#accelerometer<c- p>.</c->y <c- o>-</c-> <c- k>this</c-><c- p>.</c->#linearAccelerationSensor<c- p>.</c->y<c- p>;</c->
       <c- k>this</c-><c- p>.</c->z <c- o>=</c-> <c- k>this</c-><c- p>.</c->#accelerometer<c- p>.</c->z <c- o>-</c-> <c- k>this</c-><c- p>.</c->#linearAccelerationSensor<c- p>.</c->z<c- p>;</c->
-      <c- a>const</c-> event <c- o>=</c-> <c- k>new</c-> Event<c- p>(</c-><c- u>"reading"</c-><c- p>);</c->
+      <c- a>const</c-> event <c- o>=</c-> <c- ow>new</c-> Event<c- p>(</c-><c- u>"reading"</c-><c- p>);</c->
       <c- k>this</c-><c- p>.</c->dispatchEvent<c- p>(</c->event<c- p>);</c->
       <c- k>this</c-><c- p>.</c->onreading<c- o>?</c-><c- p>.(</c->event<c- p>);</c->
     <c- p>}</c->
@@ -1033,12 +1113,12 @@ as the <a data-link-type="dfn" href="https://w3c.github.io/magnetometer#magnetic
     <c- p>}</c->
 <c- p>}</c->
 
-g <c- o>=</c-> <c- k>new</c-> GravitySensor<c- p>();</c->
+g <c- o>=</c-> <c- ow>new</c-> GravitySensor<c- p>();</c->
 g<c- p>.</c->onreading <c- o>=</c-> <c- p>()</c-> <c- p>=></c-> console<c- p>.</c->log<c- p>(</c->g<c- p>.</c->x<c- p>,</c-> g<c- p>.</c->y<c- p>,</c-> g<c- p>.</c->z<c- p>);</c->
 g<c- p>.</c->start<c- p>();</c->
 </pre>
    </div>
-   <p class="note" role="note"><span>Note,</span> as the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity②⑨">gravity</a> changes with the frequency of the movements, i.e., 0 in falling direction
+   <p class="note" role="note"><span class="marker">Note,</span> as the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#gravity" id="ref-for-gravity②⑨">gravity</a> changes with the frequency of the movements, i.e., 0 in falling direction
 in free fall, you can imagine that <a data-link-type="dfn" href="https://w3c.github.io/accelerometer#linear-acceleration" id="ref-for-linear-acceleration④">linear acceleration</a> will be quite imprecise if you are
 trying to detect a shake, so keep that in mind.</p>
    <h3 class="heading settled" data-level="4.7" id="usecases-and-requirements"><span class="secno">4.7. </span><span class="content">Use Cases and Requirements</span><a class="self-link" href="#usecases-and-requirements"></a></h3>
@@ -1048,11 +1128,11 @@ for particular application.</p>
    <p>Motion sensors can be used for variety of advanced use-cases, such as:</p>
    <ul>
     <li data-md>
-     <p>Virtual and augmented reality HMD tracking <a data-link-type="biblio" href="#biblio-hmdtracking">[HMDTRACKING]</a></p>
+     <p>Virtual and augmented reality HMD tracking <a data-link-type="biblio" href="#biblio-hmdtracking" title="Head tracking for the Oculus Rift">[HMDTRACKING]</a></p>
     <li data-md>
-     <p>Sensor assisted indoor mapping and navigation <a data-link-type="biblio" href="#biblio-indoornav">[INDOORNAV]</a>, <a data-link-type="biblio" href="#biblio-ipin">[IPIN]</a></p>
+     <p>Sensor assisted indoor mapping and navigation <a data-link-type="biblio" href="#biblio-indoornav" title="Indoor positioning using sensor-fusion in android devices">[INDOORNAV]</a>, <a data-link-type="biblio" href="#biblio-ipin" title="Indoor positioning system based on sensor fusion for the blind and visually impaired">[IPIN]</a></p>
     <li data-md>
-     <p>Photo and video capture stabilization <a data-link-type="biblio" href="#biblio-rollstabilizer">[ROLLSTABILIZER]</a>, <a data-link-type="biblio" href="#biblio-videostabilizer">[VIDEOSTABILIZER]</a></p>
+     <p>Photo and video capture stabilization <a data-link-type="biblio" href="#biblio-rollstabilizer" title="Digital video stabilization and rolling shutter correction using gyroscopes">[ROLLSTABILIZER]</a>, <a data-link-type="biblio" href="#biblio-videostabilizer" title="Stabilizing cell phone video using inertial measurement sensors">[VIDEOSTABILIZER]</a></p>
     <li data-md>
      <p>Games that require high-frequency sampling rates with high accuracy readings.</p>
     <li data-md>
@@ -1068,11 +1148,11 @@ for particular application.</p>
        <p>Observing changes in the gravity sensor reading can indicate a swing motion of the device for a golf game</p>
      </ul>
     <li data-md>
-     <p>3D scanning <a data-link-type="biblio" href="#biblio-3dscanning">[3DSCANNING]</a></p>
+     <p>3D scanning <a data-link-type="biblio" href="#biblio-3dscanning" title="Development of an innovative low-cost MARG sensors alignment and distortion compensation methodology for 3D scanning applications">[3DSCANNING]</a></p>
     <li data-md>
-     <p>Advanced gesture recognition <a data-link-type="biblio" href="#biblio-memsgestures">[MEMSGESTURES]</a></p>
+     <p>Advanced gesture recognition <a data-link-type="biblio" href="#biblio-memsgestures" title="MEMS Accelerometer Based Nonspecific-User Hand Gesture Recognition">[MEMSGESTURES]</a></p>
     <li data-md>
-     <p>Step counting and monitoring of other physical activities <a data-link-type="biblio" href="#biblio-physmon">[PHYSMON]</a></p>
+     <p>Step counting and monitoring of other physical activities <a data-link-type="biblio" href="#biblio-physmon" title="A Review of Accelerometry-Based Wearable Motion Detectors for Physical Activity Monitoring">[PHYSMON]</a></p>
    </ul>
    <p>The generic requirement for games or UI applications that use motion sensors is to have a new
 sensor reading per rendered frame. The higher sampling rates in this case, will reduce latency,
@@ -1084,333 +1164,618 @@ for every rendered frame at refresh rates of 75-120Hz.</p>
 collecting high accuracy sensor readings at high sampling rates (80-100Hz), so that data
 processing algorithms have enough samples to provide accurate results.</p>
   </main>
-<script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script>
+<script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#absolute-orientation-sensor">Absolute Orientation Sensor</a><span>, in §4.3</span>
-   <li><a href="#accelerometer">accelerometer</a><span>, in §3.1</span>
-   <li><a href="#complementary-filter">complementary filter</a><span>, in §4.5.1</span>
-   <li><a href="#geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</a><span>, in §4.4</span>
-   <li><a href="#gravity-sensor">Gravity Sensor</a><span>, in §4.6</span>
-   <li><a href="#gyroscope">gyroscope</a><span>, in §3.2</span>
-   <li><a href="#high-pass-filter">High-pass filter</a><span>, in §4.2.2</span>
-   <li><a href="#inertial-frame-sensor">inertial-frame sensor</a><span>, in §3.1</span>
-   <li><a href="#linear-acceleration-sensor">Linear Acceleration Sensor</a><span>, in §4.6</span>
-   <li><a href="#low-pass-filter">low-pass filter</a><span>, in §4.2.1</span>
-   <li><a href="#magnetometer-magnetometers">Magnetometers</a><span>, in §3.3</span>
-   <li><a href="#relative-orientation-sensor">Relative Orientation Sensor</a><span>, in §4.5</span>
-   <li><a href="#tilt-compensation">tilt compensation</a><span>, in §3.3</span>
+   <li><a href="#absolute-orientation-sensor">Absolute Orientation Sensor</a><span>, in § 4.3</span>
+   <li><a href="#accelerometer">accelerometer</a><span>, in § 3.1</span>
+   <li><a href="#complementary-filter">complementary filter</a><span>, in § 4.5.1</span>
+   <li><a href="#geomagnetic-orientation-sensor">Geomagnetic Orientation Sensor</a><span>, in § 4.4</span>
+   <li><a href="#gravity-sensor">Gravity Sensor</a><span>, in § 4.6</span>
+   <li><a href="#gyroscope">gyroscope</a><span>, in § 3.2</span>
+   <li><a href="#high-pass-filter">High-pass filter</a><span>, in § 4.2.2</span>
+   <li><a href="#inertial-frame-sensor">inertial-frame sensor</a><span>, in § 3.1</span>
+   <li><a href="#linear-acceleration-sensor">Linear Acceleration Sensor</a><span>, in § 4.6</span>
+   <li><a href="#low-pass-filter">low-pass filter</a><span>, in § 4.2.1</span>
+   <li><a href="#magnetometer-magnetometers">Magnetometers</a><span>, in § 3.3</span>
+   <li><a href="#relative-orientation-sensor">Relative Orientation Sensor</a><span>, in § 4.5</span>
+   <li><a href="#tilt-compensation">tilt compensation</a><span>, in § 3.3</span>
   </ul>
-  <aside class="dfn-panel" data-for="term-for-acceleration">
-   <a href="https://w3c.github.io/accelerometer#acceleration">https://w3c.github.io/accelerometer#acceleration</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-acceleration">4.3. Absolute Orientation Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-accelerometer-interface">
-   <a href="https://w3c.github.io/accelerometer#accelerometer-interface">https://w3c.github.io/accelerometer#accelerometer-interface</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-accelerometer-interface">3.1. Accelerometer</a>
-    <li><a href="#ref-for-accelerometer-interface①">4.6. Gravity and Linear Acceleration Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-gravity">
-   <a href="https://w3c.github.io/accelerometer#gravity">https://w3c.github.io/accelerometer#gravity</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-gravity">3.1. Accelerometer</a> <a href="#ref-for-gravity①">(2)</a> <a href="#ref-for-gravity②">(3)</a> <a href="#ref-for-gravity③">(4)</a> <a href="#ref-for-gravity④">(5)</a> <a href="#ref-for-gravity⑤">(6)</a> <a href="#ref-for-gravity⑥">(7)</a> <a href="#ref-for-gravity⑦">(8)</a>
-    <li><a href="#ref-for-gravity⑧">3.3. Magnetometer</a> <a href="#ref-for-gravity⑨">(2)</a>
-    <li><a href="#ref-for-gravity①⓪">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-gravity①①">(2)</a> <a href="#ref-for-gravity①②">(3)</a> <a href="#ref-for-gravity①③">(4)</a> <a href="#ref-for-gravity①④">(5)</a> <a href="#ref-for-gravity①⑤">(6)</a> <a href="#ref-for-gravity①⑥">(7)</a>
-    <li><a href="#ref-for-gravity①⑦">4.4. Geomagnetic Orientation Sensor</a> <a href="#ref-for-gravity①⑧">(2)</a>
-    <li><a href="#ref-for-gravity①⑨">4.5. Relative Orientation Sensor</a> <a href="#ref-for-gravity②⓪">(2)</a>
-    <li><a href="#ref-for-gravity②①">4.5.1. Complementary filter</a> <a href="#ref-for-gravity②②">(2)</a> <a href="#ref-for-gravity②③">(3)</a>
-    <li><a href="#ref-for-gravity②④">4.6. Gravity and Linear Acceleration Sensor</a> <a href="#ref-for-gravity②⑤">(2)</a> <a href="#ref-for-gravity②⑥">(3)</a> <a href="#ref-for-gravity②⑦">(4)</a> <a href="#ref-for-gravity②⑧">(5)</a> <a href="#ref-for-gravity②⑨">(6)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-gravitysensor-interface">
-   <a href="https://w3c.github.io/accelerometer#gravitysensor-interface">https://w3c.github.io/accelerometer#gravitysensor-interface</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-gravitysensor-interface">4.6. Gravity and Linear Acceleration Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-linear-acceleration">
-   <a href="https://w3c.github.io/accelerometer#linear-acceleration">https://w3c.github.io/accelerometer#linear-acceleration</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-linear-acceleration">3.1. Accelerometer</a> <a href="#ref-for-linear-acceleration①">(2)</a>
-    <li><a href="#ref-for-linear-acceleration②">4.5. Relative Orientation Sensor</a>
-    <li><a href="#ref-for-linear-acceleration③">4.6. Gravity and Linear Acceleration Sensor</a> <a href="#ref-for-linear-acceleration④">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-linearaccelerationsensor-interface">
-   <a href="https://w3c.github.io/accelerometer#linearaccelerationsensor-interface">https://w3c.github.io/accelerometer#linearaccelerationsensor-interface</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-linearaccelerationsensor-interface">4.6. Gravity and Linear Acceleration Sensor</a> <a href="#ref-for-linearaccelerationsensor-interface①">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-calibration">
-   <a href="https://w3c.github.io/sensors#calibration">https://w3c.github.io/sensors#calibration</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-calibration">3.2. Gyroscope</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-angular-velocity">
-   <a href="https://w3c.github.io/gyroscope#angular-velocity">https://w3c.github.io/gyroscope#angular-velocity</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-angular-velocity">3.2. Gyroscope</a> <a href="#ref-for-angular-velocity①">(2)</a> <a href="#ref-for-angular-velocity②">(3)</a>
-    <li><a href="#ref-for-angular-velocity③">4. High-level Sensors</a>
-    <li><a href="#ref-for-angular-velocity④">4.5.1. Complementary filter</a> <a href="#ref-for-angular-velocity⑤">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-gyroscope-interface">
-   <a href="https://w3c.github.io/gyroscope#gyroscope-interface">https://w3c.github.io/gyroscope#gyroscope-interface</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-gyroscope-interface">3.2. Gyroscope</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-magnetic-field">
-   <a href="https://w3c.github.io/magnetometer#magnetic-field">https://w3c.github.io/magnetometer#magnetic-field</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-magnetic-field">3.3. Magnetometer</a> <a href="#ref-for-magnetic-field①">(2)</a> <a href="#ref-for-magnetic-field②">(3)</a>
-    <li><a href="#ref-for-magnetic-field③">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-magnetic-field④">(2)</a> <a href="#ref-for-magnetic-field⑤">(3)</a> <a href="#ref-for-magnetic-field⑥">(4)</a> <a href="#ref-for-magnetic-field⑦">(5)</a>
-    <li><a href="#ref-for-magnetic-field⑧">4.6. Gravity and Linear Acceleration Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-magnetometer-interface">
-   <a href="https://w3c.github.io/magnetometer#magnetometer-interface">https://w3c.github.io/magnetometer#magnetometer-interface</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-magnetometer-interface">3.3. Magnetometer</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-absoluteorientationsensor-interface">
-   <a href="https://w3c.github.io/orientation-sensor#absoluteorientationsensor-interface">https://w3c.github.io/orientation-sensor#absoluteorientationsensor-interface</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-absoluteorientationsensor-interface">4.3. Absolute Orientation Sensor</a>
-   </ul>
-  </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
     <a data-link-type="biblio">[ACCELEROMETER]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-acceleration">acceleration</span>
-     <li><span class="dfn-paneled" id="term-for-accelerometer-interface">accelerometer interface</span>
-     <li><span class="dfn-paneled" id="term-for-gravity">gravity</span>
-     <li><span class="dfn-paneled" id="term-for-gravitysensor-interface">gravitysensor interface</span>
-     <li><span class="dfn-paneled" id="term-for-linear-acceleration">linear acceleration</span>
-     <li><span class="dfn-paneled" id="term-for-linearaccelerationsensor-interface">linearaccelerationsensor interface</span>
+     <li><span class="dfn-paneled" id="95f495ac">acceleration</span>
+     <li><span class="dfn-paneled" id="0f6f1720">accelerometer interface</span>
+     <li><span class="dfn-paneled" id="71940125">gravity</span>
+     <li><span class="dfn-paneled" id="7bbb090d">gravitysensor interface</span>
+     <li><span class="dfn-paneled" id="40650566">linear acceleration</span>
+     <li><span class="dfn-paneled" id="61f605ab">linearaccelerationsensor interface</span>
     </ul>
    <li>
     <a data-link-type="biblio">[GENERIC-SENSOR]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-calibration">calibration</span>
+     <li><span class="dfn-paneled" id="3586cb68">calibration</span>
     </ul>
    <li>
     <a data-link-type="biblio">[GYROSCOPE]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-angular-velocity">angular velocity</span>
-     <li><span class="dfn-paneled" id="term-for-gyroscope-interface">gyroscope interface</span>
+     <li><span class="dfn-paneled" id="24bb0f9e">angular velocity</span>
+     <li><span class="dfn-paneled" id="4fe17af5">gyroscope interface</span>
     </ul>
    <li>
     <a data-link-type="biblio">[MAGNETOMETER]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-magnetic-field">magnetic field</span>
-     <li><span class="dfn-paneled" id="term-for-magnetometer-interface">magnetometer interface</span>
+     <li><span class="dfn-paneled" id="84d9dd12">magnetic field</span>
+     <li><span class="dfn-paneled" id="9c6c688b">magnetometer interface</span>
     </ul>
    <li>
     <a data-link-type="biblio">[ORIENTATION-SENSOR]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-absoluteorientationsensor-interface">absoluteorientationsensor interface</span>
+     <li><span class="dfn-paneled" id="64411963">absoluteorientationsensor interface</span>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-accelerometer">[ACCELEROMETER]
-   <dd>Anssi Kostiainen. <a href="https://www.w3.org/TR/accelerometer/">Accelerometer</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/accelerometer/">https://www.w3.org/TR/accelerometer/</a>
+   <dd>Anssi Kostiainen. <a href="https://w3c.github.io/accelerometer/"><cite>Accelerometer</cite></a>. URL: <a href="https://w3c.github.io/accelerometer/">https://w3c.github.io/accelerometer/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
-   <dd>Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
+   <dd>Rick Waldron. <a href="https://w3c.github.io/sensors/"><cite>Generic Sensor API</cite></a>. URL: <a href="https://w3c.github.io/sensors/">https://w3c.github.io/sensors/</a>
    <dt id="biblio-gyroscope">[GYROSCOPE]
-   <dd>Anssi Kostiainen. <a href="https://www.w3.org/TR/gyroscope/">Gyroscope</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/gyroscope/">https://www.w3.org/TR/gyroscope/</a>
+   <dd>Anssi Kostiainen. <a href="https://w3c.github.io/gyroscope/"><cite>Gyroscope</cite></a>. URL: <a href="https://w3c.github.io/gyroscope/">https://w3c.github.io/gyroscope/</a>
    <dt id="biblio-magnetometer">[MAGNETOMETER]
-   <dd>Anssi Kostiainen; Rijubrata Bhaumik. <a href="https://www.w3.org/TR/magnetometer/">Magnetometer</a>. 7 March 2019. WD. URL: <a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
+   <dd>Anssi Kostiainen; Rijubrata Bhaumik. <a href="https://w3c.github.io/magnetometer/"><cite>Magnetometer</cite></a>. URL: <a href="https://w3c.github.io/magnetometer/">https://w3c.github.io/magnetometer/</a>
    <dt id="biblio-orientation-sensor">[ORIENTATION-SENSOR]
-   <dd>Mikhail Pozdnyakov; Alexander Shalamov; Kenneth Rohde Christiansen; Anssi Kostiainen. <a href="https://www.w3.org/TR/orientation-sensor/">Orientation Sensor</a>. URL: <a href="https://www.w3.org/TR/orientation-sensor/">https://www.w3.org/TR/orientation-sensor/</a>
+   <dd>Mikhail Pozdnyakov; Alexander Shalamov; Kenneth Rohde Christiansen; Anssi Kostiainen. <a href="https://www.w3.org/TR/orientation-sensor/"><cite>Orientation Sensor</cite></a>. URL: <a href="https://www.w3.org/TR/orientation-sensor/">https://www.w3.org/TR/orientation-sensor/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-3dscanning">[3DSCANNING]
-   <dd>Grivon, Daniel, Enrico Vezzetti, and Maria Grazia Violante. <a href="http://porto.polito.it/2511714/">Development of an innovative low-cost MARG sensors alignment and distortion compensation methodology for 3D scanning applications</a>. 2013. Informational. URL: <a href="http://porto.polito.it/2511714/">http://porto.polito.it/2511714/</a>
+   <dd>Grivon, Daniel, Enrico Vezzetti, and Maria Grazia Violante. <a href="http://porto.polito.it/2511714/"><cite>Development of an innovative low-cost MARG sensors alignment and distortion compensation methodology for 3D scanning applications</cite></a>. 2013. Informational. URL: <a href="http://porto.polito.it/2511714/">http://porto.polito.it/2511714/</a>
    <dt id="biblio-hmdtracking">[HMDTRACKING]
-   <dd>LaValle, Steven M., et al.. <a href="http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf">Head tracking for the Oculus Rift</a>. 2014. Informational. URL: <a href="http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf">http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf</a>
+   <dd>LaValle, Steven M., et al.. <a href="http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf"><cite>Head tracking for the Oculus Rift</cite></a>. 2014. Informational. URL: <a href="http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf">http://msl.cs.illinois.edu/~lavalle/papers/LavYerKatAnt14.pdf</a>
    <dt id="biblio-indoornav">[INDOORNAV]
-   <dd>Shala, Ubejd, and Angel Rodriguez. <a href="http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050">Indoor positioning using sensor-fusion in android devices</a>. 2011. Informational. URL: <a href="http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050">http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050</a>
+   <dd>Shala, Ubejd, and Angel Rodriguez. <a href="http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050"><cite>Indoor positioning using sensor-fusion in android devices</cite></a>. 2011. Informational. URL: <a href="http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050">http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A475619&amp;dswid=9050</a>
    <dt id="biblio-ipin">[IPIN]
-   <dd>Gallagher, Thomas, et al.. <a href="http://ieeexplore.ieee.org/abstract/document/6418882/">Indoor positioning system based on sensor fusion for the blind and visually impaired</a>. 2012. Informational. URL: <a href="http://ieeexplore.ieee.org/abstract/document/6418882/">http://ieeexplore.ieee.org/abstract/document/6418882/</a>
+   <dd>Gallagher, Thomas, et al.. <a href="http://ieeexplore.ieee.org/abstract/document/6418882/"><cite>Indoor positioning system based on sensor fusion for the blind and visually impaired</cite></a>. 2012. Informational. URL: <a href="http://ieeexplore.ieee.org/abstract/document/6418882/">http://ieeexplore.ieee.org/abstract/document/6418882/</a>
    <dt id="biblio-memsgestures">[MEMSGESTURES]
-   <dd>Xu, Ruize, Shengli Zhou, and Wen J. Li. <a href="http://ieeexplore.ieee.org/abstract/document/6009159/">MEMS Accelerometer Based Nonspecific-User Hand Gesture Recognition</a>. 2012. Informational. URL: <a href="http://ieeexplore.ieee.org/abstract/document/6009159/">http://ieeexplore.ieee.org/abstract/document/6009159/</a>
+   <dd>Xu, Ruize, Shengli Zhou, and Wen J. Li. <a href="http://ieeexplore.ieee.org/abstract/document/6009159/"><cite>MEMS Accelerometer Based Nonspecific-User Hand Gesture Recognition</cite></a>. 2012. Informational. URL: <a href="http://ieeexplore.ieee.org/abstract/document/6009159/">http://ieeexplore.ieee.org/abstract/document/6009159/</a>
    <dt id="biblio-physmon">[PHYSMON]
-   <dd>Yang, Che-Chang, and Yeh-Liang Hsu. <a href="http://www.mdpi.com/1424-8220/10/8/7772/html">A Review of Accelerometry-Based Wearable Motion Detectors for Physical Activity Monitoring</a>. 2010. Informational. URL: <a href="http://www.mdpi.com/1424-8220/10/8/7772/html">http://www.mdpi.com/1424-8220/10/8/7772/html</a>
+   <dd>Yang, Che-Chang, and Yeh-Liang Hsu. <a href="http://www.mdpi.com/1424-8220/10/8/7772/html"><cite>A Review of Accelerometry-Based Wearable Motion Detectors for Physical Activity Monitoring</cite></a>. 2010. Informational. URL: <a href="http://www.mdpi.com/1424-8220/10/8/7772/html">http://www.mdpi.com/1424-8220/10/8/7772/html</a>
    <dt id="biblio-rollstabilizer">[ROLLSTABILIZER]
-   <dd>Karpenko, Alexandre, et al.. <a href="http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf">Digital video stabilization and rolling shutter correction using gyroscopes</a>. 2011. Informational. URL: <a href="http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf">http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf</a>
+   <dd>Karpenko, Alexandre, et al.. <a href="http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf"><cite>Digital video stabilization and rolling shutter correction using gyroscopes</cite></a>. 2011. Informational. URL: <a href="http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf">http://movement.stanford.edu/papers/stabilization/karpenko_gyro.pdf</a>
    <dt id="biblio-videostabilizer">[VIDEOSTABILIZER]
-   <dd>Hanning, Gustav, et al.. <a href="http://ieeexplore.ieee.org/abstract/document/6130215/">Stabilizing cell phone video using inertial measurement sensors</a>. 2011. Informational. URL: <a href="http://ieeexplore.ieee.org/abstract/document/6130215/">http://ieeexplore.ieee.org/abstract/document/6130215/</a>
+   <dd>Hanning, Gustav, et al.. <a href="http://ieeexplore.ieee.org/abstract/document/6130215/"><cite>Stabilizing cell phone video using inertial measurement sensors</cite></a>. 2011. Informational. URL: <a href="http://ieeexplore.ieee.org/abstract/document/6130215/">http://ieeexplore.ieee.org/abstract/document/6130215/</a>
   </dl>
-  <aside class="dfn-panel" data-for="accelerometer">
-   <b><a href="#accelerometer">#accelerometer</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-accelerometer">1. Introduction</a>
-    <li><a href="#ref-for-accelerometer①">3.1. Accelerometer</a>
-    <li><a href="#ref-for-accelerometer②">4.1. Common fusion sensors</a> <a href="#ref-for-accelerometer③">(2)</a> <a href="#ref-for-accelerometer④">(3)</a> <a href="#ref-for-accelerometer⑤">(4)</a> <a href="#ref-for-accelerometer⑥">(5)</a>
-    <li><a href="#ref-for-accelerometer⑦">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-accelerometer⑧">(2)</a> <a href="#ref-for-accelerometer⑨">(3)</a>
-    <li><a href="#ref-for-accelerometer①⓪">4.4. Geomagnetic Orientation Sensor</a> <a href="#ref-for-accelerometer①①">(2)</a>
-    <li><a href="#ref-for-accelerometer①②">4.5. Relative Orientation Sensor</a> <a href="#ref-for-accelerometer①③">(2)</a>
-    <li><a href="#ref-for-accelerometer①④">4.5.1. Complementary filter</a> <a href="#ref-for-accelerometer①⑤">(2)</a> <a href="#ref-for-accelerometer①⑥">(3)</a> <a href="#ref-for-accelerometer①⑦">(4)</a> <a href="#ref-for-accelerometer①⑧">(5)</a> <a href="#ref-for-accelerometer①⑨">(6)</a> <a href="#ref-for-accelerometer②⓪">(7)</a>
-    <li><a href="#ref-for-accelerometer②①">4.6. Gravity and Linear Acceleration Sensor</a> <a href="#ref-for-accelerometer②②">(2)</a> <a href="#ref-for-accelerometer②③">(3)</a> <a href="#ref-for-accelerometer②④">(4)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="inertial-frame-sensor">
-   <b><a href="#inertial-frame-sensor">#inertial-frame-sensor</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-inertial-frame-sensor">4.3. Absolute Orientation Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="gyroscope">
-   <b><a href="#gyroscope">#gyroscope</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-gyroscope">1. Introduction</a>
-    <li><a href="#ref-for-gyroscope①">4.1. Common fusion sensors</a> <a href="#ref-for-gyroscope②">(2)</a> <a href="#ref-for-gyroscope③">(3)</a> <a href="#ref-for-gyroscope④">(4)</a> <a href="#ref-for-gyroscope⑤">(5)</a>
-    <li><a href="#ref-for-gyroscope⑥">4.2.2. High-pass filter</a>
-    <li><a href="#ref-for-gyroscope⑦">4.3. Absolute Orientation Sensor</a>
-    <li><a href="#ref-for-gyroscope⑧">4.4. Geomagnetic Orientation Sensor</a>
-    <li><a href="#ref-for-gyroscope⑨">4.5. Relative Orientation Sensor</a>
-    <li><a href="#ref-for-gyroscope①⓪">4.5.1. Complementary filter</a> <a href="#ref-for-gyroscope①①">(2)</a> <a href="#ref-for-gyroscope①②">(3)</a> <a href="#ref-for-gyroscope①③">(4)</a> <a href="#ref-for-gyroscope①④">(5)</a> <a href="#ref-for-gyroscope①⑤">(6)</a> <a href="#ref-for-gyroscope①⑥">(7)</a>
-    <li><a href="#ref-for-gyroscope①⑦">4.6. Gravity and Linear Acceleration Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="magnetometer-magnetometers">
-   <b><a href="#magnetometer-magnetometers">#magnetometer-magnetometers</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-magnetometer-magnetometers">1. Introduction</a>
-    <li><a href="#ref-for-magnetometer-magnetometers①">4.1. Common fusion sensors</a> <a href="#ref-for-magnetometer-magnetometers②">(2)</a> <a href="#ref-for-magnetometer-magnetometers③">(3)</a> <a href="#ref-for-magnetometer-magnetometers④">(4)</a>
-    <li><a href="#ref-for-magnetometer-magnetometers⑤">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-magnetometer-magnetometers⑥">(2)</a> <a href="#ref-for-magnetometer-magnetometers⑦">(3)</a>
-    <li><a href="#ref-for-magnetometer-magnetometers⑧">4.4. Geomagnetic Orientation Sensor</a>
-    <li><a href="#ref-for-magnetometer-magnetometers⑨">4.6. Gravity and Linear Acceleration Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="low-pass-filter">
-   <b><a href="#low-pass-filter">#low-pass-filter</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-low-pass-filter">3.1. Accelerometer</a> <a href="#ref-for-low-pass-filter①">(2)</a> <a href="#ref-for-low-pass-filter②">(3)</a>
-    <li><a href="#ref-for-low-pass-filter③">4.2.2. High-pass filter</a>
-    <li><a href="#ref-for-low-pass-filter④">4.5.1. Complementary filter</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="high-pass-filter">
-   <b><a href="#high-pass-filter">#high-pass-filter</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-high-pass-filter">3.1. Accelerometer</a> <a href="#ref-for-high-pass-filter①">(2)</a>
-    <li><a href="#ref-for-high-pass-filter②">4.5.1. Complementary filter</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="absolute-orientation-sensor">
-   <b><a href="#absolute-orientation-sensor">#absolute-orientation-sensor</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-absolute-orientation-sensor">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-absolute-orientation-sensor①">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-absolute-orientation-sensor②">(2)</a>
-    <li><a href="#ref-for-absolute-orientation-sensor③">4.4. Geomagnetic Orientation Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="geomagnetic-orientation-sensor">
-   <b><a href="#geomagnetic-orientation-sensor">#geomagnetic-orientation-sensor</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-geomagnetic-orientation-sensor">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-geomagnetic-orientation-sensor①">4.4. Geomagnetic Orientation Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="relative-orientation-sensor">
-   <b><a href="#relative-orientation-sensor">#relative-orientation-sensor</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-relative-orientation-sensor">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-relative-orientation-sensor①">4.3. Absolute Orientation Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="complementary-filter">
-   <b><a href="#complementary-filter">#complementary-filter</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-complementary-filter">4.5. Relative Orientation Sensor</a> <a href="#ref-for-complementary-filter①">(2)</a>
-    <li><a href="#ref-for-complementary-filter②">4.5.1. Complementary filter</a>
-    <li><a href="#ref-for-complementary-filter③">4.6. Gravity and Linear Acceleration Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="linear-acceleration-sensor">
-   <b><a href="#linear-acceleration-sensor">#linear-acceleration-sensor</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-linear-acceleration-sensor">3.1. Accelerometer</a>
-    <li><a href="#ref-for-linear-acceleration-sensor①">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-linear-acceleration-sensor②">4.6. Gravity and Linear Acceleration Sensor</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="gravity-sensor">
-   <b><a href="#gravity-sensor">#gravity-sensor</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-gravity-sensor">3.1. Accelerometer</a>
-    <li><a href="#ref-for-gravity-sensor①">4.1. Common fusion sensors</a>
-    <li><a href="#ref-for-gravity-sensor②">4.3. Absolute Orientation Sensor</a> <a href="#ref-for-gravity-sensor③">(2)</a>
-   </ul>
-  </aside>
-<script>/* script-dfn-panel */
+<script>/* Boilerplate: script-dfn-panel */
+"use strict";
+{
+    const dfnsJson = window.dfnsJson || {};
 
-document.body.addEventListener("click", function(e) {
-    var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
-    // Find the dfn element or panel, if any, that was clicked on.
-    var el = e.target;
-    var target;
-    var hitALink = false;
-    while(el.parentElement) {
-        if(el.tagName == "A") {
-            // Clicking on a link in a <dfn> shouldn't summon the panel
-            hitALink = true;
-        }
-        if(el.classList.contains("dfn-paneled")) {
-            target = "dfn";
-            break;
-        }
-        if(el.classList.contains("dfn-panel")) {
-            target = "dfn-panel";
-            break;
-        }
-        el = el.parentElement;
+    function genDfnPanel({dfnID, url, dfnText, refSections, external}) {
+        return mk.aside({
+            class: "dfn-panel",
+            id: `infopanel-for-${dfnID}`,
+            "data-for": dfnID,
+            "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+            },
+            mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
+                `Info about the '${dfnText}' ${external?"external":""} reference.`),
+            mk.a({href:url}, url),
+            mk.b({}, "Referenced in:"),
+            mk.ul({},
+                ...refSections.map(section=>
+                    mk.li({},
+                        ...section.refs.map((ref, refI)=>
+                            [
+                                mk.a({
+                                    href: `#${ref.id}`
+                                    },
+                                    (refI == 0) ? section.title : `(${refI + 1})`
+                                ),
+                                " ",
+                            ]
+                        ),
+                    ),
+                ),
+            ),
+        );
     }
-    if(target != "dfn-panel") {
-        // Turn off any currently "on" or "activated" panels.
-        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
-            el.classList.remove("on");
-            el.classList.remove("activated");
-        });
-    }
-    if(target == "dfn" && !hitALink) {
-        // open the panel
-        var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
-        if(dfnPanel) {
-            dfnPanel.classList.add("on");
-            var rect = el.getBoundingClientRect();
-            dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
-            dfnPanel.style.top = window.scrollY + rect.top + "px";
-            var panelRect = dfnPanel.getBoundingClientRect();
-            var panelWidth = panelRect.right - panelRect.left;
-            if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
-                // Reposition, because the panel is overflowing
-                dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+
+    function genAllDfnPanels() {
+        for(const panelData of Object.values(window.dfnpanelData)) {
+            const dfnID = panelData.dfnID;
+            const dfn = document.getElementById(dfnID);
+            if(!dfn) {
+                console.log(`Can't find dfn#${dfnID}.`, panelData);
+            } else {
+                const panel = genDfnPanel(panelData);
+                append(document.body, panel);
+                insertDfnPopupAction(dfn, panel)
             }
-        } else {
-            console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
         }
-    } else if(target == "dfn-panel") {
-        // Switch it to "activated" state, which pins it.
-        el.classList.add("activated");
-        el.style.left = null;
-        el.style.top = null;
     }
 
+    document.addEventListener("DOMContentLoaded", ()=>{
+        genAllDfnPanels();
+
+        // Add popup behavior to all dfns to show the corresponding dfn-panel.
+        var dfns = queryAll('.dfn-paneled');
+        for(let dfn of dfns) { ; }
+
+        document.body.addEventListener("click", (e) => {
+            // If not handled already, just hide all dfn panels.
+            hideAllDfnPanels();
+        });
+    })
+
+
+    function hideAllDfnPanels() {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>hideDfnPanel(el));
+    }
+
+    function showDfnPanel(dfnPanel, dfn) {
+        hideAllDfnPanels(); // Only display one at this time.
+        dfn.setAttribute("aria-expanded", "true");
+        dfnPanel.classList.add("on");
+        dfnPanel.style.left = "5px";
+        dfnPanel.style.top = "0px";
+        const panelRect = dfnPanel.getBoundingClientRect();
+        const panelWidth = panelRect.right - panelRect.left;
+        if (panelRect.right > document.body.scrollWidth) {
+            // Panel's overflowing the screen.
+            // Just drop it below the dfn and flip it rightward instead.
+            // This still wont' fix things if the screen is *really* wide,
+            // but fixing that's a lot harder without 'anchor()'.
+            dfnPanel.style.top = "1.5em";
+            dfnPanel.style.left = "auto";
+            dfnPanel.style.right = "0px";
+        }
+    }
+
+    function pinDfnPanel(dfnPanel) {
+        // Switch it to "activated" state, which pins it.
+        dfnPanel.classList.add("activated");
+        dfnPanel.style.left = null;
+        dfnPanel.style.top = null;
+    }
+
+    function hideDfnPanel(dfnPanel, dfn) {
+        if(!dfn) {
+            dfn = document.getElementById(dfnPanel.getAttribute("data-for"));
+        }
+        dfn.setAttribute("aria-expanded", "false")
+        dfnPanel.classList.remove("on");
+        dfnPanel.classList.remove("activated");
+    }
+
+    function toggleDfnPanel(dfnPanel, dfn) {
+        if(dfnPanel.classList.contains("on")) {
+            hideDfnPanel(dfnPanel, dfn);
+        } else {
+            showDfnPanel(dfnPanel, dfn);
+        }
+    }
+
+    function insertDfnPopupAction(dfn, dfnPanel) {
+        // Find dfn panel
+        const panelWrapper = document.createElement('span');
+        panelWrapper.appendChild(dfnPanel);
+        panelWrapper.style.position = "relative";
+        panelWrapper.style.height = "0px";
+        dfn.insertAdjacentElement("afterend", panelWrapper);
+        dfn.setAttribute('role', 'button');
+        dfn.setAttribute('aria-expanded', 'false')
+        dfn.tabIndex = 0;
+        dfn.classList.add('has-dfn-panel');
+        dfn.addEventListener('click', (event) => {
+            showDfnPanel(dfnPanel, dfn);
+            event.stopPropagation();
+        });
+        dfn.addEventListener('keypress', (event) => {
+            const kc = event.keyCode;
+            // 32->Space, 13->Enter
+            if(kc == 32 || kc == 13) {
+                toggleDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        });
+
+        dfnPanel.addEventListener('click', (event) => {
+            if (event.target.nodeName == 'A') {
+                pinDfnPanel(dfnPanel);
+            }
+            event.stopPropagation();
+        });
+
+        dfnPanel.addEventListener('keydown', (event) => {
+            if(event.keyCode == 27) { // Escape key
+                hideDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        })
+    }
+}
+</script>
+<script>/* Boilerplate: script-dfn-panel */
+"use strict";
+{
+    const dfnsJson = window.dfnsJson || {};
+
+    function genDfnPanel({dfnID, url, dfnText, refSections, external}) {
+        return mk.aside({
+            class: "dfn-panel",
+            id: `infopanel-for-${dfnID}`,
+            "data-for": dfnID,
+            "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+            },
+            mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
+                `Info about the '${dfnText}' ${external?"external":""} reference.`),
+            mk.a({href:url}, url),
+            mk.b({}, "Referenced in:"),
+            mk.ul({},
+                ...refSections.map(section=>
+                    mk.li({},
+                        ...section.refs.map((ref, refI)=>
+                            [
+                                mk.a({
+                                    href: `#${ref.id}`
+                                    },
+                                    (refI == 0) ? section.title : `(${refI + 1})`
+                                ),
+                                " ",
+                            ]
+                        ),
+                    ),
+                ),
+            ),
+        );
+    }
+
+    function genAllDfnPanels() {
+        for(const panelData of Object.values(window.dfnpanelData)) {
+            const dfnID = panelData.dfnID;
+            const dfn = document.getElementById(dfnID);
+            if(!dfn) {
+                console.log(`Can't find dfn#${dfnID}.`, panelData);
+            } else {
+                const panel = genDfnPanel(panelData);
+                append(document.body, panel);
+                insertDfnPopupAction(dfn, panel)
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+        genAllDfnPanels();
+
+        // Add popup behavior to all dfns to show the corresponding dfn-panel.
+        var dfns = queryAll('.dfn-paneled');
+        for(let dfn of dfns) { ; }
+
+        document.body.addEventListener("click", (e) => {
+            // If not handled already, just hide all dfn panels.
+            hideAllDfnPanels();
+        });
+    })
+
+
+    function hideAllDfnPanels() {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>hideDfnPanel(el));
+    }
+
+    function showDfnPanel(dfnPanel, dfn) {
+        hideAllDfnPanels(); // Only display one at this time.
+        dfn.setAttribute("aria-expanded", "true");
+        dfnPanel.classList.add("on");
+        dfnPanel.style.left = "5px";
+        dfnPanel.style.top = "0px";
+        const panelRect = dfnPanel.getBoundingClientRect();
+        const panelWidth = panelRect.right - panelRect.left;
+        if (panelRect.right > document.body.scrollWidth) {
+            // Panel's overflowing the screen.
+            // Just drop it below the dfn and flip it rightward instead.
+            // This still wont' fix things if the screen is *really* wide,
+            // but fixing that's a lot harder without 'anchor()'.
+            dfnPanel.style.top = "1.5em";
+            dfnPanel.style.left = "auto";
+            dfnPanel.style.right = "0px";
+        }
+    }
+
+    function pinDfnPanel(dfnPanel) {
+        // Switch it to "activated" state, which pins it.
+        dfnPanel.classList.add("activated");
+        dfnPanel.style.left = null;
+        dfnPanel.style.top = null;
+    }
+
+    function hideDfnPanel(dfnPanel, dfn) {
+        if(!dfn) {
+            dfn = document.getElementById(dfnPanel.getAttribute("data-for"));
+        }
+        dfn.setAttribute("aria-expanded", "false")
+        dfnPanel.classList.remove("on");
+        dfnPanel.classList.remove("activated");
+    }
+
+    function toggleDfnPanel(dfnPanel, dfn) {
+        if(dfnPanel.classList.contains("on")) {
+            hideDfnPanel(dfnPanel, dfn);
+        } else {
+            showDfnPanel(dfnPanel, dfn);
+        }
+    }
+
+    function insertDfnPopupAction(dfn, dfnPanel) {
+        // Find dfn panel
+        const panelWrapper = document.createElement('span');
+        panelWrapper.appendChild(dfnPanel);
+        panelWrapper.style.position = "relative";
+        panelWrapper.style.height = "0px";
+        dfn.insertAdjacentElement("afterend", panelWrapper);
+        dfn.setAttribute('role', 'button');
+        dfn.setAttribute('aria-expanded', 'false')
+        dfn.tabIndex = 0;
+        dfn.classList.add('has-dfn-panel');
+        dfn.addEventListener('click', (event) => {
+            showDfnPanel(dfnPanel, dfn);
+            event.stopPropagation();
+        });
+        dfn.addEventListener('keypress', (event) => {
+            const kc = event.keyCode;
+            // 32->Space, 13->Enter
+            if(kc == 32 || kc == 13) {
+                toggleDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        });
+
+        dfnPanel.addEventListener('click', (event) => {
+            if (event.target.nodeName == 'A') {
+                pinDfnPanel(dfnPanel);
+            }
+            event.stopPropagation();
+        });
+
+        dfnPanel.addEventListener('keydown', (event) => {
+            if(event.keyCode == 27) { // Escape key
+                hideDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        })
+    }
+}
+</script>
+<script>/* Boilerplate: script-dfn-panel-json */
+window.dfnpanelData = {};
+window.dfnpanelData['95f495ac'] = {"dfnID": "95f495ac", "url": "https://w3c.github.io/accelerometer#acceleration", "dfnText": "acceleration", "refSections": [{"refs": [{"id": "ref-for-acceleration"}], "title": "4.3. Absolute Orientation Sensor"}], "external": true};
+window.dfnpanelData['0f6f1720'] = {"dfnID": "0f6f1720", "url": "https://w3c.github.io/accelerometer#accelerometer-interface", "dfnText": "accelerometer interface", "refSections": [{"refs": [{"id": "ref-for-accelerometer-interface"}], "title": "3.1. Accelerometer"}, {"refs": [{"id": "ref-for-accelerometer-interface\u2460"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": true};
+window.dfnpanelData['71940125'] = {"dfnID": "71940125", "url": "https://w3c.github.io/accelerometer#gravity", "dfnText": "gravity", "refSections": [{"refs": [{"id": "ref-for-gravity"}, {"id": "ref-for-gravity\u2460"}, {"id": "ref-for-gravity\u2461"}, {"id": "ref-for-gravity\u2462"}, {"id": "ref-for-gravity\u2463"}, {"id": "ref-for-gravity\u2464"}, {"id": "ref-for-gravity\u2465"}, {"id": "ref-for-gravity\u2466"}], "title": "3.1. Accelerometer"}, {"refs": [{"id": "ref-for-gravity\u2467"}, {"id": "ref-for-gravity\u2468"}], "title": "3.3. Magnetometer"}, {"refs": [{"id": "ref-for-gravity\u2460\u24ea"}, {"id": "ref-for-gravity\u2460\u2460"}, {"id": "ref-for-gravity\u2460\u2461"}, {"id": "ref-for-gravity\u2460\u2462"}, {"id": "ref-for-gravity\u2460\u2463"}, {"id": "ref-for-gravity\u2460\u2464"}, {"id": "ref-for-gravity\u2460\u2465"}], "title": "4.3. Absolute Orientation Sensor"}, {"refs": [{"id": "ref-for-gravity\u2460\u2466"}, {"id": "ref-for-gravity\u2460\u2467"}], "title": "4.4. Geomagnetic Orientation Sensor"}, {"refs": [{"id": "ref-for-gravity\u2460\u2468"}, {"id": "ref-for-gravity\u2461\u24ea"}], "title": "4.5. Relative Orientation Sensor"}, {"refs": [{"id": "ref-for-gravity\u2461\u2460"}, {"id": "ref-for-gravity\u2461\u2461"}, {"id": "ref-for-gravity\u2461\u2462"}], "title": "4.5.1. Complementary filter"}, {"refs": [{"id": "ref-for-gravity\u2461\u2463"}, {"id": "ref-for-gravity\u2461\u2464"}, {"id": "ref-for-gravity\u2461\u2465"}, {"id": "ref-for-gravity\u2461\u2466"}, {"id": "ref-for-gravity\u2461\u2467"}, {"id": "ref-for-gravity\u2461\u2468"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": true};
+window.dfnpanelData['7bbb090d'] = {"dfnID": "7bbb090d", "url": "https://w3c.github.io/accelerometer#gravitysensor-interface", "dfnText": "gravitysensor interface", "refSections": [{"refs": [{"id": "ref-for-gravitysensor-interface"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": true};
+window.dfnpanelData['40650566'] = {"dfnID": "40650566", "url": "https://w3c.github.io/accelerometer#linear-acceleration", "dfnText": "linear acceleration", "refSections": [{"refs": [{"id": "ref-for-linear-acceleration"}, {"id": "ref-for-linear-acceleration\u2460"}], "title": "3.1. Accelerometer"}, {"refs": [{"id": "ref-for-linear-acceleration\u2461"}], "title": "4.5. Relative Orientation Sensor"}, {"refs": [{"id": "ref-for-linear-acceleration\u2462"}, {"id": "ref-for-linear-acceleration\u2463"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": true};
+window.dfnpanelData['61f605ab'] = {"dfnID": "61f605ab", "url": "https://w3c.github.io/accelerometer#linearaccelerationsensor-interface", "dfnText": "linearaccelerationsensor interface", "refSections": [{"refs": [{"id": "ref-for-linearaccelerationsensor-interface"}, {"id": "ref-for-linearaccelerationsensor-interface\u2460"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": true};
+window.dfnpanelData['3586cb68'] = {"dfnID": "3586cb68", "url": "https://w3c.github.io/sensors#calibration", "dfnText": "calibration", "refSections": [{"refs": [{"id": "ref-for-calibration"}], "title": "3.2. Gyroscope"}], "external": true};
+window.dfnpanelData['24bb0f9e'] = {"dfnID": "24bb0f9e", "url": "https://w3c.github.io/gyroscope#angular-velocity", "dfnText": "angular velocity", "refSections": [{"refs": [{"id": "ref-for-angular-velocity"}, {"id": "ref-for-angular-velocity\u2460"}, {"id": "ref-for-angular-velocity\u2461"}], "title": "3.2. Gyroscope"}, {"refs": [{"id": "ref-for-angular-velocity\u2462"}], "title": "4. High-level Sensors"}, {"refs": [{"id": "ref-for-angular-velocity\u2463"}, {"id": "ref-for-angular-velocity\u2464"}], "title": "4.5.1. Complementary filter"}], "external": true};
+window.dfnpanelData['4fe17af5'] = {"dfnID": "4fe17af5", "url": "https://w3c.github.io/gyroscope#gyroscope-interface", "dfnText": "gyroscope interface", "refSections": [{"refs": [{"id": "ref-for-gyroscope-interface"}], "title": "3.2. Gyroscope"}], "external": true};
+window.dfnpanelData['84d9dd12'] = {"dfnID": "84d9dd12", "url": "https://w3c.github.io/magnetometer#magnetic-field", "dfnText": "magnetic field", "refSections": [{"refs": [{"id": "ref-for-magnetic-field"}, {"id": "ref-for-magnetic-field\u2460"}, {"id": "ref-for-magnetic-field\u2461"}], "title": "3.3. Magnetometer"}, {"refs": [{"id": "ref-for-magnetic-field\u2462"}, {"id": "ref-for-magnetic-field\u2463"}, {"id": "ref-for-magnetic-field\u2464"}, {"id": "ref-for-magnetic-field\u2465"}, {"id": "ref-for-magnetic-field\u2466"}], "title": "4.3. Absolute Orientation Sensor"}, {"refs": [{"id": "ref-for-magnetic-field\u2467"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": true};
+window.dfnpanelData['9c6c688b'] = {"dfnID": "9c6c688b", "url": "https://w3c.github.io/magnetometer#magnetometer-interface", "dfnText": "magnetometer interface", "refSections": [{"refs": [{"id": "ref-for-magnetometer-interface"}], "title": "3.3. Magnetometer"}], "external": true};
+window.dfnpanelData['64411963'] = {"dfnID": "64411963", "url": "https://w3c.github.io/orientation-sensor#absoluteorientationsensor-interface", "dfnText": "absoluteorientationsensor interface", "refSections": [{"refs": [{"id": "ref-for-absoluteorientationsensor-interface"}], "title": "4.3. Absolute Orientation Sensor"}], "external": true};
+window.dfnpanelData['accelerometer'] = {"dfnID": "accelerometer", "url": "#accelerometer", "dfnText": "accelerometer", "refSections": [{"refs": [{"id": "ref-for-accelerometer"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-accelerometer\u2460"}], "title": "3.1. Accelerometer"}, {"refs": [{"id": "ref-for-accelerometer\u2461"}, {"id": "ref-for-accelerometer\u2462"}, {"id": "ref-for-accelerometer\u2463"}, {"id": "ref-for-accelerometer\u2464"}, {"id": "ref-for-accelerometer\u2465"}], "title": "4.1. Common fusion sensors"}, {"refs": [{"id": "ref-for-accelerometer\u2466"}, {"id": "ref-for-accelerometer\u2467"}, {"id": "ref-for-accelerometer\u2468"}], "title": "4.3. Absolute Orientation Sensor"}, {"refs": [{"id": "ref-for-accelerometer\u2460\u24ea"}, {"id": "ref-for-accelerometer\u2460\u2460"}], "title": "4.4. Geomagnetic Orientation Sensor"}, {"refs": [{"id": "ref-for-accelerometer\u2460\u2461"}, {"id": "ref-for-accelerometer\u2460\u2462"}], "title": "4.5. Relative Orientation Sensor"}, {"refs": [{"id": "ref-for-accelerometer\u2460\u2463"}, {"id": "ref-for-accelerometer\u2460\u2464"}, {"id": "ref-for-accelerometer\u2460\u2465"}, {"id": "ref-for-accelerometer\u2460\u2466"}, {"id": "ref-for-accelerometer\u2460\u2467"}, {"id": "ref-for-accelerometer\u2460\u2468"}, {"id": "ref-for-accelerometer\u2461\u24ea"}], "title": "4.5.1. Complementary filter"}, {"refs": [{"id": "ref-for-accelerometer\u2461\u2460"}, {"id": "ref-for-accelerometer\u2461\u2461"}, {"id": "ref-for-accelerometer\u2461\u2462"}, {"id": "ref-for-accelerometer\u2461\u2463"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": false};
+window.dfnpanelData['inertial-frame-sensor'] = {"dfnID": "inertial-frame-sensor", "url": "#inertial-frame-sensor", "dfnText": "inertial-frame sensor", "refSections": [{"refs": [{"id": "ref-for-inertial-frame-sensor"}], "title": "4.3. Absolute Orientation Sensor"}], "external": false};
+window.dfnpanelData['gyroscope'] = {"dfnID": "gyroscope", "url": "#gyroscope", "dfnText": "gyroscope", "refSections": [{"refs": [{"id": "ref-for-gyroscope"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-gyroscope\u2460"}, {"id": "ref-for-gyroscope\u2461"}, {"id": "ref-for-gyroscope\u2462"}, {"id": "ref-for-gyroscope\u2463"}, {"id": "ref-for-gyroscope\u2464"}], "title": "4.1. Common fusion sensors"}, {"refs": [{"id": "ref-for-gyroscope\u2465"}], "title": "4.2.2. High-pass filter"}, {"refs": [{"id": "ref-for-gyroscope\u2466"}], "title": "4.3. Absolute Orientation Sensor"}, {"refs": [{"id": "ref-for-gyroscope\u2467"}], "title": "4.4. Geomagnetic Orientation Sensor"}, {"refs": [{"id": "ref-for-gyroscope\u2468"}], "title": "4.5. Relative Orientation Sensor"}, {"refs": [{"id": "ref-for-gyroscope\u2460\u24ea"}, {"id": "ref-for-gyroscope\u2460\u2460"}, {"id": "ref-for-gyroscope\u2460\u2461"}, {"id": "ref-for-gyroscope\u2460\u2462"}, {"id": "ref-for-gyroscope\u2460\u2463"}, {"id": "ref-for-gyroscope\u2460\u2464"}, {"id": "ref-for-gyroscope\u2460\u2465"}], "title": "4.5.1. Complementary filter"}, {"refs": [{"id": "ref-for-gyroscope\u2460\u2466"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": false};
+window.dfnpanelData['magnetometer-magnetometers'] = {"dfnID": "magnetometer-magnetometers", "url": "#magnetometer-magnetometers", "dfnText": "Magnetometers", "refSections": [{"refs": [{"id": "ref-for-magnetometer-magnetometers"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-magnetometer-magnetometers\u2460"}, {"id": "ref-for-magnetometer-magnetometers\u2461"}, {"id": "ref-for-magnetometer-magnetometers\u2462"}, {"id": "ref-for-magnetometer-magnetometers\u2463"}], "title": "4.1. Common fusion sensors"}, {"refs": [{"id": "ref-for-magnetometer-magnetometers\u2464"}, {"id": "ref-for-magnetometer-magnetometers\u2465"}, {"id": "ref-for-magnetometer-magnetometers\u2466"}], "title": "4.3. Absolute Orientation Sensor"}, {"refs": [{"id": "ref-for-magnetometer-magnetometers\u2467"}], "title": "4.4. Geomagnetic Orientation Sensor"}, {"refs": [{"id": "ref-for-magnetometer-magnetometers\u2468"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": false};
+window.dfnpanelData['low-pass-filter'] = {"dfnID": "low-pass-filter", "url": "#low-pass-filter", "dfnText": "low-pass filter", "refSections": [{"refs": [{"id": "ref-for-low-pass-filter"}, {"id": "ref-for-low-pass-filter\u2460"}, {"id": "ref-for-low-pass-filter\u2461"}], "title": "3.1. Accelerometer"}, {"refs": [{"id": "ref-for-low-pass-filter\u2462"}], "title": "4.2.2. High-pass filter"}, {"refs": [{"id": "ref-for-low-pass-filter\u2463"}], "title": "4.5.1. Complementary filter"}], "external": false};
+window.dfnpanelData['high-pass-filter'] = {"dfnID": "high-pass-filter", "url": "#high-pass-filter", "dfnText": "High-pass filter", "refSections": [{"refs": [{"id": "ref-for-high-pass-filter"}, {"id": "ref-for-high-pass-filter\u2460"}], "title": "3.1. Accelerometer"}, {"refs": [{"id": "ref-for-high-pass-filter\u2461"}], "title": "4.5.1. Complementary filter"}], "external": false};
+window.dfnpanelData['absolute-orientation-sensor'] = {"dfnID": "absolute-orientation-sensor", "url": "#absolute-orientation-sensor", "dfnText": "Absolute Orientation Sensor", "refSections": [{"refs": [{"id": "ref-for-absolute-orientation-sensor"}], "title": "4.1. Common fusion sensors"}, {"refs": [{"id": "ref-for-absolute-orientation-sensor\u2460"}, {"id": "ref-for-absolute-orientation-sensor\u2461"}], "title": "4.3. Absolute Orientation Sensor"}, {"refs": [{"id": "ref-for-absolute-orientation-sensor\u2462"}], "title": "4.4. Geomagnetic Orientation Sensor"}], "external": false};
+window.dfnpanelData['geomagnetic-orientation-sensor'] = {"dfnID": "geomagnetic-orientation-sensor", "url": "#geomagnetic-orientation-sensor", "dfnText": "Geomagnetic Orientation Sensor", "refSections": [{"refs": [{"id": "ref-for-geomagnetic-orientation-sensor"}], "title": "4.1. Common fusion sensors"}, {"refs": [{"id": "ref-for-geomagnetic-orientation-sensor\u2460"}], "title": "4.4. Geomagnetic Orientation Sensor"}], "external": false};
+window.dfnpanelData['relative-orientation-sensor'] = {"dfnID": "relative-orientation-sensor", "url": "#relative-orientation-sensor", "dfnText": "Relative Orientation Sensor", "refSections": [{"refs": [{"id": "ref-for-relative-orientation-sensor"}], "title": "4.1. Common fusion sensors"}, {"refs": [{"id": "ref-for-relative-orientation-sensor\u2460"}], "title": "4.3. Absolute Orientation Sensor"}], "external": false};
+window.dfnpanelData['complementary-filter'] = {"dfnID": "complementary-filter", "url": "#complementary-filter", "dfnText": "complementary filter", "refSections": [{"refs": [{"id": "ref-for-complementary-filter"}, {"id": "ref-for-complementary-filter\u2460"}], "title": "4.5. Relative Orientation Sensor"}, {"refs": [{"id": "ref-for-complementary-filter\u2461"}], "title": "4.5.1. Complementary filter"}, {"refs": [{"id": "ref-for-complementary-filter\u2462"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": false};
+window.dfnpanelData['linear-acceleration-sensor'] = {"dfnID": "linear-acceleration-sensor", "url": "#linear-acceleration-sensor", "dfnText": "Linear Acceleration Sensor", "refSections": [{"refs": [{"id": "ref-for-linear-acceleration-sensor"}], "title": "3.1. Accelerometer"}, {"refs": [{"id": "ref-for-linear-acceleration-sensor\u2460"}], "title": "4.1. Common fusion sensors"}, {"refs": [{"id": "ref-for-linear-acceleration-sensor\u2461"}], "title": "4.6. Gravity and Linear Acceleration Sensor"}], "external": false};
+window.dfnpanelData['gravity-sensor'] = {"dfnID": "gravity-sensor", "url": "#gravity-sensor", "dfnText": "Gravity Sensor", "refSections": [{"refs": [{"id": "ref-for-gravity-sensor"}], "title": "3.1. Accelerometer"}, {"refs": [{"id": "ref-for-gravity-sensor\u2460"}], "title": "4.1. Common fusion sensors"}, {"refs": [{"id": "ref-for-gravity-sensor\u2461"}, {"id": "ref-for-gravity-sensor\u2462"}], "title": "4.3. Absolute Orientation Sensor"}], "external": false};
+</script>
+<script>/* Boilerplate: script-dom-helper */
+function query(sel) { return document.querySelector(sel); }
+
+function queryAll(sel) { return [...document.querySelectorAll(sel)]; }
+
+function iter(obj) {
+	if(!obj) return [];
+	var it = obj[Symbol.iterator];
+	if(it) return it;
+	return Object.entries(obj);
+}
+
+function mk(tagname, attrs, ...children) {
+	const el = document.createElement(tagname);
+	for(const [k,v] of iter(attrs)) {
+		if(k.slice(0,3) == "_on") {
+			const eventName = k.slice(3);
+			el.addEventListener(eventName, v);
+		} else if(k[0] == "_") {
+			// property, not attribute
+			el[k.slice(1)] = v;
+		} else {
+			if(v === false || v == null) {
+        continue;
+      } else if(v === true) {
+        el.setAttribute(k, "");
+        continue;
+      } else {
+  			el.setAttribute(k, v);
+      }
+		}
+	}
+	append(el, children);
+	return el;
+}
+
+/* Create shortcuts for every known HTML element */
+[
+  "a",
+  "abbr",
+  "acronym",
+  "address",
+  "applet",
+  "area",
+  "article",
+  "aside",
+  "audio",
+  "b",
+  "base",
+  "basefont",
+  "bdo",
+  "big",
+  "blockquote",
+  "body",
+  "br",
+  "button",
+  "canvas",
+  "caption",
+  "center",
+  "cite",
+  "code",
+  "col",
+  "colgroup",
+  "datalist",
+  "dd",
+  "del",
+  "details",
+  "dfn",
+  "dialog",
+  "div",
+  "dl",
+  "dt",
+  "em",
+  "embed",
+  "fieldset",
+  "figcaption",
+  "figure",
+  "font",
+  "footer",
+  "form",
+  "frame",
+  "frameset",
+  "head",
+  "header",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "hr",
+  "html",
+  "i",
+  "iframe",
+  "img",
+  "input",
+  "ins",
+  "kbd",
+  "label",
+  "legend",
+  "li",
+  "link",
+  "main",
+  "map",
+  "mark",
+  "meta",
+  "meter",
+  "nav",
+  "nobr",
+  "noscript",
+  "object",
+  "ol",
+  "optgroup",
+  "option",
+  "output",
+  "p",
+  "param",
+  "pre",
+  "progress",
+  "q",
+  "s",
+  "samp",
+  "script",
+  "section",
+  "select",
+  "small",
+  "source",
+  "span",
+  "strike",
+  "strong",
+  "style",
+  "sub",
+  "summary",
+  "sup",
+  "table",
+  "tbody",
+  "td",
+  "template",
+  "textarea",
+  "tfoot",
+  "th",
+  "thead",
+  "time",
+  "title",
+  "tr",
+  "u",
+  "ul",
+  "var",
+  "video",
+  "wbr",
+  "xmp",
+].forEach(tagname=>{
+	mk[tagname] = (...args) => mk(tagname, ...args);
 });
+
+function* nodesFromChildList(children) {
+	for(const child of children.flat(Infinity)) {
+		if(child instanceof Node) {
+			yield child;
+		} else {
+			yield new Text(child);
+		}
+	}
+}
+function append(el, ...children) {
+	for(const child of nodesFromChildList(children)) {
+		if(el instanceof Node) el.appendChild(child);
+		else el.push(child);
+	}
+	return el;
+}
+
+function insertAfter(el, ...children) {
+	for(const child of nodesFromChildList(children)) {
+		el.parentNode.insertBefore(child, el.nextSibling);
+	}
+	return el;
+}
+
+function clearContents(el) {
+	el.innerHTML = "";
+	return el;
+}
+
+function parseHTML(markup) {
+	if(markup.toLowerCase().trim().indexOf('<!doctype') === 0) {
+		const doc = document.implementation.createHTMLDocument("");
+		doc.documentElement.innerHTML = markup;
+		return doc;
+	} else {
+		const el = mk.template({});
+		el.innerHTML = markup;
+		return el.content;
+	}
+}
 </script>
