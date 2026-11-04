@@ -420,7 +420,7 @@ with [=gyroscope=] readings.
         }
 
         update(reading) {
-          let dt = reading.timestamp - this.timestamp / 1000;
+          let dt = (reading.timestamp - this.timestamp) / 1000;
           this.timestamp = reading.timestamp;
 
           for (let i of ["x", "y", "z"]) {
@@ -505,7 +505,7 @@ the local <i>declination compensation</i> calculated from the current geolocatio
 As the sensor uses the [=accelerometer=] to get a more steady heading, like when walking,
 the rotation vector is projected to the plane perpendicular to the [=gravity=] vector (as isolated
 from the [=accelerometer=]) which more or less represents the ground plane. This also means that
-if you are interested in the actual orientation of the [=gravity=] vector, then use the
+if you are interested in the actual orientation of the <a>magnetic field</a> vector, then use the
 [=magnetometer=] directly instead.
 
 
